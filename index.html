@@ -347,8 +347,680 @@ html, body {
 }
 .legend strong { color: var(--ink); }
 
-/* ─── Empty / placeholder panels ─── */
-.placeholder {
+/* ─── Definitions table (A.1) ─── */
+.defs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  margin-bottom: 24px;
+  font-size: 12px;
+}
+.defs-table thead {
+  background: var(--navy);
+  color: var(--paper);
+}
+.defs-table thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.defs-table tbody tr {
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.defs-table tbody tr:last-child { border-bottom: none; }
+.defs-table tbody tr.def-row:hover {
+  background: rgba(26, 43, 74, 0.02);
+}
+
+.defs-table tbody tr.cat-row {
+  background: var(--paper-2);
+}
+.defs-table tbody tr.cat-row td {
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border-left: 3px solid var(--navy);
+}
+
+.defs-table td {
+  padding: 16px 14px;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.defs-table .col-term {
+  width: 18%;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.005em;
+}
+.defs-table .col-term .term-acro {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  letter-spacing: 0.4px;
+}
+
+.defs-table .col-def {
+  width: 82%;
+  color: var(--ink);
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+.defs-table .col-def .def-text {
+  display: block;
+  margin-bottom: 8px;
+}
+.defs-table .col-def .in-practice {
+  display: block;
+  margin-top: 8px;
+  padding: 10px 14px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--rule);
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.defs-table .col-def .in-practice::before {
+  content: "In practice — ";
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  display: inline;
+}
+.defs-table .col-def strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+.defs-table .col-def em {
+  color: var(--ink-muted);
+}
+
+/* ─── State IDR table (D.1) ─── */
+.states-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  margin-bottom: 24px;
+  font-size: 11.5px;
+  table-layout: fixed;
+}
+.states-table thead {
+  background: var(--navy);
+  color: var(--paper);
+}
+.states-table thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.states-table thead th.center { text-align: center; }
+
+.states-table tbody tr {
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.states-table tbody tr:last-child { border-bottom: none; }
+.states-table tbody tr.state-row:hover {
+  background: rgba(26, 43, 74, 0.02);
+}
+.states-table tbody tr.section-row {
+  background: var(--paper-2);
+}
+.states-table tbody tr.section-row td {
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border-left: 3px solid var(--navy);
+}
+
+.states-table td {
+  padding: 12px 12px;
+  vertical-align: top;
+  line-height: 1.6;
+  font-size: 11px;
+}
+
+.states-table .col-state {
+  width: 11%;
+}
+.states-table .state-name {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+}
+.states-table .state-statute {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.states-table .col-routes {
+  width: 36%;
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.states-table .col-routes strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+.states-table .col-routes .state-callout {
+  display: block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--rule);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.states-table .col-routes .state-callout.alert {
+  background: rgba(161, 42, 48, 0.04);
+  border-left-color: var(--burgundy);
+  color: var(--burgundy);
+}
+.states-table .col-routes .state-callout.note {
+  background: rgba(31, 77, 44, 0.04);
+  border-left-color: var(--money);
+  color: var(--money);
+}
+
+.states-table .col-process {
+  width: 18%;
+  color: var(--ink-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.states-table .col-deadline {
+  width: 14%;
+  color: var(--ink-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.states-table .col-win {
+  width: 9%;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.states-table .col-win.na {
+  color: var(--ink-muted);
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+.states-table .col-optin {
+  width: 12%;
+  text-align: center;
+}
+.states-table .optin-yes {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  border-radius: 3px;
+  background: rgba(161, 42, 48, 0.1);
+  color: var(--burgundy);
+  font-family: var(--font-sans);
+}
+.states-table .optin-no {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+/* Opt-in spotlight callout below table */
+.optin-callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--burgundy);
+  padding: 18px 22px;
+  margin: 28px 0 24px;
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+.optin-callout .label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.optin-callout h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.optin-callout p { color: var(--ink); }
+.optin-callout strong { color: var(--navy); font-weight: 700; }
+
+/* ─── Workflow Stages table (B.1) ─── */
+.stages-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  margin-bottom: 24px;
+  font-size: 12px;
+}
+.stages-table thead {
+  background: var(--navy);
+  color: var(--paper);
+}
+.stages-table thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.stages-table tbody tr {
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.stages-table tbody tr:last-child { border-bottom: none; }
+.stages-table tbody tr.phase-row {
+  background: var(--paper-2);
+}
+.stages-table tbody tr.phase-row td {
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+.stages-table tbody tr.phase-row.phase-1 td { border-left: 3px solid var(--navy); }
+.stages-table tbody tr.phase-row.phase-2 td { border-left: 3px solid var(--burgundy); }
+.stages-table tbody tr.phase-row.phase-3 td { border-left: 3px solid var(--money); }
+
+/* Narrative example rows — worked walkthrough under each phase header */
+.stages-table tbody tr.narrative-row {
+  background: var(--white);
+}
+.stages-table tbody tr.narrative-row td {
+  padding: 14px 18px 16px 22px;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.stages-table tbody tr.narrative-row.phase-1 td { border-left: 3px solid var(--navy); }
+.stages-table tbody tr.narrative-row.phase-2 td { border-left: 3px solid var(--burgundy); }
+.stages-table tbody tr.narrative-row.phase-3 td { border-left: 3px solid var(--money); }
+.stages-table tbody tr.narrative-row .narrative-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  margin-right: 8px;
+}
+.stages-table tbody tr.narrative-row strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+.stages-table tbody tr.narrative-row em {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.stages-table tbody tr.stage-row:hover {
+  background: rgba(26, 43, 74, 0.02);
+}
+
+.stages-table td {
+  padding: 12px 12px;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.stages-table .col-stage {
+  width: 14%;
+}
+.stages-table .stage-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--burgundy);
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+.stages-table .stage-name {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.stages-table .stage-data {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-top: 6px;
+  letter-spacing: 0.4px;
+}
+
+.stages-table .col-what {
+  width: 36%;
+  color: var(--ink);
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+.stages-table .col-vendors {
+  width: 30%;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+.stages-table .col-vendors .vendor-line {
+  margin-bottom: 4px;
+}
+.stages-table .col-vendors .vendor-line:last-child { margin-bottom: 0; }
+.stages-table .col-vendors strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.stages-table .col-vendors em {
+  font-style: italic;
+  color: var(--ink-muted);
+  font-size: 10.5px;
+}
+
+.stages-table .col-fail {
+  width: 20%;
+  font-size: 11px;
+  color: var(--burgundy);
+  line-height: 1.55;
+  font-style: italic;
+}
+.stages-table .col-fail strong { font-style: normal; }
+
+/* ─── QPA Callout box ─── */
+.qpa-callout {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--money);
+  padding: 18px 22px;
+  margin: 28px 0 24px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.qpa-callout .label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--money);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.qpa-callout h3 {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  letter-spacing: -0.005em;
+}
+.qpa-callout p { margin-bottom: 8px; color: var(--ink); }
+.qpa-callout p:last-child { margin-bottom: 0; }
+.qpa-callout strong { color: var(--navy); font-weight: 700; }
+.qpa-callout .formula {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--navy);
+  letter-spacing: 0.3px;
+}
+.qpa-callout .why {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--paper-2);
+  font-size: 11.5px;
+  color: var(--ink);
+}
+.qpa-callout .why strong { color: var(--burgundy); }
+.qpa-callout .src {
+  margin-top: 10px;
+  font-size: 10.5px;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+/* ─── State IDR Routing table (D.1) ─── */
+.states-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  margin-bottom: 24px;
+  font-size: 11px;
+}
+.states-table thead {
+  background: var(--navy);
+  color: var(--paper);
+}
+.states-table thead th {
+  padding: 10px 10px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+.states-table thead th.col-claims-h { color: #F4D6D6; }
+.states-table thead th.col-win-h    { color: #C5E0BC; }
+.states-table thead th.col-erisa-h  { color: #F4E4D0; }
+
+.states-table tbody tr {
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.states-table tbody tr:last-child { border-bottom: none; }
+.states-table tbody tr.state-row:hover {
+  background: rgba(26, 43, 74, 0.02);
+}
+
+.states-table tbody tr.state-cat-row {
+  background: var(--paper-2);
+}
+.states-table tbody tr.state-cat-row td {
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--burgundy);
+  border-left: 3px solid var(--navy);
+}
+
+.states-table td {
+  padding: 12px 10px;
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+.states-table .col-state {
+  width: 11%;
+}
+.states-table .state-name {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 3px;
+}
+.states-table .state-law {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  letter-spacing: 0.3px;
+  line-height: 1.45;
+}
+
+.states-table .col-claims {
+  width: 38%;
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.states-table .col-claims strong { color: var(--navy); font-weight: 700; }
+.states-table .col-claims .case-note {
+  display: block;
+  margin-top: 6px;
+  padding: 6px 9px;
+  background: var(--paper-2);
+  border-left: 2px solid var(--rule);
+  font-size: 10px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+.states-table .col-claims .case-note.alert {
+  border-left-color: var(--burgundy);
+  color: #6B2A2D;
+}
+.states-table .col-claims .case-note.flag {
+  border-left-color: #B8862F;
+  color: #6B5018;
+}
+.states-table .col-claims .case-note.win {
+  border-left-color: var(--money);
+  color: #2A4D2C;
+}
+
+.states-table .col-process,
+.states-table .col-deadline {
+  width: 16%;
+  font-size: 10.5px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.states-table .col-winrate {
+  width: 10%;
+  font-size: 10.5px;
+}
+.states-table .col-winrate .winrate-pct {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.states-table .col-winrate .winrate-pct.high { color: var(--money); }
+.states-table .col-winrate .winrate-pct.na { color: var(--ink-muted); font-weight: 500; font-size: 11px; }
+.states-table .col-winrate .winrate-sub {
+  display: block;
+  font-size: 9.5px;
+  font-style: italic;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.states-table .col-erisa {
+  width: 9%;
+  text-align: center;
+  font-size: 10.5px;
+}
+.states-table .erisa-yes {
+  display: inline-block;
+  padding: 3px 8px;
+  background: #F4E4D0;
+  color: #8B5A2B;
+  font-weight: 700;
+  font-size: 10px;
+  border-radius: 3px;
+  letter-spacing: 0.4px;
+}
+.states-table .erisa-no { color: var(--ink-muted); }
+
+/* Self-insured opt-in callout block */
+.optin-callout {
+  background: #F4E4D0;
+  border-left: 3px solid #B8862F;
+  padding: 14px 18px;
+  margin: 16px 0 24px;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.optin-callout .label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8B5A2B;
+  margin-bottom: 6px;
+}
+.optin-callout strong { color: var(--navy); font-weight: 700; }
+
+/* ─── Empty / placeholder panels ─── */.placeholder {
   padding: 48px 32px;
   text-align: center;
   color: var(--ink-muted);
@@ -395,27 +1067,265 @@ html, body {
      ═════════════════════════════════════════════════════════════════ -->
 <nav class="tabs">
   <div class="shell" style="display:flex; padding:0 32px; width:100%;">
-    <button class="tab active" data-tab="market">A · MARKET</button>
-    <button class="tab disabled" disabled>B · WORKFLOW</button>
-    <button class="tab disabled" disabled>C · REGULATORY</button>
-    <button class="tab disabled" disabled>D · PRODUCT &amp; GTM</button>
+    <button class="tab active" data-tab="definitions">A · DEFINITIONS</button>
+    <button class="tab" data-tab="market">B · MARKET</button>
+    <button class="tab" data-tab="workflow">C · WORKFLOW</button>
+    <button class="tab" data-tab="regulatory">D · REGULATORY</button>
+    <button class="tab disabled" disabled>E · PRODUCT &amp; GTM</button>
   </div>
 </nav>
 
-<!-- ═════════════════════════════════════════════════════════════════
-     PANEL: MARKET
-     ═════════════════════════════════════════════════════════════════ -->
 <main class="shell">
 
-  <div class="panel active" data-panel="market">
+<!-- ═════════════════════════════════════════════════════════════════
+     PANEL: DEFINITIONS
+     ═════════════════════════════════════════════════════════════════ -->
+  <div class="panel active" data-panel="definitions">
+
+    <!-- Sub-tabs under Definitions -->
+    <div class="subtabs">
+      <button class="subtab active" data-subtab="glossary">
+        <span class="id">A.1</span>Glossary
+      </button>
+    </div>
+
+    <!-- ═══ A.1 — DEFINITIONS ═══ -->
+    <section class="subpanel active" data-subpanel="glossary">
+
+      <div class="section-title">
+        <h2>The vocabulary the readout uses.</h2>
+        <p class="sub">Plain-English definitions for the roles, file formats, and regulatory terms referenced throughout the readout deck. Read this first; §C Workflow Stages maps how these pieces connect in sequence.</p>
+      </div>
+
+      <table class="defs-table">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="cat-row">
+            <td colspan="2">Roles &amp; Parties — who's doing what</td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Payer</td>
+            <td class="col-def"><span class="def-text">The insurance provider responsible for paying the bill — <strong>UnitedHealth/Optum, Anthem/Elevance, Aetna, Cigna, Humana, Blue Cross plans</strong>.</span><span class="in-practice">Payers come in two flavors that determine which IDR portal applies: <strong>commercial</strong> (employer-sponsored plans, the focus of NSA) and <strong>government</strong> (Medicare/Medicaid, exempt from NSA). Within commercial, the deeper split is <strong>self-funded ERISA plans</strong> (always federal IDR) vs. <strong>fully-insured plans</strong> (state IDR in 22 bifurcated states, federal elsewhere). The first job in any IDR case is identifying which bucket the payer falls into — get this wrong and you lose the dispute on a procedural technicality, not on the merits.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Provider</td>
+            <td class="col-def"><span class="def-text">The clinician, group, or facility that rendered the service and is owed payment.</span><span class="in-practice">NSA disputes are concentrated in <strong>hospital-based specialties</strong> — emergency medicine, anesthesia, radiology, pathology — because those clinicians often work out-of-network at facilities that ARE in-network with the patient's plan. The patient can't shop for an in-network anesthesiologist mid-surgery; that's exactly why NSA banned balance billing and routed the dispute to IDR. Per CMS PUF H1 2025: <strong>EM ~35%, Anesthesia ~21%, Radiology ~11%, Air Ambulance ~9%</strong> of federal IDR volume — the four specialties carry ~76% of all disputes.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Locum Tenens</td>
+            <td class="col-def"><span class="def-text">A temporary clinician hired to fill staffing gaps. Paid a flat per-diem by the staffing agency.</span><span class="in-practice">The locum is <strong>financially decoupled from billing outcomes</strong> — they get paid whether the claim collects or not. The anesthesia group or hospital holds the billing exposure. Anesthesia groups use locums heavily (ASCs, weekends, vacation coverage), which is why anesthesia carries <em>asymmetric IDR risk</em>: the cost of providing the service is largely fixed (locum per-diem) but the recovery is entirely variable (whether the practice can navigate the IDR workflow). This is the structural reason a 21%-volume specialty consistently underfiles relative to its denial exposure.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Clearinghouse</td>
+            <td class="col-def"><span class="def-text">The intermediary that routes medical bills between provider billing systems and insurance providers. Top vendors: <strong>Waystar, Availity, Change Healthcare (Optum), Trizetto, Zelis</strong>.</span><span class="in-practice">The clearinghouse is the layer that makes EHRs (<strong>Epic, athena, Tebra, eClinicalWorks</strong>) talk to dozens of payers without each provider building dozens of point-to-point integrations. <em>Both directions of every transaction in the workflow flow through here:</em> 837P claim out, 835 ERA back, 270/271 eligibility round-trip. Format errors get rejected at the clearinghouse <em>before</em> reaching the payer — which is why "claim denied" by a payer and "claim rejected" by a clearinghouse are different failure modes with different recovery paths. Most providers don't know which one happened until they look.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">EHR / Practice Mgmt System
+              <span class="term-acro">EHR · PMS</span>
+            </td>
+            <td class="col-def"><span class="def-text">Where clinical documentation and billing data live for the provider. <strong>Epic, athena, Oracle Cerner, eClinicalWorks, Tebra</strong> (formerly Kareo)<strong>, NextGen, AdvancedMD</strong>.</span><span class="in-practice">The EHR is the <em>source of truth</em> for everything downstream: clinical notes, CPT/ICD-10 coding, time stamps, modifiers. The 837P claim file is generated from EHR data and pushed to the clearinghouse. EHR market split matters strategically — <strong>Epic dominates large hospital systems</strong> (gated by hospital IT, slow integrations), <strong>athena dominates ambulatory and independent practices</strong> (cloud-native, marketplace-driven, faster adoption). For a vendor selling to the OON-heavy independent ICP, athena is the integration target; Epic is the long road.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Billing Service / RCM Vendor
+              <span class="term-acro">RCM</span>
+            </td>
+            <td class="col-def"><span class="def-text">An outsourced revenue-cycle-management vendor that handles coding, submission, denials, and collections on behalf of a practice.</span><span class="in-practice">RCM is segmented by what part of the workflow each vendor owns: <strong>Aspirion, Ventra, Zotec</strong> are <em>full-stack national billers</em> (~$30B+/yr in combined billings) — they do everything from charge capture to collections, but IDR is a small slice of their work and they're not specialized at it. <strong>HaloMD</strong> is <em>IDR-only</em> — pure-play, ~22% of federal IDR volume H1'25, ~50 staff, commission-only model (~20% of recovered amount). <strong>Pivotal Health</strong> is a <em>VC-backed boutique</em> — Bessemer-funded, claims 94% IDR win rate. Independents typically choose between full-stack at 10–20% contingency or IDR-only at 15–30%.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">IDRE
+              <span class="term-acro">Indep. Dispute Resolution Entity</span>
+            </td>
+            <td class="col-def"><span class="def-text">The CMS-certified third-party arbitrator that picks the winning offer in an IDR case. <strong>MCMC, Medical Evaluators of Texas, Allmed</strong>, others.</span><span class="in-practice">IDREs are not vendor-selectable — CMS assigns from a certified pool. Both parties have limited rights to challenge an assigned IDRE for conflict of interest, but in practice you get who you get. The IDRE's job is binary: pick provider's offer OR pick payer's offer (baseball arbitration — never a number in between). Their decision must be issued within 30 business days; payment within 30 days of decision. The losing party pays the IDRE's fee ($200–$840 single dispute, $268–$1,173 batched) — but the $115 admin fee per party is non-refundable regardless of outcome. Even if you win, you're net $115 down on entry costs.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">CMS
+              <span class="term-acro">Centers for Medicare &amp; Medicaid Services</span>
+            </td>
+            <td class="col-def"><span class="def-text">The federal agency that administers Medicare/Medicaid and operates the federal IDR portal at <strong>nsa-idr.cms.gov</strong>.</span><span class="in-practice">CMS's role in NSA/IDR is dual: <em>regulator</em> (writes the rules under 45 CFR §149.510, certifies IDREs, sets fee schedules) and <em>operator</em> (runs the federal IDR portal, publishes the PUF dataset). The portal is the only filing path for federal disputes — there is no API, no automation, no batch upload for non-conforming cases. Every dispute is filed through a web interface, claim by claim, with a 4-business-day window after open negotiation expires. CMS also handles complaints (<strong>1-800-985-3059</strong>, <strong>nsahelpdesk@cms.hhs.gov</strong>) but ASA tracks ~7% of complaints translate to formal violation findings — the enforcement bar is high.</span></td>
+          </tr>
+
+          <tr class="cat-row">
+            <td colspan="2">Data Standards &amp; Files — the formats that flow between parties</td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">837P
+              <span class="term-acro">HIPAA EDI</span>
+            </td>
+            <td class="col-def"><span class="def-text">The HIPAA-standard electronic file format for a <strong>Professional</strong> (physician) claim. Submitted from provider → clearinghouse → payer.</span><span class="in-practice">The "P" distinguishes it from 837I (Institutional/facility) and 837D (Dental). Every NSA-eligible dispute starts as an 837P. The file carries the CPT codes, ICD-10 codes, modifiers, NPIs (billing and rendering), patient demographics, and service dates — everything the payer needs to adjudicate. <em>If anything is missing or malformed, the clearinghouse rejects the file before the payer sees it.</em> This is "rejection" not "denial" — different failure mode, different recovery: rejection means fix and resubmit; denial means dispute or appeal.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">835 ERA
+              <span class="term-acro">Electronic Remittance Advice</span>
+            </td>
+            <td class="col-def"><span class="def-text">Electronic Remittance Advice — the payer's response file showing what was paid, what was denied, and which denial codes apply.</span><span class="in-practice">The 835 is the <em>most information-dense file in the entire workflow</em> — it carries the QPA paid, the CARC/RARC denial codes, the patient responsibility amount, contractual adjustments, and remarks. It's what triggers Phase 2 (denial management) in the workflow. Routes back through the same clearinghouse as the 837P went out (<strong>Waystar, Availity, Change Healthcare</strong>). Reading an 835 well is the single highest-leverage skill in RCM — it's where you find out which denials are appealable, which are IDR-eligible, and which need to be written off. <strong>Aspirion, Ventra, Zotec, HaloMD</strong> all build their core competency around 835 interpretation.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">270 / 271
+              <span class="term-acro">Eligibility transactions</span>
+            </td>
+            <td class="col-def"><span class="def-text">Eligibility transactions. 270 = the inquiry sent by the provider <em>("is this patient covered?")</em>. 271 = the payer's response.</span><span class="in-practice">Runs in real-time through the same clearinghouse layer as the 837P. Eligibility is the <em>first defensible line</em> against avoidable denials downstream — if the 271 says "patient not covered" or "different plan," the practice can stop work, escalate the patient to billing, or re-verify before the encounter. <em>Stale or skipped eligibility checks</em> are a top driver of "patient not covered" denials weeks later, when recovery is much harder. For OON anesthesia/EM, eligibility also flags whether the encounter falls under NSA (in-network facility, OON physician) — which is the trigger for the entire IDR pathway.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">CARC / RARC
+              <span class="term-acro">Adjustment / Remark codes</span>
+            </td>
+            <td class="col-def"><span class="def-text">Claim Adjustment Reason Codes / Remittance Advice Remark Codes — the alphanumeric codes inside an 835 that tell you <em>why</em> a claim was denied or short-paid.</span><span class="in-practice">CARC = the reason category (CO-50 "non-covered service," CO-29 "time limit expired," etc.); RARC = the supplementary remark explaining context. <em>There are hundreds of combinations and no industry-standard taxonomy</em> — each payer uses CARCs slightly differently, and the same CARC from UHC vs. Anthem can mean different things in practice. Interpreting them correctly determines whether a denial is appealable, IDR-eligible, or a write-off. This is exactly the kind of <em>pattern-recognition-over-time</em> work where AI applied to historical 835 data is a real moat — payer-specific behavior learned from feedback loops at scale.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">CPT
+              <span class="term-acro">Current Procedural Terminology</span>
+            </td>
+            <td class="col-def"><span class="def-text">Current Procedural Terminology — the AMA-maintained code set that identifies <em>what service was performed</em> (e.g., 99285 = high-complexity ED visit).</span><span class="in-practice"><strong>Pairs with ICD-10 on every claim — both are required.</strong> CPT alone won't pass; the clearinghouse rejects incomplete claims at the format check. CPT errors and CPT/ICD-10 mismatches are different failure modes: format errors are caught at the clearinghouse <em>before</em> reaching the payer; medical-necessity mismatches are caught at adjudication and denied. Coders translate clinical documentation into CPT codes — for anesthesia, this includes <em>time units, base units, and physical-status modifiers</em>. Coders are the single most expensive RCM line item, which is why outsourcing to <strong>Aspirion, Ventra, Zotec</strong> is the dominant pattern for mid-size practices.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">ICD-10
+              <span class="term-acro">Diagnosis codes</span>
+            </td>
+            <td class="col-def"><span class="def-text">International Classification of Diseases, 10th Revision — the diagnosis code set (e.g., I21.9 = acute myocardial infarction).</span><span class="in-practice"><strong>Required alongside CPT on every claim — both are mandatory.</strong> CPT says <em>what was done</em>; ICD-10 says <em>why it was medically necessary</em>. If the diagnosis doesn't support the procedure, the claim denies at adjudication with a CARC like "service not medically necessary." NSA/IDR disputes are driven by CPT (procedures and the rates paid for them), <em>not</em> ICD-10 — but you can't even submit the claim to fight over without ICD-10 attached. The ICD-10/CPT pair is the single most consequential coding decision in the whole workflow, which is why coding errors are the #1 source of preventable denials.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Modifier</td>
+            <td class="col-def"><span class="def-text">A 2-character suffix on a CPT code that conveys context — physical-status modifier for anesthesia, bilateral procedure, telehealth, etc.</span><span class="in-practice">Modifiers are how the same CPT code conveys different operational realities — for anesthesia in particular, the <strong>physical-status modifier</strong> (P1 healthy, P5 moribund) directly affects payment because anesthesia billing uses base units × physical status × time units. Wrong or missing modifiers are a top cause of denials, and the rules vary by payer: UHC accepts modifier combinations that Anthem rejects, BCBS plans differ state by state. <em>No public API exists for payer-specific modifier rules</em> — the knowledge is locked in coders' heads or in proprietary RCM rule engines. This is exactly the kind of payer-behavior-pattern problem where AI trained on ERA feedback loops creates a competitive moat over time.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">EDI
+              <span class="term-acro">Electronic Data Interchange</span>
+            </td>
+            <td class="col-def"><span class="def-text">Electronic Data Interchange — the umbrella protocol family that 837/835/270/271 all use.</span><span class="in-practice">Mostly invisible to end users; lives at the clearinghouse layer. EDI is HIPAA-mandated for all standard healthcare transactions, which is why <strong>Waystar, Availity, Change Healthcare, Trizetto, Zelis</strong> exist as a layer at all — they handle the EDI translation between practice management systems (which speak proprietary formats) and payer systems (which require strict EDI). For a vendor building IDR-adjacent products, the practical implication is that you don't talk EDI directly — you integrate with the clearinghouse via REST API and let it handle the EDI plumbing. <strong>Stedi</strong> is the modern API-first option that wraps EDI in JSON.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">HL7 / FHIR
+              <span class="term-acro">Clinical data standards</span>
+            </td>
+            <td class="col-def"><span class="def-text">Standards for moving patient records between EHRs and apps. <strong>HL7 v2</strong> is the legacy messaging format (still dominant). <strong>FHIR</strong> is the modern REST/JSON-based standard.</span><span class="in-practice">Important to understand what HL7/FHIR is <em>not</em> for the IDR economy: <strong>billing transactions don't flow through FHIR — they flow through EDI</strong> (837P, 835, 270/271). FHIR is for clinical data: patient demographics, allergies, lab results, clinical notes. So when someone says "we integrate with the EHR via FHIR," that gets you clinical context (useful for the IDR offer letter's 7-factor argument) but it does NOT get you the claim file or the ERA. For IDR-relevant work, you need both the FHIR layer (clinical context) AND the EDI/clearinghouse layer (financial transactions). They're separate stacks.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">NPI
+              <span class="term-acro">National Provider Identifier</span>
+            </td>
+            <td class="col-def"><span class="def-text">National Provider Identifier — the 10-digit unique ID for every billing provider in the US. Required on every claim.</span><span class="in-practice">Two NPIs appear on every 837P: the <strong>billing NPI</strong> (which entity gets paid — usually the practice or group) and the <strong>rendering NPI</strong> (the individual clinician who performed the service). The distinction matters for IDR <em>batching</em>: one of the five batching rules is <em>same billing NPI</em> — multi-location groups that bill under different entity NPIs can't batch claims across sites. NPIs also appear in the CMS PUF (which lets you attribute IDR volume to specific operators — that's how we know HaloMD is ~22% of federal volume) and in PitchBook (which lets you attribute NPIs to PE owners — that's how we know 88% of federal IDR is PE-affiliated).</span></td>
+          </tr>
+
+          <tr class="cat-row">
+            <td colspan="2">Concepts &amp; Regulatory Terms — the rules and constructs</td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">NSA
+              <span class="term-acro">No Surprises Act</span>
+            </td>
+            <td class="col-def"><span class="def-text">The No Surprises Act — federal law (effective Jan 2022) that bans balance-billing patients for emergency or OON care at in-network facilities, and creates the IDR process for resolving payment disputes.</span><span class="in-practice">NSA fundamentally changed the OON economy. <em>Before NSA:</em> OON providers could balance-bill the patient for the gap between billed charges and what insurance paid. <em>After NSA:</em> the patient is held harmless at the in-network rate — the dispute is between the provider and the payer, mediated by IDR. This shifted billions of dollars in disputed claims out of patient collections (where it generated political backlash) and into a structured arbitration process. The provider/payer dispute volume is the entire reason this market exists. NSA covers <em>commercial</em> plans only; Medicare/Medicaid have separate rules.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">IDR
+              <span class="term-acro">Independent Dispute Resolution</span>
+            </td>
+            <td class="col-def"><span class="def-text">Independent Dispute Resolution — the NSA-mandated arbitration process. After failed direct negotiation, both parties submit best-and-final offers; an IDRE picks one.</span><span class="in-practice">Federal IDR runs through the CMS portal at <strong>nsa-idr.cms.gov</strong>; <strong>22 states run their own state IDR processes</strong> for fully-insured plans (TX, NY, CA, FL, GA, etc.). The first decision in any IDR case is <em>routing</em> — federal vs. state — and getting it wrong means permanent forfeit. Once routed, the workflow is: 30-day open negotiation → 4-business-day window to initiate → submit offer letter addressing 7 statutory factors with 5 data sources → IDRE selects one offer → payment within 30 days. <em>Every step has a non-appealable deadline.</em> H1 2025: 1.46M federal disputes, ~$11B in disputed claim volume.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">QPA
+              <span class="term-acro">Qualifying Payment Amount</span>
+            </td>
+            <td class="col-def"><span class="def-text">Qualifying Payment Amount — the median in-network contracted rate as of <strong>January 31, 2019</strong>, indexed annually for CPI-U inflation.</span><span class="in-practice">The QPA is what the payer pays initially on an OON claim — and the floor every IDR offer letter has to argue against. <em>The 2019 anchor is permanent;</em> only inflation moves the number, and CPI-U has lagged healthcare wage and cost growth by several percentage points per year since 2019. This gap between "what the QPA says the service is worth" and "what it actually costs to deliver in 2026" is what generates the IDR dispute volume in the first place. Empirical confirmation: median provider-favorable IDR awards land at <strong>~4.59× QPA</strong> per CMS PUF — when arbitrators look at the same dispute and weigh the 7 statutory factors, they routinely conclude the QPA is several multiples below appropriate. <em>See §C.1 Stage 05 for full mechanics including the IRS-published inflation multipliers.</em></span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">OON
+              <span class="term-acro">Out-of-Network</span>
+            </td>
+            <td class="col-def"><span class="def-text">Out-of-Network — the provider does not have a contract with the patient's insurance plan.</span><span class="in-practice">NSA disputes apply <em>only</em> to OON claims at in-network facilities (or emergency situations). This is the structural reason hospital-based specialists are concentrated in the IDR pool: an emergency physician can be OON with a payer while working at a hospital that IS in-network with that payer — the patient has no realistic way to know in advance, which is exactly the "surprise" the NSA was designed to address. For elective care, NSA applicability requires either an emergency situation or that the patient lacked meaningful choice (e.g., anesthesia for a scheduled surgery — you don't pick your anesthesiologist). The OON test combined with the in-network-facility test is what gates a claim into NSA jurisdiction at all.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">ERISA
+              <span class="term-acro">Employee Retirement Income Security Act</span>
+            </td>
+            <td class="col-def"><span class="def-text">The federal law governing employer-sponsored benefit plans, enacted in 1974. ERISA created federal protection for employee benefits — and, critically, <strong>federal preemption of state law</strong>. Most large employers (Fortune 500, ~60% of US commercial enrollees) <strong>self-fund under ERISA — paying claims directly from operating cash</strong> rather than buying insurance.</span><span class="in-practice">ERISA is the reason the bifurcated state/federal IDR system exists at all. <em>The mechanism is preemption:</em> ERISA explicitly preempts state laws that "relate to" employee benefit plans, which means state insurance regulators have <strong>no jurisdiction over self-funded employer plans</strong>. The employer bears the financial risk directly and pays claims from operating cash, using a third-party administrator like <strong>UnitedHealthcare or Cigna</strong> as the claims processor and network rental. Stop-loss insurance covers catastrophic risk. <em>Why employers do this:</em> ERISA preemption exempts them from state-level benefit mandates, state premium taxes, and state-level utilization review rules — yielding a meaningful cost advantage over fully-insured plans. The remaining ~40% of commercial enrollees are in <em>fully-insured</em> plans (employer buys insurance from a carrier who bears the risk and is regulated as an insurer at the state level).<br><br><em>For NSA/IDR, this split is the entire reason the federal IDR pathway exists.</em> Without it, there would be no regulatory forum for disputes on the ~60% of claims that flow through ERISA plans, since states can't regulate them. <strong>All ERISA self-funded plans route to federal IDR regardless of which state the patient or provider is in;</strong> fully-insured plans route to state IDR in the 22 bifurcated states, federal elsewhere. <em>The operational hard problem:</em> you cannot tell whether a plan is self-funded from the insurance card alone — the patient experience is identical (UHC card, UHC network, UHC member services), but the regulatory regime underneath is fundamentally different. Self-funded status requires plan documents or payer verification. This is why <strong>misrouting is the #1 procedural forfeit in federal IDR data</strong> — and the basis for HaloMD's four BCBS lawsuits, where the contested question is whether plans HaloMD treated as ERISA were actually self-funded.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Bifurcated State</td>
+            <td class="col-def"><span class="def-text">A state with its own IDR process for fully-insured plans, while ERISA self-funded plans still go to federal IDR. <strong>22 states are bifurcated as of 2026</strong> (TX, NY, CA, FL, GA, etc.).</span><span class="in-practice">Bifurcated states are the source of <em>most procedural forfeits</em>: every dispute requires a fresh routing decision (federal portal vs. state portal), and each state's portal has its own rules, timelines, fee structures, and forms. <strong>Texas alone has six different IDR pathways</strong> depending on plan type and service. There is no unified state IDR API; each state portal is a separate manual integration. This is exactly the kind of <em>regulatory variability</em> that defeats general-purpose RCM tools and why no vendor has built scaled state-IDR automation. State filing rates run 2–5% (vs. ~9% federal) — most of the state pool is structurally unfiled, which is also why no primary-source state IDR outcome data exists at the level CMS PUF provides federally.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Baseball Arbitration</td>
+            <td class="col-def"><span class="def-text">The NSA's IDR design: each side submits one offer; the IDRE picks one or the other — never a number in between.</span><span class="in-practice">Baseball arbitration is the single most important strategic constraint in IDR. <em>Forces both parties to submit reasonable offers</em> — extreme positions lose because the IDRE will simply pick the other side's number. This is the opposite of "splitting the difference" arbitration: there is no compromise outcome, only winner and loser. The provider's offer letter is the entire game — it must be high enough to recover meaningful money but defensible against the 7 statutory factors. <em>The asymmetry:</em> payers have armies of analysts and proprietary QPA databases; independent providers have one biller and a Word template. This is why HaloMD-class specialists exist and why their 22% volume share is a moat, not a coincidence.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Batching</td>
+            <td class="col-def"><span class="def-text">Filing multiple disputes as a single IDR case to share fees and offer-letter work.</span><span class="in-practice">Batching is the only way to make IDR economically viable for <em>small-dollar claims</em>. Without it, the $115 admin fee + $200–$840 IDRE fee make individual filings unprofitable for any dispute under ~$1,500. With batching, one fee + one offer letter covers up to 25 claims — per-claim cost drops 90%+. But the rules are punishing: <strong>same payer, same plan type, same billing NPI, same CPT family, 30-day service-date window</strong>. One non-conforming claim voids the entire batch. The 4-business-day initiation window applies to the batch as a whole. This is exactly the kind of <em>combinatorial filtering problem</em> where automation creates real value — finding the optimal batch grouping across thousands of pending denials is the difference between filing 20% of eligible volume and filing 80%.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">PUF
+              <span class="term-acro">Public Use File</span>
+            </td>
+            <td class="col-def"><span class="def-text">Public Use File — the de-identified dataset CMS publishes for federal IDR cases. H1 2025 PUF: <strong>~1.46M dispute records</strong>.</span><span class="in-practice"><strong>The only primary-source dataset on IDR outcomes</strong> — every other figure in the readout is derived from vendor reports or methodologically estimated. The PUF includes initiating party (NPI level), payer, dispute amount, IDRE selected, winner, and award amount. This is what makes claims like "HaloMD = 22% of federal volume" or "median provider-favorable award is 4.59× QPA" defensible — they're computed directly from PUF rows. The PUF's structural limitation is what it doesn't cover: <em>state IDR outcomes</em> (no equivalent dataset exists), <em>pre-IDR settlements</em> (most negotiations resolve before filing), and <em>provider economics</em> (the PUF shows awards but not contingency rates or net economics to the provider). For state-level analysis or unit economics, you have to derive.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Capitation</td>
+            <td class="col-def"><span class="def-text">A payment model where the payer pays the provider a flat monthly fee per patient regardless of services rendered.</span><span class="in-practice">Common in primary care and Medicare Advantage; mostly absent from emergency, anesthesia, and radiology because those services aren't predictable per-patient. <em>Listed here because someone reading about fee-for-service IDR disputes should understand what the alternative model is and why it doesn't show up in this market.</em> Capitation effectively eliminates the fee-for-service-rate dispute (because there are no per-service rates to dispute) but introduces different dynamics: actuarial risk shifts to the provider, and the disputes become about <em>panel size, attribution, and quality bonuses</em> rather than CPT-level rates. NSA/IDR is fundamentally a fee-for-service problem.</span></td>
+          </tr>
+
+          <tr class="def-row">
+            <td class="col-term">Risk-Sharing</td>
+            <td class="col-def"><span class="def-text">Payment arrangements where providers share financial upside or downside with payers based on outcomes, cost targets, or quality metrics. Includes ACOs, bundled payments, value-based care contracts.</span><span class="in-practice">Largely separate from the NSA/IDR economy, which lives in <em>fee-for-service OON</em>. Risk-sharing arrangements typically apply to <em>in-network</em> care managed by ACOs or value-based care contracts — by design, they reduce the per-claim disputes that feed IDR by tying payment to outcomes rather than units of service. <em>Listed here because the deck audience may ask why IDR matters when the industry is "moving to value-based care"</em> — the answer is that hospital-based specialties (EM, anesthesia, radiology, pathology) are <em>structurally hard to put in risk-sharing models</em> because the demand is unpredictable and the services are episodic. Those specialties remain fee-for-service, which is why they remain the IDR-dispute concentration.</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="legend">
+        <strong>How to use this glossary.</strong>
+        Terms are grouped by category — <strong>Roles &amp; Parties</strong> (who), <strong>Data Standards &amp; Files</strong> (what flows), <strong>Concepts &amp; Regulatory Terms</strong> (the rules). Vendor names are bolded throughout to make it easy to trace any vendor mentioned on the readout deck back to the layer where they operate. For the sequential workflow that connects these pieces, see <strong>§C Workflow Stages</strong>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+     PANEL: MARKET
+     ═════════════════════════════════════════════════════════════════ -->
+
+  <div class="panel" data-panel="market">
 
     <!-- Sub-tabs under Market -->
     <div class="subtabs">
       <button class="subtab active" data-subtab="funnel">
-        <span class="id">A.1</span>Funnel Derivation
+        <span class="id">B.1</span>Funnel Derivation
       </button>
       <button class="subtab" data-subtab="state">
-        <span class="id">A.2</span>State + Combined Gap
+        <span class="id">B.2</span>State + Combined Gap
       </button>
     </div>
 
@@ -635,6 +1545,734 @@ html, body {
     </section>
 
   </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       PANEL: WORKFLOW
+       ═════════════════════════════════════════════════════════════════ -->
+  <div class="panel" data-panel="workflow">
+
+    <!-- Sub-tabs under Workflow -->
+    <div class="subtabs">
+      <button class="subtab active" data-subtab="stages">
+        <span class="id">C.1</span>Workflow Stages
+      </button>
+    </div>
+
+    <!-- ═══ C.1 — WORKFLOW STAGES ═══ -->
+    <section class="subpanel active" data-subpanel="stages">
+
+      <div class="section-title">
+        <h2>15 stages from Charge Capture to IDR Award.</h2>
+        <p class="sub">Each row maps a stage in the dispute lifecycle to what happens, the data flowing through it, the top vendors who own that layer, and where independents fail. Phase 1 is billing; Phase 2 is denial management; Phase 3 is IDR. Most independents fail at Phase 2 — claims expire as write-offs before reaching IDR. <strong>A worked example follows the same patient — Eric Trump's shoulder arthroscopy — through all three phases to ground the abstract stages in a concrete case.</strong></p>
+      </div>
+
+      <table class="stages-table">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>What Happens</th>
+            <th>Top Vendors</th>
+            <th>Failure Mode</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="phase-row phase-1">
+            <td colspan="4">PHASE 1 · BILLING — claim creation through payment at QPA</td>
+          </tr>
+
+          <tr class="narrative-row phase-1">
+            <td colspan="4">
+              <span class="narrative-label">Worked Example · Eric Trump · Phase 1</span>
+              Eric Trump tears his rotator cuff. He's covered by his employer's <strong>UnitedHealthcare</strong> commercial plan (self-funded ERISA — which will matter in Phase 3). At the in-network surgical center, the orthopedic surgeon — who happens to be <strong>out-of-network</strong> with UnitedHealthcare — performs the procedure. The diagnosis <strong>ICD-10 M25.511</strong> (Pain, right shoulder) establishes medical necessity; the procedure <strong>CPT 29826</strong> (shoulder arthroscopy with subacromial decompression) records what was done. <em>Both codes are required — without ICD-10 the claim won't pass the format check; without CPT it can't be priced.</em> The biller assembles an <strong>837P</strong> in <strong>athena</strong>, which routes through <strong>Waystar</strong> to UnitedHealthcare. UHC adjudicates within 30 days and pays the <strong>QPA — $1,847 — against billed charges of $8,500</strong>. The <strong>835 ERA</strong> arrives back through Waystar. The provider has been paid, but a <strong>$6,653 gap</strong> now sits on the books. <em>That gap is the entire reason Phase 2 exists.</em>
+            </td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">01</span>
+              <span class="stage-name">Charge Capture</span>
+              <span class="stage-data">CPT · modifier</span>
+            </td>
+            <td class="col-what">Provider documents the service rendered. Coders translate clinical documentation into CPT codes plus modifiers. For anesthesia, this includes time units, base units, and physical-status modifiers — the inputs to anesthesia-specific billing math.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>In-house RCM</strong> for large groups</div>
+              <div class="vendor-line"><strong>Aspirion, Ventra, Zotec</strong> for outsourced coding</div>
+              <div class="vendor-line"><strong>Clomr</strong> <em>(anesthesia-specific automation)</em></div>
+            </td>
+            <td class="col-fail">Wrong code or missing modifier triggers downstream denial cascade. Coders are the most expensive RCM line item.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">02</span>
+              <span class="stage-name">Eligibility</span>
+              <span class="stage-data">270 / 271</span>
+            </td>
+            <td class="col-what">Real-time check of patient coverage, plan type, and prior-auth requirements before submitting the claim. Inquiry sent as 270 transaction; response returned as 271.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>Waystar</strong>, <strong>Availity</strong>, <strong>Change Healthcare</strong> (Optum), <strong>Trizetto</strong></div>
+              <div class="vendor-line"><em>Clearinghouses dominate this layer</em></div>
+            </td>
+            <td class="col-fail">Stale eligibility data → claim denied weeks later as "patient not covered."</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">03</span>
+              <span class="stage-name">837P Submit</span>
+              <span class="stage-data">837P (HIPAA)</span>
+            </td>
+            <td class="col-what">Professional claim file (837P standard) submitted to the payer through a clearinghouse. Format is HIPAA-mandated; clearinghouses handle the routing and translation between practice management systems and payer formats.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>Waystar</strong>, <strong>Availity</strong>, <strong>Change Healthcare</strong>, <strong>Trizetto</strong>, <strong>Zelis</strong></div>
+              <div class="vendor-line"><em>Same clearinghouse stack as eligibility</em></div>
+            </td>
+            <td class="col-fail">Format errors, missing required fields, or modifier mismatches → rejected at clearinghouse before reaching payer.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">04</span>
+              <span class="stage-name">Adjudication</span>
+              <span class="stage-data">Payer internal</span>
+            </td>
+            <td class="col-what">Payer processes the claim against contract terms, plan rules, medical policy, and increasingly automated AI denial engines. Approve, deny, or partial-pay decision is made here.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>UnitedHealth/Optum</strong>, <strong>Anthem/Elevance</strong>, <strong>Aetna</strong>, <strong>Cigna</strong>, <strong>Humana</strong>, <strong>BCBS</strong> plans</div>
+              <div class="vendor-line"><em>Counterparty, not vendor</em></div>
+            </td>
+            <td class="col-fail">Auto-denial via payer AI is the trigger for the entire denial-management phase. ~11% of claims are denied (vendor estimate).</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">05</span>
+              <span class="stage-name">Paid at QPA</span>
+              <span class="stage-data">835 ERA</span>
+            </td>
+            <td class="col-what">Payer pays the <strong>Qualifying Payment Amount</strong> — the median in-network rate frozen at January 31, 2019, indexed forward annually by CPI-U. Often well below billed charges; the gap is what the provider absorbs (or disputes via IDR). See QPA callout below.</td>
+            <td class="col-vendors">
+              <div class="vendor-line">Same payers as Adjudication</div>
+              <div class="vendor-line"><em>835 ERA delivered via clearinghouse</em></div>
+            </td>
+            <td class="col-fail">QPA is structurally below 2026 cost. Provider absorbs the gap unless dispute reaches IDR.</td>
+          </tr>
+
+          <tr class="phase-row phase-2">
+            <td colspan="4">PHASE 2 · DENIAL MANAGEMENT — where most independents fail</td>
+          </tr>
+
+          <tr class="narrative-row phase-2">
+            <td colspan="4">
+              <span class="narrative-label">Worked Example · Eric Trump · Phase 2</span>
+              The biller opens the 835 ERA. UnitedHealthcare has paid the $1,847 QPA with <strong>CARC 45</strong> ("charge exceeds fee schedule") plus a remark indicating out-of-network status. <em>Three things happen in rapid succession:</em> she <strong>classifies</strong> this as a payment shortfall rather than a clinical denial — UHC paid, just at QPA, not at billed charges. She <strong>triages</strong> for NSA eligibility: the encounter happened at an in-network facility with an out-of-network provider, the patient had no meaningful choice of surgeon under those circumstances — <strong>NSA applies</strong>. Self-funded ERISA plan → <strong>federal IDR jurisdiction</strong> (not state). At a $6,653 gap, this dispute easily clears the economic floor for filing — <em>much higher than the ~$1,500 break-even point where IDR fees consume the recovery.</em> She advances it to Phase 3 instead of writing it off. <em>This is the exact decision point where ~91% of independent-practice claims get written off instead, because they lack the workflow infrastructure to advance.</em>
+            </td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">06</span>
+              <span class="stage-name">835 ERA</span>
+              <span class="stage-data">CARC / RARC</span>
+            </td>
+            <td class="col-what">Electronic Remittance Advice — the payer's response file, including denial codes (Claim Adjustment Reason Codes / Remittance Advice Remark Codes). Each code identifies why a claim was denied or short-paid.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>Waystar</strong>, <strong>Availity</strong>, <strong>Change Healthcare</strong> deliver the 835 file</div>
+              <div class="vendor-line"><em>Same clearinghouse layer routes this both ways</em></div>
+            </td>
+            <td class="col-fail">CARC/RARC codes are cryptic. Hundreds of combinations. Specialist interpretation required.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">07</span>
+              <span class="stage-name">Classify</span>
+              <span class="stage-data">Internal taxonomy</span>
+            </td>
+            <td class="col-what">Map each denial code to an actionable category: appeal, IDR-eligible, rebill, or write-off. No industry-standard taxonomy exists — every payer-CARC combination is a judgment call learned through experience.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>Zotec</strong>, <strong>Aspirion</strong>, <strong>Ventra</strong> <em>(general denial mgmt)</em></div>
+              <div class="vendor-line"><strong>HaloMD</strong> <em>(IDR-only specialist)</em></div>
+            </td>
+            <td class="col-fail">No standard taxonomy means classification quality depends on accumulated payer-specific experience. Independents lack scale.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">08</span>
+              <span class="stage-name">Triage</span>
+              <span class="stage-data">NSA applicability</span>
+            </td>
+            <td class="col-what">For each denial flagged "potentially IDR-eligible": is this dispute actually subject to NSA? Tests include OON status at in-network facility, ERISA self-funded vs. fully insured, federal vs. state IDR jurisdiction, and timing.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>HaloMD</strong> (~22% federal volume H1'25)</div>
+              <div class="vendor-line"><strong>Aspirion</strong>, <strong>Ventra</strong>, <strong>Pivotal</strong></div>
+              <div class="vendor-line"><strong>Zotec</strong> <em>(exited IDR, p.18)</em></div>
+            </td>
+            <td class="col-fail">Misclassification = forfeit OR write off recoverable money. Both expensive errors.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">09</span>
+              <span class="stage-name">Write-off</span>
+              <span class="stage-data">$0 recovery</span>
+            </td>
+            <td class="col-what">Claim is closed at zero recovery. The end of the road for ~91% of NSA-eligible denials handled by independents — they never advance to Phase 3 because the workflow infrastructure to do so doesn't exist in-house.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><em>None — this is the failure mode</em></div>
+            </td>
+            <td class="col-fail"><strong>~91% of NSA-eligible denials end here for independents.</strong> This is the gap.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">10</span>
+              <span class="stage-name">IDR-eligible</span>
+              <span class="stage-data">Routing decision</span>
+            </td>
+            <td class="col-what">Surviving claims that pass triage advance to Phase 3. Practice (or specialist vendor) makes the call to commit to the IDR path — the dispute can no longer be quietly written off.</td>
+            <td class="col-vendors">
+              <div class="vendor-line">Same Phase 2 specialists carry the dispute forward</div>
+            </td>
+            <td class="col-fail">Decision is binding. From here on, every step has a non-appealable deadline.</td>
+          </tr>
+
+          <tr class="phase-row phase-3">
+            <td colspan="4">PHASE 3 · IDR — federal portal, baseball arbitration, statutory deadlines</td>
+          </tr>
+
+          <tr class="narrative-row phase-3">
+            <td colspan="4">
+              <span class="narrative-label">Worked Example · Eric Trump · Phase 3</span>
+              Eric's case <strong>isn't filed alone</strong> — it's one of <strong>~47 UHC OON underpayments this practice generated this week</strong>, plus dozens more from prior weeks still inside the 30-day filing window. <em>No competent operator files these one at a time:</em> the $115 admin fee + $200–$840 IDRE fee make individual filings unprofitable for any dispute under ~$1,500, and the 4-business-day initiation window can't accommodate 47 separate filings even if it were profitable.
+              <br><br>
+              Instead, the biller — or more often an outsourced specialist filer like <strong>HaloMD or Ventra</strong> — runs <strong>batch-eligibility logic</strong> against the pending pool. <em>Five rules govern:</em> same payer (UHC ✓), same plan type (commercial ERISA ✓), same billing NPI (the practice ✓), same CPT family (29826 and adjacent arthroscopy codes 29827–29828 group together ✓), and a rolling 30-day service-date window. Eric's case clusters cleanly with 11 other shoulder-arthroscopy disputes from the same period; the remaining 35 split into 4 separate batches by payer or service line.
+              <br><br>
+              The 12-claim arthroscopy batch is filed as a <strong>single IDR case</strong> via the CMS portal. <strong>One $115 admin fee covers all 12 claims; one IDRE fee will be paid by the loser.</strong> Per-claim cost drops from ~$235 to ~$20 — <em>a 90%+ reduction that's the only reason batching makes the math work for sub-$2,000 disputes.</em>
+              <br><br>
+              The offer letter is <strong>not written from scratch.</strong> Specialist filers maintain payer-specific argument libraries: UHC's QPA methodology has been challenged in dozens of prior batches with documented win rates by argument type; the FAIR Health 80th-percentile benchmark for CPT 29826 in this MSA is pulled from a continuously-updated database; prior contracted-rate evidence is templated; the 7 statutory factors are addressed paragraph by paragraph from a versioned template. <strong>A specialist can produce a defensible offer letter in 30–45 minutes; a practice doing this from scratch takes 5–9 hours.</strong> <em>That delta is the entire reason operators outsource at 15–30% contingency.</em>
+              <br><br>
+              The IDRE selects the provider's offer for <strong>9 of 12 claims</strong>; UHC wins 3 on technical defects (wrong service-date format on two, ambiguous NPI on one). Average award across the batch: <strong>$4,950 against $1,800 average QPA.</strong> Batch-level economics: <strong>~$38,000 incremental recovery against ~$2,400 in fees and 6 hours of specialist time</strong> — economics that scale across 200+ batches per year for a HaloMD-class operator. <em>This is what 22% of federal IDR volume actually looks like at the operating level.</em>
+            </td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">11</span>
+              <span class="stage-name">Route</span>
+              <span class="stage-data">Federal vs State</span>
+            </td>
+            <td class="col-what">Determine whether the dispute goes through the federal IDR portal (CMS) or one of the 22 state-level IDR portals. Decision driven by plan type (ERISA self-funded → federal always; fully insured → state in bifurcated states).</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>HaloMD</strong>, <strong>Pivotal</strong>, <strong>Aspirion</strong>, <strong>Ventra</strong> <em>(specialist filers)</em></div>
+            </td>
+            <td class="col-fail">Wrong portal → permanent forfeit. No appeal, no resubmission. HaloMD has 4 BCBS lawsuits over routing errors.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">12</span>
+              <span class="stage-name">Open Negotiation</span>
+              <span class="stage-data">30 business days</span>
+            </td>
+            <td class="col-what">Mandatory 30-business-day negotiation period before IDR can be initiated. Provider sends payer a Notice of Open Negotiation; payer typically ignores or makes a low offer to extend the clock.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><em>Direct provider ↔ payer correspondence</em></div>
+              <div class="vendor-line">No vendor layer — but specialist filers track the clock</div>
+            </td>
+            <td class="col-fail">Most payers run out the clock. Unproductive but procedurally required.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">13</span>
+              <span class="stage-name">Initiation</span>
+              <span class="stage-data">4 business days</span>
+            </td>
+            <td class="col-what">After negotiation expires, the dispute must be initiated via the CMS Federal IDR portal within <strong>4 business days</strong>. This is the single tightest window in the entire workflow.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>HaloMD</strong>, <strong>Pivotal</strong>, <strong>Aspirion</strong></div>
+              <div class="vendor-line"><em>Pure-play and specialist filers</em></div>
+            </td>
+            <td class="col-fail"><strong>4-day window is the highest-frequency forfeit in the federal IDR dataset.</strong> Independents miss it routinely.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">14</span>
+              <span class="stage-name">Offer Letter</span>
+              <span class="stage-data">5 sources · 7 factors</span>
+            </td>
+            <td class="col-what">Submit the provider's best-and-final offer to the IDRE. Letter must address all 7 statutory factors and pull from 5 disconnected data sources (QPA, 835 ERA, FAIR Health benchmark, CMS PUF outcomes, EHR clinical context). No template, no API, ~5–9 hours of manual assembly per claim.</td>
+            <td class="col-vendors">
+              <div class="vendor-line">Same specialist filers as Initiation</div>
+              <div class="vendor-line"><strong>Pivotal Health</strong> claims 94% win rate</div>
+            </td>
+            <td class="col-fail">Weak letter → arbitrator picks payer's offer (baseball arbitration — winner takes all). The letter <em>is</em> the work.</td>
+          </tr>
+
+          <tr class="stage-row">
+            <td class="col-stage">
+              <span class="stage-num">15</span>
+              <span class="stage-name">IDR Award</span>
+              <span class="stage-data">Final determination</span>
+            </td>
+            <td class="col-what">Certified Independent Dispute Resolution Entity (IDRE) reviews both offers and selects exactly one — provider's or payer's. Payment is due within 30 days of determination. Median provider-favorable award lands at <strong>~4.59× QPA</strong> — empirical evidence the QPA is structurally underpriced.</td>
+            <td class="col-vendors">
+              <div class="vendor-line"><strong>Certified IDREs</strong>: MCMC, Medical Evaluators of Texas, Allmed, others</div>
+              <div class="vendor-line"><em>CMS-certified, not vendor-selectable</em></div>
+            </td>
+            <td class="col-fail">Loser pays IDRE fee ($200–$840 single dispute). $115 admin fee per party is non-refundable regardless of outcome.</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- ═══ QPA CALLOUT ═══ -->
+      <div class="qpa-callout">
+        <span class="label">Stage 05 Deep-Dive · QPA Mechanics</span>
+        <h3>The QPA is frozen at 2019, indexed forward by CPI-U.</h3>
+        <p>The <strong>Qualifying Payment Amount</strong> is defined under 45 CFR §149.140 as the <strong>median in-network contracted rate as of January 31, 2019</strong>, for the same/similar service, by the same/similar specialty, in the same geographic region. The 2019 base is permanently fixed. Only inflation adjustment moves the number — the federal regulation specifies CPI-U (Consumer Price Index for All Urban Consumers).</p>
+
+        <span class="formula">QPA<sub>2024</sub> = Median 2019 contracted rate × cumulative CPI-U multiplier (~1.21× as of 2024 per IRS Notice 2024-01)</span>
+
+        <p><strong>Worked example from IRS guidance:</strong> A service with a $1,500 median 2019 rate becomes $1,813 in 2024. Same CPT code, same payer, same geography — locked to the 2019 anchor with general inflation on top.</p>
+
+        <div class="why">
+          <strong>Why this matters for the deck's argument:</strong> Healthcare wages, locum rates, and malpractice premiums have risen <em>faster</em> than general CPI-U since 2019. The QPA structurally undercounts true 2026 cost. Empirical confirmation: median provider-favorable IDR awards land at <strong>~4.59× QPA</strong> in CMS PUF data — meaning when arbitrators look at the same dispute and weigh the 7 statutory factors, they routinely conclude the QPA is several multiples below appropriate. The QPA is not "the right rate." It's the floor that drives the dispute volume.
+        </div>
+
+        <p class="src">Sources: 45 CFR §149.140 (QPA calculation methodology); IRS Rev. Proc. 2022-11 (2022 cumulative multiplier 1.0648523983); IRS Notice 2024-01 (2024 multiplier ~1.2089777165); Texas Medical Association v. HHS (multiple, 2022–2024) on "ghost rates" methodology challenges; CMS Federal IDR PUF H1 2025 (4.59× median provider-win multiplier).</p>
+      </div>
+
+      <div class="legend">
+        <strong>How to read this table.</strong>
+        Stages are sequential — failure at any stage forecloses the next. <strong>Phase 1</strong> is mechanical billing infrastructure (clearinghouses dominate). <strong>Phase 2</strong> is denial management — where the human judgment lives, and where most independents fail. <strong>Phase 3</strong> is statutory IDR — every step has a non-appealable deadline. The vendor names listed appear elsewhere in the readout deck; this table is the reference for what each one actually does at which stage.
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ═════════════════════════════════════════════════════════════════
+       PANEL: REGULATORY
+       ═════════════════════════════════════════════════════════════════ -->
+  <div class="panel" data-panel="regulatory">
+
+    <!-- Sub-tabs under Regulatory -->
+    <div class="subtabs">
+      <button class="subtab active" data-subtab="state-routing">
+        <span class="id">D.1</span>State + Federal IDR Routing
+      </button>
+    </div>
+
+    <!-- ═══ D.1 — STATE IDR ROUTING ═══ -->
+    <section class="subpanel active" data-subpanel="state-routing">
+
+      <div class="section-title">
+        <h2>Federal IDR is the default — 22 states bifurcate fully-insured claims out of it.</h2>
+        <p class="sub">Every NSA dispute routes through one of two paths: <strong>federal IDR (CMS)</strong> or <strong>a state IDR process</strong>. Federal is the baseline — it applies to all ERISA self-funded plans (regardless of state) and to all OON disputes in the 28 non-bifurcated states. The 22 bifurcated states divert <em>fully-insured</em> claims to their own state process; ERISA self-funded plans still route federal except in the six opt-in states. <em>Filing a state-governed claim in the CMS portal — or vice versa — is a procedural error that voids the submission</em>, and is the basis for HaloMD's four BCBS lawsuits.</p>
+      </div>
+
+      <div class="methodology">
+        <span class="label">How to read this table</span>
+        <p>The first row is the <strong>federal baseline</strong> — every other row is an exception that diverts specific claim types to a state process. <strong>"Claims that route to this path"</strong> defines exactly which claim types belong in that row's process. <strong>"Process / Portal"</strong> is the agency and mechanism. <strong>"Filing deadline"</strong> is measured from end of failed open negotiation — note the dramatic federal/state asymmetry: federal gives only 4 business days, most states give 30. <strong>"ERISA opt-in"</strong> flags the six states where self-funded ERISA plans can voluntarily choose the state process — these require claim-level verification before routing.</p>
+      </div>
+
+      <table class="states-table">
+        <thead>
+          <tr>
+            <th class="col-state">State / Path</th>
+            <th class="col-claims-h">Claims that route to this path</th>
+            <th>Process / Portal</th>
+            <th>Filing Deadline</th>
+            <th class="col-win-h">Win Rate</th>
+            <th class="col-erisa-h">ERISA Opt-In</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="state-cat-row">
+            <td colspan="6">FEDERAL BASELINE — applies wherever state law doesn't divert</td>
+          </tr>
+
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Federal IDR (CMS)</span>
+              <span class="state-law">45 CFR §149.510 · NSA Title I</span>
+            </td>
+            <td class="col-claims">
+              All <strong>ERISA self-funded plans</strong> regardless of state, plus all OON disputes in the <strong>28 non-bifurcated states + DC</strong>. Baseline path — every other row in this table is an exception that diverts fully-insured claims to a state process.
+              <span class="case-note note">CMS PUF H1 2025: ~1.46M federal disputes, ~$11B in disputed claim value. ~88% PE-affiliated initiating parties; HaloMD alone is ~22% of volume.</span>
+            </td>
+            <td class="col-process">CMS Federal IDR portal at <strong>nsa-idr.cms.gov</strong>. Baseball-style final-offer arbitration. CMS-certified IDREs assigned (MCMC, Medical Evaluators of Texas, Allmed). Loser pays IDRE fee ($200–$840 single dispute); $115 admin fee per party non-refundable.</td>
+            <td class="col-deadline"><strong>4 business days</strong> after open-negotiation period expires. <em>Tightest window in the entire workflow</em> — the highest-frequency procedural forfeit in CMS PUF data.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct">~67%</span>
+              <span class="winrate-sub">CMS PUF H1 2025</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-no">N/A</span></td>
+          </tr>
+
+          <tr class="state-cat-row">
+            <td colspan="6">States with significant fully insured commercial populations</td>
+          </tr>
+
+          <!-- Texas -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Texas</span>
+              <span class="state-law">SB 1264 · eff. Jan 1, 2020</span>
+            </td>
+            <td class="col-claims">
+              Emergency care + non-emergency OON ancillary services at in-network facilities — for <strong>fully insured state-regulated plans only</strong> (TDI regulates). ERISA self-funded plans go to federal IDR regardless. Ground ambulance (eff. Jan 1, 2024) also routes to TDI.
+              <span class="case-note alert">~37% of TX commercial insurance is fully insured → state. ~63% is ERISA self-funded → federal. Both systems run simultaneously at large scale.</span>
+            </td>
+            <td class="col-process">TDI IDR portal (tdi.texas.gov). Facilities: mediation. Physicians: arbitration. TDI assigns mediator/arbitrator after 31 days.</td>
+            <td class="col-deadline">Submit within 30 days of failed negotiation. No CMS administrative fee — each party pays half the state arbitrator fee.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct">~50–60%</span>
+              <span class="winrate-sub">State system (lower than federal)</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- New York -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">New York</span>
+              <span class="state-law">Ins. Law §3241 · eff. 2015, expanded 2022</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON services at in-network facilities — for <strong>fully insured plans regulated by NY DFS or NY DOH</strong>. Includes HMOs, EPOs, PPOs issued in NY. ERISA self-funded plans → federal IDR. NY applies regardless of where the plan is issued if the enrollee is in NY when receiving care.
+              <span class="case-note win">5,700+ state disputes submitted in 2022 alone. NY state system uses billed charges as a factor — providers can win above FAIR Health benchmarks, which federal IDR also allows.</span>
+            </td>
+            <td class="col-process">NY DFS assigns to a certified IDRE (dfs.ny.gov/IDR). Baseball-style final-offer arbitration. No mandatory mediation step.</td>
+            <td class="col-deadline">File within 30 days of impasse. Non-prevailing party pays IDRE fee in full within 30 days of decision.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct high">~81%</span>
+              <span class="winrate-sub">State system data</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- New Jersey -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">New Jersey</span>
+              <span class="state-law">N.J.S.A. 26:2SSS-1 · eff. Aug 2018</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON services at in-network facilities — <strong>fully insured NJ-regulated plans</strong> only. Self-insured ERISA plans → federal IDR, unless the plan has opted into the NJ state process (opt-in allowed). NJ has one of the most comprehensive pre-NSA surprise billing laws in the country.
+              <span class="case-note flag">⚑ Self-insured ERISA plans may opt in — verify at claim level before routing.</span>
+            </td>
+            <td class="col-process">NJ DOL / DOBI arbitration process. Independent arbitrator selected from NJ panel. No mandatory mediation.</td>
+            <td class="col-deadline">File within 30 days of failed negotiation under NJ DOL rules.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct">~66%</span>
+              <span class="winrate-sub">State system data</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <!-- California -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">California</span>
+              <span class="state-law">Health &amp; Safety Code §1317.2 · eff. 2009</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON services at in-network facilities — <strong>fully insured plans regulated by DMHC or CDI</strong>. CA's protections are broader than federal NSA in some respects and predate it. ERISA self-funded plans → federal IDR. CA protections cover any patient receiving care in CA under a CA-regulated plan.
+              <span class="case-note win">Despite large population, CA has very few federal IDR cases — most fully insured claims route to DMHC, suppressing federal volume significantly.</span>
+            </td>
+            <td class="col-process">DMHC Independent Medical Review (IMR) — plan must respond within 45 business days. CDI for plans it regulates.</td>
+            <td class="col-deadline">Submit to DMHC/CDI within 30 days of plan's final determination. CA state timeline differs from federal.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct na">N/A</span>
+              <span class="winrate-sub">Limited published data</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Virginia -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Virginia</span>
+              <span class="state-law">Va. Code §38.2-3445 · eff. Jan 1, 2021</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON surgical/ancillary services at in-network facilities — <strong>fully insured managed care plans issued or delivered in VA</strong>. Includes grandfathered plans. ERISA plans → federal IDR unless opted in. Self-insured opt-in allowed.
+              <span class="case-note alert">VA handled only 252 state IDR cases in a year while 34,000+ VA claims went through federal IDR in the same period — most VA plans are ERISA self-funded. Misfiling VA state-eligible claims in CMS portal is the core allegation in Anthem v. SCP Health.</span>
+            </td>
+            <td class="col-process">VA SCC arbitration process. Provider and plan each submit final offer. Arbitrator selects one.</td>
+            <td class="col-deadline">File with VA SCC after failed negotiation. Timeline varies by dispute type under VA Admin. Code.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct na">N/A</span>
+              <span class="winrate-sub">State data limited</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <!-- Illinois -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Illinois</span>
+              <span class="state-law">215 ILCS 5/356z.3a · updated 2022</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON services at in-network facilities — <strong>fully insured plans regulated by IL DOI</strong>. Updated 2022 to add binding arbitration after 30-day negotiation. Covers same service categories as NSA but under state mechanism. ERISA → federal IDR.
+            </td>
+            <td class="col-process">IL DOI arbitration. Either party may request after 30-day negotiation fails. Binding decision.</td>
+            <td class="col-deadline">File within 30 days of failed negotiation under IL DOI rules.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct na">N/A</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Washington -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Washington</span>
+              <span class="state-law">RCW 48.49 · eff. Jan 1, 2020</span>
+            </td>
+            <td class="col-claims">
+              Emergency services + non-emergency OON services at in-network facilities — <strong>fully insured plans regulated by WA OIC</strong>. Self-insured opt-in allowed — one of six opt-in states. Covers all PEAR specialties for qualifying encounters.
+              <span class="case-note flag">⚑ ERISA plans may opt in — verify at claim level. WA has published state win rate data (~60%) suggesting more balanced outcomes than federal IDR.</span>
+            </td>
+            <td class="col-process">WA OIC dispute resolution. Administered by OIC. Baseball-style final-offer arbitration.</td>
+            <td class="col-deadline">File within 30 business days of failed negotiation with WA OIC.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct">~60%</span>
+              <span class="winrate-sub">State system data</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <!-- Georgia -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Georgia</span>
+              <span class="state-law">O.C.G.A. §33-20A-5 · eff. Jul 1, 2020</span>
+            </td>
+            <td class="col-claims">
+              Emergency services at in-network facilities — <strong>fully insured GA-regulated plans</strong>. Non-emergency OON coverage scope more limited than federal NSA. Self-insured opt-in allowed. ERISA plans → federal IDR unless opted in.
+              <span class="case-note alert">BCBS of GA v. HaloMD (N.D. Ga. 2025): core allegation is that fully insured GA-regulated claims were filed in federal IDR instead of state process. Classic routing failure.</span>
+            </td>
+            <td class="col-process">GA OCI arbitration process. Arbitrator selected from GA-certified panel. Binding decision.</td>
+            <td class="col-deadline">File with GA OCI after failed negotiation. Timeline under GA Insurance Code.</td>
+            <td class="col-winrate">
+              <span class="winrate-pct na">N/A</span>
+            </td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <tr class="state-cat-row">
+            <td colspan="6">Remaining 14 bifurcated states — state law applies to qualifying fully insured claims</td>
+          </tr>
+
+          <!-- Connecticut -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Connecticut</span>
+              <span class="state-law">C.G.S. §38a-477aa</span>
+            </td>
+            <td class="col-claims">Emergency + non-emergency OON services at in-network facilities — <strong>fully insured CT-regulated plans</strong>. Hybrid: payment rule for some services, arbitration for others. ERISA → federal.</td>
+            <td class="col-process">CT Insurance Dept. (CID) expedited arbitration.</td>
+            <td class="col-deadline">30 days after failed negotiation — CID rules.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Delaware -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Delaware</span>
+              <span class="state-law">Del. Code tit. 18 §3352B</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured DE-regulated plans</strong>. Payment rule: insurer must pay set amount. Limited arbitration. Non-emergency OON generally goes to federal. ERISA → federal.</td>
+            <td class="col-process">DE DOI payment rule + limited dispute process.</td>
+            <td class="col-deadline">Under Delaware Insurance Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Florida -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Florida</span>
+              <span class="state-law">F.S. §641.513 (HMOs only)</span>
+            </td>
+            <td class="col-claims"><strong>HMO plans regulated by FL AHCA only</strong> — payment rule applies, no arbitration. PPO, EPO, and other plan types → federal IDR. ERISA → federal. Critical: FL's state coverage is narrow — most FL claims go federal, but HMO patients are a distinct population.</td>
+            <td class="col-process">AHCA payment rule — set rate, no IDR arbitration for HMO claims.</td>
+            <td class="col-deadline">Payment rule applies on claim; no filing deadline per se.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Maine -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Maine</span>
+              <span class="state-law">24-A M.R.S. §4303-H</span>
+            </td>
+            <td class="col-claims">Emergency + non-emergency OON ancillary services — <strong>fully insured ME-regulated plans</strong>. Self-insured opt-in allowed — one of six opt-in states. ERISA → federal unless opted in.</td>
+            <td class="col-process">Maine Bureau of Insurance. Binding arbitration.</td>
+            <td class="col-deadline">Under Maine Insurance Code — varies by dispute type.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <!-- Maryland -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Maryland</span>
+              <span class="state-law">Ins. Art. §15-1005</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured MD-regulated plans</strong>. Payment rule: insurer pays median in-network rate. Dispute filed with MIA if payment rejected. Non-emergency mostly → federal. ERISA → federal.</td>
+            <td class="col-process">Maryland Insurance Administration (MIA). Payment rule + complaint process.</td>
+            <td class="col-deadline">File with MIA within 60 days of receiving insurer's payment.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Michigan -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Michigan</span>
+              <span class="state-law">MCL §550.1841 et seq.</span>
+            </td>
+            <td class="col-claims">Emergency + non-emergency OON services at in-network facilities — <strong>fully insured MI-regulated plans</strong>. Covers same service categories as NSA. ERISA → federal.</td>
+            <td class="col-process">MI DIFS (Dept. of Insurance and Financial Services) binding arbitration.</td>
+            <td class="col-deadline">Within 30 days of failed negotiation — DIFS rules.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Missouri -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Missouri</span>
+              <span class="state-law">RSMo §376.700 et seq.</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured MO-regulated plans</strong>. Scope narrower than federal NSA — primarily emergency. Non-emergency OON at in-network facilities generally → federal. ERISA → federal.</td>
+            <td class="col-process">MO DOI dispute process. Binding determination.</td>
+            <td class="col-deadline">Under Missouri Insurance Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Nebraska -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Nebraska</span>
+              <span class="state-law">Neb. Rev. Stat. §44-1810</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured NE-regulated plans</strong>. Emergency only; non-emergency → federal. ERISA → federal.</td>
+            <td class="col-process">NE DOI. Arbitration process.</td>
+            <td class="col-deadline">Under Nebraska Insurance Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Nevada -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Nevada</span>
+              <span class="state-law">NRS §695G.160</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured NV-regulated plans</strong>. Self-insured opt-in allowed. ERISA → federal unless opted in. Emergency focus; non-emergency scope narrower.</td>
+            <td class="col-process">NV DOI. State arbitration process.</td>
+            <td class="col-deadline">Under Nevada Admin. Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-yes">Yes ⚑</span></td>
+          </tr>
+
+          <!-- New Hampshire -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">New Hampshire</span>
+              <span class="state-law">RSA 420-J:8-d</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured NH-regulated plans</strong>. Emergency focus. ERISA → federal.</td>
+            <td class="col-process">NH Insurance Dept. Arbitration process.</td>
+            <td class="col-deadline">Under NH RSA 420-J.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- New Mexico -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">New Mexico</span>
+              <span class="state-law">NMSA §59A-57-1</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured NM-regulated plans</strong>. Emergency focus. ERISA → federal.</td>
+            <td class="col-process">NM OSI (Office of Superintendent of Insurance). Arbitration.</td>
+            <td class="col-deadline">Under NM Insurance Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Ohio -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Ohio</span>
+              <span class="state-law">ORC §3902.51</span>
+            </td>
+            <td class="col-claims">Emergency + non-emergency OON services at in-network facilities — <strong>fully insured OH-regulated plans</strong>. Broad scope matching NSA categories. ERISA → federal.</td>
+            <td class="col-process">OH DOI binding arbitration.</td>
+            <td class="col-deadline">Within 30 days of failed negotiation — Ohio Revised Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Colorado -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Colorado</span>
+              <span class="state-law">C.R.S. §10-16-704</span>
+            </td>
+            <td class="col-claims">Emergency OON services — <strong>fully insured CO-regulated plans</strong>. Mediation before arbitration is required. ERISA → federal.</td>
+            <td class="col-process">CO DOI — mandatory mediation first, then binding arbitration.</td>
+            <td class="col-deadline">Under CO Insurance Code. Mediation 30 days, then arbitration.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+          <!-- Alaska -->
+          <tr class="state-row">
+            <td class="col-state">
+              <span class="state-name">Alaska</span>
+              <span class="state-law">3 AAC 26.110(a)</span>
+            </td>
+            <td class="col-claims"><strong>All OON health care claims under AK-regulated plans</strong> — unusually broad scope including, per AK DOI, air ambulance services. ERISA → federal. AK state law applies to any claim under an AK-issued or AK-regulated plan.</td>
+            <td class="col-process">AK DOI. State dispute process.</td>
+            <td class="col-deadline">Under Alaska Admin. Code.</td>
+            <td class="col-winrate"><span class="winrate-pct na">N/A</span></td>
+            <td class="col-erisa"><span class="erisa-no">No</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="optin-callout">
+        <span class="label">⚑ Self-insured opt-in states — requires additional verification</span>
+        <p>Six states allow self-insured (ERISA) plans to voluntarily opt into the state dispute resolution process: <strong>Georgia, Maine, Nevada, New Jersey, Virginia, and Washington.</strong> In these states, the plan-type determination alone is insufficient — even after confirming a plan is self-funded ERISA, you must verify whether that specific plan has opted into the state process. If it has opted in, the claim routes to the state track regardless of ERISA status. This opt-in status must be maintained in the payer/plan registry and verified at the claim level, not assumed from the payer ID alone.</p>
+      </div>
+
+      <div class="legend">
+        <strong>Why this table matters operationally.</strong>
+        The 22 bifurcated states + 6 opt-in states are not a static list — state laws change, CMS updates its deeming determinations, and individual plans modify their opt-in status. <em>Misrouting is the #1 procedural forfeit in federal IDR data</em> and the basis for HaloMD's four BCBS lawsuits (BCBS of GA being the cleanest documented example). A single misfiled state claim reaching the CMS portal is non-appealable. For any system handling IDR at scale, the state-routing registry is a living data asset: versioned, auditable, and updated on a defined cadence.
+      </div>
+
+    </section>
+
+  </div>
+
+  
 
 </main>
 
