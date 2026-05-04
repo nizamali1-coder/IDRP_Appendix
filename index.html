@@ -238,13 +238,32 @@ html, body {
 }
 
 .deriv-table .col-value {
-  width: 11%;
+  width: 13%;
   font-family: var(--font-serif);
   font-size: 14px;
   font-weight: 700;
   color: var(--navy);
   text-align: right;
   white-space: nowrap;
+}
+
+/* When a value cell needs to show both a $ figure and a count derivation. */
+.deriv-table .col-value .v-money {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--money);
+  letter-spacing: -0.01em;
+}
+.deriv-table .col-value .v-count {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-top: 3px;
+  letter-spacing: 0.02em;
 }
 
 .deriv-table .col-method {
@@ -407,7 +426,7 @@ html, body {
 
       <div class="section-title">
         <h2>Federal funnel — every layer traced.</h2>
-        <p class="sub">Five layers from $2.0T billed to ~$10B filed. The bottom of the funnel (CMS PUF) is confirmed primary data; the top is working estimates from CAQH and Change Healthcare. Federal addressable: $49–80B at ~51% actionable rate.</p>
+        <p class="sub">Six layers from $2.0T billed to ~$11B filed. The bottom of the funnel (CMS PUF) is confirmed primary data; the top is working estimates from CAQH and Change Healthcare. Federal addressable: $49–80B at ~51% actionable rate.</p>
       </div>
 
       <table class="deriv-table">
@@ -427,7 +446,7 @@ html, body {
               <span class="row-id">A1</span>
               <span class="row-label">Total US commercial claims</span>
             </td>
-            <td class="col-value">~3.5–3.7B</td>
+            <td class="col-value"><span class="v-money">~$2.0T billed</span><span class="v-count">~3.5–3.7B claims × ~$500 avg</span></td>
             <td class="col-method">Confirmed CAQH primary metric. ~$2.0T total billed when multiplied by ~$500 average claim value.</td>
             <td class="col-source">CAQH Index 2023<br>
               <a href="https://www.caqh.org/explorations/efficiency-index" target="_blank" rel="noopener">caqh.org · Efficiency Index</a>
@@ -453,7 +472,7 @@ html, body {
               <span class="row-id">B2</span>
               <span class="row-label">Total denied / underpaid claims</span>
             </td>
-            <td class="col-value">~400–430M</td>
+            <td class="col-value"><span class="v-money">~$262B denied</span><span class="v-count">~400–430M claims × ~$500 avg</span></td>
             <td class="col-method">Calculated: A1 × B1 = ~407–444M. Includes all denial categories (clinical, administrative, OON) — not exclusively NSA-eligible OON underpayments.</td>
             <td class="col-source">Derived: A1 (CAQH) × B1 (Change Healthcare); CMS OIG directional cross-check<br>
               <a href="https://oig.hhs.gov/oei/reports/oei-09-16-00410.asp" target="_blank" rel="noopener">oig.hhs.gov · CMS OIG</a>
@@ -493,7 +512,7 @@ html, body {
               <span class="row-id">C4</span>
               <span class="row-label">Federal IDR-eligible $ pool</span>
             </td>
-            <td class="col-value">$96–156B</td>
+            <td class="col-value"><span class="v-money">$96–156B</span><span class="v-count">~30–45M claims × ~$3,200–3,500</span></td>
             <td class="col-method">C2 × $3,200–3,500 avg underpayment. Underpayment derived from Georgetown CHIR's median IDR award (~$5,500) discounted to reflect partial pre-IDR recovery. Low: 30M × $3,200 = $96B. High: 45M × $3,500 ≈ $156B.</td>
             <td class="col-source">Georgetown CHIR 2024 + CMS Federal IDR PUF 2024<br>
               <a href="https://chir.georgetown.edu/independent-dispute-resolution-process-2024-data-high-volume-more-provider-wins/" target="_blank" rel="noopener">chir.georgetown.edu · 2024 IDR data</a>
@@ -503,10 +522,23 @@ html, body {
 
           <tr>
             <td class="row-id-label">
+              <span class="row-id">C4b</span>
+              <span class="row-label">Federal IDR disputes filed</span>
+            </td>
+            <td class="col-value"><span class="v-money">~$11B</span><span class="v-count">1.46M disputes (H1 2025)</span></td>
+            <td class="col-method">CMS Federal IDR PUF H1 2025: 1,463,872 disputes initiated. Average award size ~$3,200–3,500 per dispute (Georgetown CHIR 2024 median IDR award discounted for partial pre-IDR recovery). 1.46M × ~$3,300 avg ≈ $4.8B awarded; gross dispute volume ~$11B reflects total disputed amounts pre-determination. Anchor figure for the entire funnel — only confirmed primary data point in the chain.</td>
+            <td class="col-source">CMS Federal IDR PUF H1 2025; Georgetown CHIR 2024<br>
+              <a href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener">cms.gov/nosurprises · IDR Reports</a>
+            </td>
+            <td class="col-status"><span class="badge confirmed">Confirmed</span></td>
+          </tr>
+
+          <tr>
+            <td class="row-id-label">
               <span class="row-id">C5</span>
               <span class="row-label">Federal addressable gap</span>
             </td>
-            <td class="col-value">~$49–80B</td>
+            <td class="col-value"><span class="v-money">~$49–80B</span><span class="v-count">$96–156B × ~51% actionable</span></td>
             <td class="col-method">C4 × ~51% actionable rate. The 51% excludes ~40% of pool that is structurally unfiled (small-dollar claims where filing cost &gt; expected recovery; correctable billing errors that should never reach IDR) and ~9% already filed.</td>
             <td class="col-source">CMS Federal IDR PUF H1 2025; 45 CFR §149.510<br>
               <a href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener">cms.gov/nosurprises · IDR Reports</a>
@@ -565,7 +597,7 @@ html, body {
               <span class="row-id">C7</span>
               <span class="row-label">State IDR-eligible $ pool</span>
             </td>
-            <td class="col-value">~$34–70B</td>
+            <td class="col-value"><span class="v-money">~$34–70B</span><span class="v-count">~10–15M claims × ~$3,200–3,500</span></td>
             <td class="col-method">C3 × ~$3,200–3,500 avg underpayment (same as federal C4 methodology). High end allows for upper-bound state per-claim values; low end conservative. No primary source — fully derived.</td>
             <td class="col-source">Derived (no primary state IDR dollar data exists)</td>
             <td class="col-status"><span class="badge working">Working Est.</span></td>
@@ -576,7 +608,7 @@ html, body {
               <span class="row-id">C8</span>
               <span class="row-label">State addressable gap</span>
             </td>
-            <td class="col-value">~$19–40B</td>
+            <td class="col-value"><span class="v-money">~$19–40B</span><span class="v-count">$34–70B × ~57% actionable</span></td>
             <td class="col-method">C7 × ~57% actionable rate (state filing rate ~3% lower than federal 9%; same ~40% structurally unfiled). Low: $34B × 57% ≈ $19B. High: $70B × 57% ≈ $40B.</td>
             <td class="col-source">Derived (state IDR outcomes unavailable; replace with primary state data when published)</td>
             <td class="col-status"><span class="badge working">Working Est.</span></td>
@@ -587,7 +619,7 @@ html, body {
               <span class="row-id">C9</span>
               <span class="row-label">Combined federal + state gap</span>
             </td>
-            <td class="col-value">$68–120B</td>
+            <td class="col-value"><span class="v-money">$68–120B</span><span class="v-count">$49–80B fed + $19–40B state</span></td>
             <td class="col-method">Simple sum: C5 ($49–80B federal) + C8 ($19–40B state). Federal layer is defensible standalone; state layer is upside but flagged as working est. State-layer uncertainty propagates to upper bound of combined figure only.</td>
             <td class="col-source">Sum of C5 (Confirmed) + C8 (Working Est.)</td>
             <td class="col-status"><span class="badge working">Working Est.</span></td>
@@ -598,7 +630,7 @@ html, body {
 
       <div class="methodology">
         <span class="label">Methodology Note</span>
-        <p>The funnel uses primary CMS PUF data at the bottom (~$10B filed = confirmed). The federal addressable gap of $49–80B is anchored to that primary data and is defensible standalone. The state layer carries higher uncertainty — should be replaced with primary state IDR outcome data when available.</p>
+        <p>The funnel uses primary CMS PUF data at the bottom (~$11B filed = confirmed). The federal addressable gap of $49–80B is anchored to that primary data and is defensible standalone. The state layer carries higher uncertainty — should be replaced with primary state IDR outcome data when available.</p>
         <p>The headline <strong class="money">$68–120B</strong> is defensible as a macro narrative figure; the federal layer alone ($49–80B) is defensible as a product addressable market. Three figures should be replaced with primary data before external distribution: (1) the average claim value of ~$500 — HFMA is a benchmark, not a regulator; (2) the denial rate of ~11% — Change Healthcare is a vendor; (3) the state IDR eligible pool of 10–15M — no state publishes this.</p>
       </div>
 
