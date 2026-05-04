@@ -2283,16 +2283,51 @@ html, body {
 </footer>
 
 <script>
+// ─── Tab activation helper ───
+function activateTab(target) {
+  const tab = document.querySelector(`.tab[data-tab="${target}"]:not(.disabled)`);
+  if (!tab) return false;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const panel = document.querySelector(`.panel[data-panel="${target}"]`);
+  if (panel) panel.classList.add('active');
+  return true;
+}
+
 // ─── Top-level tab switching ───
 document.querySelectorAll('.tab:not(.disabled)').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
     const target = tab.dataset.tab;
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    const panel = document.querySelector(`.panel[data-panel="${target}"]`);
-    if (panel) panel.classList.add('active');
+    activateTab(target);
+    // Update URL hash for shareable links — without scrolling.
+    // Wrap in try/catch because sandboxed iframes (e.g. about:srcdoc) throw SecurityError.
+    try {
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + target);
+      } else {
+        location.hash = '#' + target;
+      }
+    } catch (e) {
+      // Sandboxed context — silently skip URL update; tab activation still works.
+    }
   });
+});
+
+// ─── Read URL hash on initial load ───
+(function syncFromHash() {
+  const hash = window.location.hash.replace('#', '').toLowerCase().trim();
+  if (hash && activateTab(hash)) {
+    // Tab activated successfully — done
+    return;
+  }
+  // Otherwise leave the default-active tab alone
+})();
+
+// ─── Listen for hash changes (e.g. browser back/forward) ───
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.replace('#', '').toLowerCase().trim();
+  if (hash) activateTab(hash);
 });
 
 // ─── Sub-tab switching ───
