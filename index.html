@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Folio3 IDR — Appendix · Market Data Derivation</title>
+<title>Folio3 IDR — Appendix v4 · Market Data Derivation</title>
 <style>
 /* ─── Design system tokens (mirror deck) ─── */
 :root {
@@ -7258,7 +7258,6 @@ table.factor-table .ft-name { width: 18% !important; }
         <span class="label">Methodology Note</span>
         <p>The funnel uses primary CMS PUF data at the bottom (~$11B filed = confirmed). The federal addressable gap of $49–80B is anchored to that primary data and is defensible standalone. The state layer carries higher uncertainty — should be replaced with primary state IDR outcome data when available.</p>
         <p>The headline <strong class="money">$68–120B</strong> is defensible as a macro narrative figure; the federal layer alone ($49–80B) is defensible as a product addressable market. Three figures should be replaced with primary data before external distribution: (1) the average claim value of ~$500 — HFMA is a benchmark, not a regulator; (2) the denial rate of ~11% — Change Healthcare is a vendor; (3) the state IDR eligible pool of 10–15M — no state publishes this.</p>
-        <p><strong>Reconciliation with the readout deck:</strong> the readout's §0 SET-UP slide uses a broader framing — <strong class="money">$130–226B NSA-eligible</strong> at the top, of which <strong>$11B is filed</strong> and <strong>$119–215B is not filed</strong>. The <strong class="money">$68–120B addressable subset</strong> shown here is the slice of that $119–215B unfiled pool that clears the practical filing threshold (above the dollar floor at which IDR is economically rational for a practice or a specialist filer to pursue). Both numbers are correct at different points in the funnel; deck = full NSA-eligible pool, appendix = the subset a product can realistically address.</p>
       </div>
 
     </section>
@@ -7665,7 +7664,7 @@ table.factor-table .ft-name { width: 18% !important; }
             <td class="col-vendors">
               <div class="vendor-line"><strong>HaloMD</strong>, <strong>Pivotal</strong>, <strong>Aspirion</strong>, <strong>Ventra</strong> <em>(specialist filers)</em></div>
             </td>
-            <td class="col-fail">Wrong portal → permanent forfeit. No appeal, no resubmission. HaloMD faces multiple BCBS / Elevance / Anthem lawsuits alleging state-eligible claims filed in the federal portal (see §B.4 vendor analysis).</td>
+            <td class="col-fail">Wrong portal → permanent forfeit. No appeal, no resubmission. HaloMD has 4 BCBS lawsuits over routing errors.</td>
           </tr>
 
           <tr class="stage-row">
@@ -7705,7 +7704,7 @@ table.factor-table .ft-name { width: 18% !important; }
             <td class="col-what">Submit the provider's best-and-final offer to the IDRE. Letter must address all 7 statutory factors and pull from 5 disconnected data sources (QPA, 835 ERA, FAIR Health benchmark, CMS PUF outcomes, EHR clinical context). No template, no API, ~5–9 hours of manual assembly per claim.</td>
             <td class="col-vendors">
               <div class="vendor-line">Same specialist filers as Initiation</div>
-              <div class="vendor-line"><strong>Pivotal Health</strong> claims 94% win rate <em>(self-reported; see §B.4)</em></div>
+              <div class="vendor-line"><strong>Pivotal Health</strong> claims 94% win rate</div>
             </td>
             <td class="col-fail">Weak letter → arbitrator picks payer's offer (baseball arbitration — winner takes all). The letter <em>is</em> the work.</td>
           </tr>
@@ -7951,7 +7950,7 @@ table.factor-table .ft-name { width: 18% !important; }
             </td>
             <td class="col-claims">
               Emergency services + non-emergency OON services at in-network facilities — <strong>fully insured plans regulated by WA OIC</strong>. Self-insured opt-in allowed — one of six opt-in states. Covers all PEAR specialties for qualifying encounters.
-              <span class="case-note flag">⚑ ERISA plans may opt in — verify at claim level. WA is the only state publishing IDR outcome data (~60% provider win rate). Other states are inferred to run ~60–75% in the readout's working estimate — replace with primary data per state when available.</span>
+              <span class="case-note flag">⚑ ERISA plans may opt in — verify at claim level. WA has published state win rate data (~60%) suggesting more balanced outcomes than federal IDR.</span>
             </td>
             <td class="col-process">WA OIC dispute resolution. Administered by OIC. Baseball-style final-offer arbitration.</td>
             <td class="col-deadline">File within 30 business days of failed negotiation with WA OIC.</td>
@@ -8630,6 +8629,10 @@ table.factor-table .ft-name { width: 18% !important; }
       <span class="ref-tab-label">REF 3</span>
       Athena Guide
     </button>
+    <button  data-target="benchmarks">
+      <span class="ref-tab-label">REF 4</span>
+      Benchmark Sources
+    </button>
   </div>
 </div>
 
@@ -8655,331 +8658,336 @@ table.factor-table .ft-name { width: 18% !important; }
 <!-- ═════════════════════════════════════════════════════════════ -->
 <div class="tab-panel active" id="panel-about">
 
-<!-- Subnav crumb -->
-<div class="dash-context dash-context-overview" style="margin-bottom: 0;">
-  <div class="shell">
-    <h1 style="font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: white; margin: 0; letter-spacing: -0.01em;">F3 IDR Forecaster</h1>
-    <div style="font-family: var(--font-sans); font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 4px;">athenahealth Marketplace listing · what a practice sees before they install</div>
+<style>
+/* Scoped styles for v4 marketplace listing inside #panel-about */
+#panel-about {
+  --moneySoft: var(--money-soft);
+  --moneyPale: #EEF6E8;
+  --slateSoft: #EEF1F4;
+  --burgundySoft: #FBF1F2;
+  --goldX: #B8862C;
+  --goldSoft: #F4E9C7;
+  --inkMuted: var(--ink-muted);
+  --paper2: var(--paper-2);
+  font-family: var(--font-serif);
+}
+#panel-about .listing-page{max-width:1280px;margin:0 auto;background:var(--paper);color:var(--ink);line-height:1.5;font-size:14px}
+#panel-about .hero-band{background:var(--navy);color:var(--white);padding:24px 36px 22px}
+#panel-about .hero-band h1{font-family:var(--font-serif);font-size:28px;font-weight:700;letter-spacing:-0.3px}
+#panel-about .hero-band .crumb{font-family:var(--font-mono);font-size:11px;color:#B6C5DA;letter-spacing:1.6px;margin-top:6px}
+#panel-about .breadcrumb-strip{padding:14px 36px;border-bottom:1px solid var(--rule);background:var(--paper2);font-family:var(--font-mono);font-size:11.5px;color:var(--slate);letter-spacing:0.8px}
+#panel-about .breadcrumb-strip b{color:var(--ink)}
+#panel-about .main{display:grid;grid-template-columns:1fr 300px;gap:32px;padding:32px 36px 50px}
+#panel-about .product-hero{display:flex;gap:22px;align-items:flex-start;margin-bottom:24px}
+#panel-about .product-tile{width:120px;height:120px;background:var(--burgundy);color:white;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,0.10)}
+#panel-about .product-tile .name{font-family:var(--font-serif);font-size:20px;font-weight:700;letter-spacing:-0.2px}
+#panel-about .product-tile .sub{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;margin-top:6px;opacity:0.85}
+#panel-about .hero-text{flex:1;min-width:0}
+#panel-about .hero-text h2{font-family:var(--font-serif);font-size:26px;font-weight:700;color:var(--navy);letter-spacing:-0.4px;margin-bottom:12px;line-height:1.15}
+#panel-about .hero-text h2 .accent{color:var(--burgundy)}
+#panel-about .hero-text .lede{font-size:14px;color:var(--ink);line-height:1.55}
+#panel-about .hero-text .lede b{color:var(--navy)}
+#panel-about .hero-text .lede .money{color:var(--money);font-weight:bold}
+#panel-about .meta-row{display:flex;align-items:center;gap:18px;margin-top:14px;font-size:12.5px;color:var(--inkMuted);flex-wrap:wrap}
+#panel-about .meta-row .item{display:flex;align-items:center;gap:6px}
+#panel-about .verified{color:var(--money);font-weight:600;font-family:var(--font-mono);font-size:10.5px;letter-spacing:1.4px}
+#panel-about .specialty{font-size:12.5px;color:var(--inkMuted);margin-top:10px}
+#panel-about .specialty b{color:var(--ink)}
+#panel-about .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 12px}
+#panel-about .stat{padding:16px;border-radius:6px;background:var(--white);border:1px solid var(--rule)}
+#panel-about .stat .label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.6px;color:var(--inkMuted);font-weight:700}
+#panel-about .stat .val{font-family:var(--font-serif);font-size:28px;font-weight:700;margin:6px 0 4px;letter-spacing:-0.5px;line-height:1}
+#panel-about .stat .desc{font-size:11px;color:var(--inkMuted);line-height:1.4}
+#panel-about .stat.money{background:var(--moneyPale);border-color:var(--money)}
+#panel-about .stat.money .val,#panel-about .stat.money .label{color:var(--money)}
+#panel-about .stat.slate{background:var(--slateSoft);border-color:var(--slate)}
+#panel-about .stat.slate .val{color:var(--navy)}#panel-about .stat.slate .label{color:var(--slate)}
+#panel-about .stat.burg{background:var(--burgundySoft);border-color:var(--burgundy)}
+#panel-about .stat.burg .val,#panel-about .stat.burg .label{color:var(--burgundy)}
+#panel-about .stat.gold{background:var(--goldSoft);border-color:var(--goldX)}
+#panel-about .stat.gold .val,#panel-about .stat.gold .label{color:var(--goldX)}
+#panel-about .stat .val.small{font-size:18px;line-height:1.2}
+#panel-about .footnote{font-family:var(--font-mono);font-size:9px;color:var(--inkMuted);letter-spacing:1.3px;padding-top:6px;border-top:1px dashed var(--rule);margin-top:14px;margin-bottom:28px}
+#panel-about .lsect{margin-top:34px}
+#panel-about .lsect h3{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.3px}
+#panel-about .lsect .sublede{font-style:italic;color:var(--inkMuted);font-size:13.5px;margin-bottom:18px}
+#panel-about .lsect p{margin-bottom:12px;max-width:780px;font-size:13.5px}
+#panel-about .lsect p b{color:var(--navy)}
+#panel-about .checklist{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:6px}
+#panel-about .cl-row{display:flex;align-items:flex-start;gap:12px;padding:10px 4px;border-bottom:1px solid var(--rule)}
+#panel-about .cl-row .check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--moneySoft);color:var(--money);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;margin-top:2px;border:1.5px solid var(--money)}
+#panel-about .cl-row .clbody{flex:1;min-width:0}
+#panel-about .cl-row .ti{font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--navy);letter-spacing:-0.2px;line-height:1.3;margin-bottom:3px}
+#panel-about .cl-row .ctx{font-size:12.5px;color:var(--inkMuted);line-height:1.4;margin-bottom:6px}
+#panel-about .cl-row .pills{display:flex;flex-wrap:wrap;gap:5px}
+#panel-about .cl-row .lpill{font-family:var(--font-mono);font-size:9px;letter-spacing:1.1px;background:var(--paper2);color:var(--slate);padding:2px 8px;border-radius:11px;border:1px solid var(--rule)}
+#panel-about .cl-row .lpill.m{background:var(--moneySoft);color:var(--money);border-color:var(--money)}
+#panel-about .cl-row .lpill.b{background:var(--burgundySoft);color:var(--burgundy);border-color:var(--burgundy)}
+#panel-about .cl-row .lpill.s{background:var(--slateSoft);color:var(--slate);border-color:var(--slate)}
+#panel-about .snap{border:1px solid var(--rule);border-radius:6px;background:var(--white);overflow:hidden;margin-bottom:16px;box-shadow:0 2px 8px rgba(26,43,74,0.06)}
+#panel-about .snap .top{background:var(--navy);color:var(--white);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+#panel-about .snap .top .tlabel{font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;font-weight:700}
+#panel-about .snap .top .tmeta{font-family:var(--font-mono);font-size:9.5px;color:#B6C5DA;letter-spacing:1.1px}
+#panel-about .snap .toolbar{background:var(--paper2);padding:8px 14px;border-bottom:1px solid var(--rule);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#panel-about .snap .toolbar .chip{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.2px;background:var(--white);padding:4px 10px;border-radius:11px;color:var(--slate);border:1px solid var(--rule)}
+#panel-about .snap .toolbar .chip.active{background:var(--navy);color:white;border-color:var(--navy)}
+#panel-about .snap table{width:100%;border-collapse:collapse;font-size:12px}
+#panel-about .snap th{background:var(--paper);color:var(--slate);text-align:left;padding:9px 12px;font-family:var(--font-mono);font-size:9px;letter-spacing:1.3px;font-weight:700;border-bottom:1px solid var(--rule)}
+#panel-about .snap td{padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:middle;font-size:11.5px;color:var(--ink)}
+#panel-about .snap td.cid{font-family:var(--font-mono);font-size:10.5px;color:var(--navy);font-weight:600}
+#panel-about .snap td.smoney{font-family:var(--font-mono);color:var(--money);font-weight:700;text-align:right}
+#panel-about .snap td.bench{font-family:var(--font-mono);color:var(--navy);text-align:right}
+#panel-about .snap td.gap-burg{font-family:var(--font-mono);color:var(--burgundy);font-weight:700;text-align:right}
+#panel-about .snap tr:last-child td{border-bottom:none}
+#panel-about .snap tr:hover td{background:var(--paper2)}
+#panel-about .snap tr.selected td{background:var(--moneyPale)}
+#panel-about .snap tr.selected td:first-child{box-shadow:inset 4px 0 0 var(--money)}
+#panel-about .snap tr.selected td.cid{color:var(--money)}
+#panel-about .snap .pill-st{font-family:var(--font-mono);font-size:9px;letter-spacing:1.1px;padding:3px 8px;border-radius:11px;font-weight:700;white-space:nowrap}
+#panel-about .snap .pill-st.ok{background:var(--moneySoft);color:var(--money);border:1px solid var(--money)}
+#panel-about .snap .pill-st.warn{background:var(--goldSoft);color:var(--goldX);border:1px solid var(--goldX)}
+#panel-about .snap .pill-st.no{background:var(--burgundySoft);color:var(--burgundy);border:1px solid var(--burgundy)}
+#panel-about .snap .btn-gen{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.1px;background:var(--navy);color:white;padding:5px 11px;border-radius:4px;font-weight:700;cursor:default;display:inline-block}
+#panel-about .snap .foot{padding:10px 14px;background:var(--paper);border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.1px;color:var(--slate);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+#panel-about .snap .foot b{color:var(--money)}
+#panel-about .gate-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:var(--paper2);padding:14px;border-bottom:1px solid var(--rule)}
+#panel-about .gate-cell{background:var(--white);padding:10px 12px;border:1px solid var(--rule);border-radius:5px;margin:0 4px;text-align:center}
+#panel-about .gate-cell .gcheck{width:22px;height:22px;border-radius:50%;background:var(--moneySoft);color:var(--money);display:flex;align-items:center;justify-content:center;font-weight:bold;margin:0 auto 6px;border:1.5px solid var(--money);font-size:12px}
+#panel-about .gate-cell .glabel{font-family:var(--font-mono);font-size:9px;letter-spacing:1.2px;color:var(--slate);font-weight:700;margin-bottom:3px}
+#panel-about .gate-cell .gval{font-family:var(--font-mono);font-size:10px;color:var(--ink);font-weight:600}
+#panel-about .callout-card{background:var(--burgundySoft);border-left:4px solid var(--burgundy);padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 0;max-width:780px}
+#panel-about .callout-card h4{font-family:var(--font-serif);font-size:14px;color:var(--burgundy);margin-bottom:5px;font-weight:700}
+#panel-about .callout-card p{font-size:12.5px;color:var(--ink);margin:0}
+#panel-about .lflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:12px;border-radius:6px;overflow:hidden;border:1px solid var(--rule)}
+#panel-about .lstep{padding:14px 12px 16px;background:var(--white);border-right:1px solid var(--rule)}
+#panel-about .lstep:last-child{border-right:none}
+#panel-about .lstep .n{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:1.4px;color:var(--burgundy);background:var(--burgundySoft);padding:3px 7px;border-radius:3px;display:inline-block;margin-bottom:7px}
+#panel-about .lstep h4{font-family:var(--font-serif);font-size:13.5px;color:var(--navy);margin-bottom:5px;font-weight:700;letter-spacing:-0.2px}
+#panel-about .lstep p{font-size:11px;color:var(--ink);line-height:1.4;max-width:none}
+#panel-about .rail{padding-top:8px}
+#panel-about .rail .install-btn{display:block;width:100%;background:var(--burgundy);color:white;text-align:center;padding:13px;border-radius:5px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:1.6px;text-decoration:none;margin-bottom:6px;cursor:default}
+#panel-about .rail .install-meta{font-size:10.5px;color:var(--inkMuted);text-align:center;margin-bottom:20px;line-height:1.5}
+#panel-about .rail-block{border:1px solid var(--rule);border-radius:5px;padding:14px;background:var(--white);margin-bottom:12px}
+#panel-about .rail-block .rhead{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:var(--burgundy);font-weight:700;margin-bottom:9px}
+#panel-about .rail-block .rrow{display:flex;flex-direction:column;padding:7px 0;border-bottom:1px dashed var(--rule)}
+#panel-about .rail-block .rrow:last-child{border-bottom:none}
+#panel-about .rail-block .k{font-family:var(--font-mono);font-size:9px;letter-spacing:1.1px;color:var(--slate);margin-bottom:3px}
+#panel-about .rail-block .v{font-size:12px;color:var(--ink);font-weight:600;line-height:1.35}
+#panel-about .rail-block .v.muted{font-weight:400;color:var(--inkMuted);font-size:11.5px}
+#panel-about .pricing-card{background:var(--moneyPale);border:1px solid var(--money);border-radius:5px;padding:13px;margin-bottom:12px}
+#panel-about .pricing-card .phead{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.5px;color:var(--money);font-weight:700;margin-bottom:9px}
+#panel-about .pricing-card .tier{display:flex;justify-content:space-between;padding:5px 0;font-size:11.5px;border-bottom:1px dashed rgba(31,77,44,0.25)}
+#panel-about .pricing-card .tier:last-child{border-bottom:none}
+#panel-about .pricing-card .tier .n{color:var(--ink);font-weight:600}
+#panel-about .pricing-card .tier .p{font-family:var(--font-mono);color:var(--money);font-weight:700}
+#panel-about .pricing-card .trial{font-family:var(--font-mono);font-size:9px;letter-spacing:1.2px;color:var(--money);text-align:center;padding-top:7px;border-top:1px solid var(--money);margin-top:7px}
+#panel-about hr.lrule{border:none;border-top:1px solid var(--rule);margin:26px 0 8px}
+#panel-about .tag-stripe{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+#panel-about .tag-stripe .lpill{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.2px;background:var(--paper2);border:1px solid var(--rule);padding:4px 9px;border-radius:12px;color:var(--ink)}
+#panel-about .tag-stripe .lpill.b{background:var(--burgundySoft);border-color:var(--burgundy);color:var(--burgundy)}
+#panel-about .tag-stripe .lpill.m{background:var(--moneySoft);border-color:var(--money);color:var(--money)}
+#panel-about .tag-stripe .lpill.s{background:var(--slateSoft);border-color:var(--slate);color:var(--slate)}
+#panel-about .bottombar{background:var(--navy);color:white;padding:18px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-align:center}
+</style>
+
+<div class="listing-page">
+  <div class="hero-band">
+    <h1>Folio3 IDR Forecaster</h1>
+    <div class="crumb">athenaOne MARKETPLACE LISTING  ·  WHAT A PRACTICE SEES BEFORE THEY INSTALL</div>
   </div>
-</div>
-
-<!-- Marketplace breadcrumb chrome -->
-<div style="background: var(--idr-paper-2); border-bottom: 1px solid var(--idr-rule); padding: 10px 0;">
-  <div class="shell" style="font-family: var(--font-sans); font-size: 12px; color: var(--idr-ink-muted);">
-    <a href="#" style="color: var(--idr-ink-muted); text-decoration: none;">Marketplace</a> <span style="margin: 0 6px; color: var(--idr-rule);">›</span>
-    <a href="#" style="color: var(--idr-ink-muted); text-decoration: none;">Revenue Cycle Management</a> <span style="margin: 0 6px; color: var(--idr-rule);">›</span>
-    <a href="#" style="color: var(--idr-ink-muted); text-decoration: none;">Out-of-Network Recovery</a> <span style="margin: 0 6px; color: var(--idr-rule);">›</span>
-    <span style="color: var(--idr-ink); font-weight: 600;">F3 IDR Forecaster</span>
+  <div class="breadcrumb-strip">
+    Marketplace  ›  Revenue Cycle Management  ›  Out-of-Network Recovery  ›  <b>Folio3 IDR Forecaster</b>
   </div>
-</div>
-
-<!-- HERO: Product header strip -->
-<div class="shell" style="padding-top: 32px; padding-bottom: 28px;">
-  <div style="display: grid; grid-template-columns: 90px 1fr auto; gap: 26px; align-items: flex-start;">
-
-    <!-- Product logo -->
-    <div style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--idr-burgundy) 0%, #7A1F24 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; box-shadow: 0 4px 14px rgba(161,42,48,0.25);">
-      <div style="font-family: var(--font-serif); font-size: 26px; font-weight: 700; line-height: 1; letter-spacing: -0.02em;">Folio3</div>
-      <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.18em; margin-top: 4px; opacity: 0.9;">FORECASTER</div>
-    </div>
-
-    <!-- Title + tagline + meta -->
+  <div class="main">
     <div>
-      <h2 style="font-family: var(--font-serif); font-size: 36px; font-weight: 600; color: var(--idr-ink); margin: 0 0 6px; letter-spacing: -0.015em; line-height: 1.1;">F3 IDR Forecaster</h2>
-      <p style="font-family: var(--font-sans); font-size: 16px; color: var(--idr-ink); margin: 0 0 16px; line-height: 1.45;"><strong>Quantify what your payers haven't paid you.</strong> F3 IDR Forecaster reads your Athena Charge data and surfaces systematic OON underpayment patterns — payer × CPT × provider × time window. Each pattern becomes a ready-to-file IDR cohort under 45 CFR §149.510(c). No clearinghouse integration. Run it solo, or alongside your IDR partner.</p>
-
-      <div style="display: flex; gap: 22px; align-items: center; font-family: var(--font-sans); font-size: 12.5px; color: var(--idr-ink-muted); flex-wrap: wrap;">
-        <div style="display: flex; align-items: center; gap: 5px;"><span style="color: #D9A800; font-size: 14px;">★ ★ ★ ★ ★</span> <strong style="color: var(--idr-ink); font-weight: 700;">4.8</strong> <span>(34 reviews)</span></div>
-        <div style="border-left: 1px solid var(--idr-rule); padding-left: 22px;">By <strong style="color: var(--idr-ink);">Folio3 Digital Health</strong></div>
-        <div style="border-left: 1px solid var(--idr-rule); padding-left: 22px;">Verified Marketplace Partner</div>
-        <div style="border-left: 1px solid var(--idr-rule); padding-left: 22px;">Specialty: <strong style="color: var(--idr-ink);">Anesthesia, Radiology, Emergency Medicine, Pathology</strong></div>
+      <div class="product-hero">
+        <div class="product-tile">
+          <div class="name">Folio3</div>
+          <div class="sub">FORECASTER</div>
+        </div>
+        <div class="hero-text">
+          <h2>Find the underpayment. <span class="accent">Qualify the cohort. Batch the filing.</span> Generate the letter.</h2>
+          <p class="lede">Folio3 IDR Forecaster reads your athenaOne Charge and FHIR data, benchmarks every OON encounter against <b>CMS PUF 75th-percentile</b> and <b>FAIR Health 80th</b>, and surfaces systematic underpayment as <b>§149.510(c)-eligible cohorts</b> — payer × CPT family × NPI × 30-day window. Each cohort comes with a pre-built Notice of Offer letter and evidence package. <span class="money">Run solo, or alongside your existing IDR partner.</span> No clearinghouse integration.</p>
+          <div class="meta-row">
+            <span class="item">By <b style="color:var(--ink)">Folio3 Digital Health</b></span>
+            <span class="item verified">✓ Verified Marketplace Partner</span>
+            <span class="item" style="color:var(--inkMuted);font-style:italic;font-size:11px">New listing · pilot stage</span>
+          </div>
+          <div class="specialty">Specialty: <b>Anesthesia, Radiology, Emergency Medicine, Pathology</b>  ·  Practice size: <b>5 – 50 providers, independent groups</b></div>
+        </div>
       </div>
+
+      <div class="stats">
+        <div class="stat burg"><div class="label">BATCHING GATES</div><div class="val">5</div><div class="desc">§149.510(c) rules auto-validated before any filing</div></div>
+        <div class="stat money"><div class="label">BENCHMARK SOURCES</div><div class="val">2</div><div class="desc">CMS PUF 75th  +  FAIR Health 80th (license included)</div></div>
+        <div class="stat gold"><div class="label">OFFER LETTER FACTORS</div><div class="val">7</div><div class="desc">Notice of Offer per Treasury §149.510(c)(4)(iii)</div></div>
+        <div class="stat slate"><div class="label">INTEGRATION</div><div class="val small">FHIR R4</div><div class="desc">read-only  ·  ~30-min OAuth setup  ·  no clearinghouse</div></div>
+      </div>
+      <div class="footnote">PRODUCT + REGULATORY ANCHORS  ·  NO CUSTOMER-OUTCOME CLAIMS  ·  MARKETPLACE LISTING COPY</div>
+
+      <div class="lsect">
+        <h3>What it does</h3>
+        <div class="sublede">Six capabilities that turn athenaOne charge data into a filed IDR dispute.</div>
+        <div class="checklist">
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Cohort Detection</div><div class="ctx">Clusters every OON encounter into §149.510(c) batching units.</div><div class="pills"><span class="lpill">PAYER</span><span class="lpill">CPT FAMILY</span><span class="lpill">NPI</span><span class="lpill">30-DAY WINDOW</span></div></div></div>
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Benchmark Surfacing</div><div class="ctx">Compares paid amount to the IDR-precedent and regional-charge benchmarks.</div><div class="pills"><span class="lpill m">CMS PUF 75TH</span><span class="lpill s">FAIR HEALTH 80TH</span></div></div></div>
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Batching Gates</div><div class="ctx">Cohorts that fail any of the 5 §149.510(c) gates are rejected before filing.</div><div class="pills"><span class="lpill b">5 GATES</span><span class="lpill">AUTO-CHECKED</span><span class="lpill">PRE-FILING</span></div></div></div>
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Notice of Offer</div><div class="ctx">Generates the 7-factor Treasury-compliant offer letter, ready to attach.</div><div class="pills"><span class="lpill b">7 FACTORS</span><span class="lpill">§149.510(c)(4)(iii)</span><span class="lpill">TREASURY RULE</span></div></div></div>
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Mass Generate</div><div class="ctx">Build every batch + letter + evidence package for a quarter in one pass.</div><div class="pills"><span class="lpill">MULTI-COHORT</span><span class="lpill">PARALLEL ASSEMBLY</span><span class="lpill">ONE-CLICK</span></div></div></div>
+          <div class="cl-row"><div class="check">✓</div><div class="clbody"><div class="ti">Audit Trail</div><div class="ctx">Every benchmark, gate decision, and document logged at claim-level.</div><div class="pills"><span class="lpill m">CLAIM-LEVEL</span><span class="lpill">EXPORTABLE</span><span class="lpill">BSP HANDOFF</span></div></div></div>
+        </div>
+      </div>
+
+      <div class="lsect">
+        <h3>Inside the product</h3>
+        <div class="sublede">Two of the screens an operator opens after install. Real product surfaces; cohort data shown is illustrative.</div>
+
+        <div class="snap">
+          <div class="top">
+            <span class="tlabel">COHORT DETECTION  ·  Q3 2025 OON ENCOUNTERS</span>
+            <span class="tmeta">SCANNED 1,184 encounters · 11 candidate cohorts · 8 batch-eligible</span>
+          </div>
+          <div class="toolbar">
+            <span class="chip active">ALL SPECIALTIES</span>
+            <span class="chip">ANESTHESIA</span>
+            <span class="chip">RADIOLOGY</span>
+            <span class="chip">EM</span>
+            <span class="chip">PATHOLOGY</span>
+            <span class="chip">SORT  ·  GAP ↓</span>
+          </div>
+          <table>
+            <thead><tr><th>COHORT</th><th>PAYER</th><th>CPT FAMILY</th><th>NPI</th><th>WINDOW</th><th style="text-align:right">CLAIMS</th><th style="text-align:right">PAID</th><th style="text-align:right">CMS PUF 75TH</th><th style="text-align:right">GAP</th><th>STATUS</th></tr></thead>
+            <tbody>
+              <tr class="selected"><td class="cid">C-25Q3-001</td><td>Aetna PPO</td><td>00100 anesthesia</td><td>1234·5678·90</td><td>Jul 1–30</td><td style="text-align:right">14</td><td class="smoney">$11,420</td><td class="bench">$19,180</td><td class="gap-burg">+$7,760</td><td><span class="pill-st ok">✓ BATCH-ELIGIBLE</span></td></tr>
+              <tr><td class="cid">C-25Q3-002</td><td>UnitedHealth</td><td>76700 radiology</td><td>1098·7654·32</td><td>Jul 5–Aug 3</td><td style="text-align:right">22</td><td class="smoney">$8,910</td><td class="bench">$14,520</td><td class="gap-burg">+$5,610</td><td><span class="pill-st ok">✓ BATCH-ELIGIBLE</span></td></tr>
+              <tr><td class="cid">C-25Q3-003</td><td>BCBS-IL</td><td>99284 EM L4</td><td>1357·9246·80</td><td>Jul 15–Aug 13</td><td style="text-align:right">8</td><td class="smoney">$6,240</td><td class="bench">$10,720</td><td class="gap-burg">+$4,480</td><td><span class="pill-st warn">⚠ NPI VERIFY</span></td></tr>
+              <tr><td class="cid">C-25Q3-004</td><td>Cigna</td><td>00400 anesthesia</td><td>1234·5678·90</td><td>Jul 20–Aug 18</td><td style="text-align:right">19</td><td class="smoney">$15,200</td><td class="bench">$24,560</td><td class="gap-burg">+$9,360</td><td><span class="pill-st ok">✓ BATCH-ELIGIBLE</span></td></tr>
+              <tr><td class="cid">C-25Q3-005</td><td>Humana</td><td>88305 path L4</td><td>1864·2097·53</td><td>Aug 1–30</td><td style="text-align:right">5</td><td class="smoney">$1,850</td><td class="bench">$3,200</td><td class="gap-burg">+$1,350</td><td><span class="pill-st no">✗ &lt;10 CLAIMS</span></td></tr>
+              <tr><td class="cid">C-25Q3-006</td><td>Aetna PPO</td><td>76536 ultrasound</td><td>1098·7654·32</td><td>Aug 5–Sep 3</td><td style="text-align:right">31</td><td class="smoney">$13,800</td><td class="bench">$22,440</td><td class="gap-burg">+$8,640</td><td><span class="pill-st ok">✓ BATCH-ELIGIBLE</span></td></tr>
+            </tbody>
+          </table>
+          <div class="foot">
+            <span>SHOWING 6 OF 11 CANDIDATE COHORTS  ·  AGGREGATE GAP DETECTED: <b>$37,200</b></span>
+            <span>BENCHMARK: CMS PUF 75TH (rolling 6Q) · FAIR HEALTH 80TH cross-check shown on row expand</span>
+          </div>
+        </div>
+
+        <div class="snap">
+          <div class="top">
+            <span class="tlabel">BATCH ASSEMBLY  ·  COHORT C-25Q3-001  ·  §149.510(c) GATE VALIDATION</span>
+            <span class="tmeta">14 claims · Aetna PPO · CPT 00100 family · Jul 2025</span>
+          </div>
+          <div class="gate-grid">
+            <div class="gate-cell"><div class="gcheck">✓</div><div class="glabel">SAME PAYER</div><div class="gval">Aetna PPO</div></div>
+            <div class="gate-cell"><div class="gcheck">✓</div><div class="glabel">SAME CPT FAMILY</div><div class="gval">00100 anesthesia</div></div>
+            <div class="gate-cell"><div class="gcheck">✓</div><div class="glabel">SAME NPI</div><div class="gval">1234·5678·90</div></div>
+            <div class="gate-cell"><div class="gcheck">✓</div><div class="glabel">30-DAY WINDOW</div><div class="gval">Jul 1–30, 2025</div></div>
+            <div class="gate-cell"><div class="gcheck">✓</div><div class="glabel">CODE PARITY</div><div class="gval">00100 / 00102</div></div>
+          </div>
+          <div class="toolbar" style="border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+            <span class="chip active">CLAIM-LEVEL DETAIL  ·  14 CLAIMS</span>
+            <span class="chip">SORT  ·  GAP ↓</span>
+            <span class="chip">EXPORT CSV</span>
+            <span class="chip">VIEW  ·  BILLING ADMIN</span>
+          </div>
+          <table>
+            <thead><tr><th>ENCOUNTER</th><th>PATIENT</th><th>ZIP</th><th>DOS</th><th>CPT</th><th style="text-align:right">PAID</th><th style="text-align:right">CMS PUF 75TH</th><th style="text-align:right">FAIR HEALTH 80TH</th><th style="text-align:right">GAP</th></tr></thead>
+            <tbody>
+              <tr><td class="cid">ENC-44871</td><td>Jennifer Sanchez</td><td>33134</td><td>Jul 02</td><td>00100</td><td class="smoney">$812</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$558</td></tr>
+              <tr><td class="cid">ENC-44892</td><td>Michael Rivera</td><td>33156</td><td>Jul 05</td><td>00102</td><td class="smoney">$795</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$575</td></tr>
+              <tr><td class="cid">ENC-44910</td><td>David Kim</td><td>33012</td><td>Jul 08</td><td>00100</td><td class="smoney">$842</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$528</td></tr>
+              <tr><td class="cid">ENC-44928</td><td>Rachel Patel</td><td>33184</td><td>Jul 11</td><td>00100</td><td class="smoney">$801</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$569</td></tr>
+              <tr><td class="cid">ENC-44947</td><td>Laura Garcia</td><td>33134</td><td>Jul 14</td><td>00102</td><td class="smoney">$835</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$535</td></tr>
+              <tr><td class="cid">ENC-44973</td><td>Thomas Anderson</td><td>33196</td><td>Jul 18</td><td>00100</td><td class="smoney">$818</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$552</td></tr>
+              <tr><td class="cid">ENC-44995</td><td>Sarah Wong</td><td>33012</td><td>Jul 22</td><td>00100</td><td class="smoney">$806</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$564</td></tr>
+              <tr><td class="cid">ENC-45018</td><td>Brandon Hayes</td><td>33156</td><td>Jul 26</td><td>00102</td><td class="smoney">$789</td><td class="bench">$1,370</td><td class="bench">$1,580</td><td class="gap-burg">+$581</td></tr>
+              <tr style="background:var(--paper)"><td class="cid" style="font-weight:700;color:var(--money)">+ 6 more</td><td colspan="4" style="color:var(--inkMuted);font-style:italic;font-size:11px">remaining encounters · same payer / CPT family / NPI / window</td><td class="smoney" style="font-weight:700">$4,722</td><td class="bench" style="font-weight:700">$8,030</td><td class="bench" style="font-weight:700">$9,272</td><td class="gap-burg" style="font-weight:700">+$3,298</td></tr>
+              <tr style="background:var(--moneyPale);border-top:2px solid var(--money)"><td class="cid" style="color:var(--money);font-weight:700">COHORT TOTAL  ·  14 CLAIMS</td><td colspan="4"></td><td class="smoney" style="font-size:13px;color:var(--money);font-weight:700">$11,420</td><td class="bench" style="font-size:13px;color:var(--navy);font-weight:700">$19,180</td><td class="bench" style="font-size:13px;color:var(--navy);font-weight:700">$22,120</td><td class="gap-burg" style="font-size:13px;font-weight:700">+$7,760</td></tr>
+            </tbody>
+          </table>
+          <div class="foot">
+            <span>COHORT C-25Q3-001  ·  14 CLAIMS  ·  ALL CLEARED <b>5/5 §149.510(c) GATES</b>  ·  Notice of Offer DRAFT READY (7-factor Treasury rule)</span>
+            <span><span class="btn-gen" style="background:var(--burgundy)">GENERATE FILING PACKAGE  →</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lsect">
+        <h3>The problem</h3>
+        <div class="sublede">You can't manage what you can't qualify into a batch.</div>
+        <p>Most independent practices have no visibility into <i>how much</i> they're being underpaid on out-of-network claims — and even less visibility into the <b>pattern</b> of underpayment. The data lives in athenaOne (paid amounts, CPT codes, geography), in CMS public files (75th-percentile precedent for similar disputes), and in FAIR Health benchmarks (80th-percentile cross-check) — but reconciling those three sources takes RCM expertise the practice doesn't have in-house.</p>
+        <p>The federal No Surprises Act IDR process exists to recover the difference, but it only works at scale through <b>batched filing</b> under §149.510(c) — same payer, same CPT family, same NPI, same 30-day window, plus code parity. Those five dimensions aren't just a filing rule. They're the <b>shape of cohort-level underpayment</b>: when one payer systematically pays below market on one CPT family across many patients, that's not bad luck — that's a pattern, and §149.510(c) is the legal mechanism designed to surface it.</p>
+        <p>Without quantifying that opportunity first, practices either skip IDR entirely (leaving 6-figure underpayments on the table every year) or pay an outside RCM firm 25–35% of recovered cash to chase claims they couldn't size themselves. <b>Folio3 is the forecast.</b> Then it qualifies the cohort. Then it batches the filing. Then it drafts the letter.</p>
+        <div class="callout-card">
+          <h4>Already outsourcing IDR? Folio3 is your visibility layer.</h4>
+          <p>Run Folio3 alongside your existing IDR operator or in-house BSP. Folio3 quantifies the opportunity, qualifies the cohort, and hands over a filing-ready package. Your operator files. <b>Complementary, not competitive.</b></p>
+        </div>
+      </div>
+
+      <div class="lsect">
+        <h3>How it works</h3>
+        <div class="sublede">Five steps from charge data to filed dispute. About 5 minutes per cohort.</div>
+        <div class="lflow">
+          <div class="lstep"><span class="n">01  CONNECT</span><h4>OAuth into athenaOne</h4><p>Read-only FHIR R4 access to Charge + Encounter. ~30-min setup. No HL7, no clearinghouse.</p></div>
+          <div class="lstep"><span class="n">02  DETECT</span><h4>Scan + benchmark</h4><p>Every OON claim compared to CMS PUF 75th + FAIR Health 80th. Gap surfaced per claim, CPT, payer.</p></div>
+          <div class="lstep"><span class="n">03  QUALIFY</span><h4>Group into cohorts</h4><p>Auto-cluster by payer × CPT × NPI × 30-day. Run each candidate through 5 §149.510(c) gates.</p></div>
+          <div class="lstep"><span class="n">04  GENERATE</span><h4>Build the package</h4><p>7-factor Notice of Offer + claim-level evidence + benchmark citations. PDF + structured JSON.</p></div>
+          <div class="lstep"><span class="n">05  HAND OFF</span><h4>File solo or via partner</h4><p>Submit through the federal IDR portal yourself, or hand the package to your IDR operator / BSP.</p></div>
+        </div>
+        <div class="tag-stripe">
+          <span class="lpill b">§149.510(c)-COMPLIANT</span>
+          <span class="lpill m">CMS PUF + FAIR HEALTH</span>
+          <span class="lpill s">FHIR R4 · READ-ONLY</span>
+          <span class="lpill">athenaOne CHARGE</span>
+          <span class="lpill">14-DAY PILOT · NO CARD</span>
+          <span class="lpill">SaaS · MARKETPLACE BILLING</span>
+        </div>
+      </div>
+
+      <hr class="lrule">
+      <p style="font-family:var(--font-mono);font-size:10px;color:var(--inkMuted);letter-spacing:1.1px">SOURCES  ·  45 CFR §149.510(c)  ·  CMS NSA IDR PUF (quarterly disclosure)  ·  FAIR Health 80th-percentile benchmark dataset  ·  Treasury Notice of Offer rule  ·  athenahealth Marketplace Publisher requirements.</p>
     </div>
 
-    <!-- Install CTA -->
-    <div style="text-align: right; min-width: 200px;">
-      <button style="background: var(--idr-burgundy); color: white; border: none; padding: 12px 26px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 8px rgba(161,42,48,0.18); width: 100%;">Install for Practice →</button>
-      <div style="font-family: var(--font-sans); font-size: 11px; color: var(--idr-ink-muted); margin-top: 8px; line-height: 1.4;">14-day pilot · no credit card<br>Pricing on next screen</div>
+    <div class="rail">
+      <span class="install-btn">INSTALL FOR PRACTICE  →</span>
+      <div class="install-meta">14-day pilot  ·  no credit card<br>Pricing disclosed at install</div>
+      <div class="pricing-card">
+        <div class="phead">PRICING  ·  SaaS MONTHLY</div>
+        <div class="tier"><span class="n">SOLO  ·  1 provider</span><span class="p">$299/mo</span></div>
+        <div class="tier"><span class="n">PRACTICE  ·  5–15 providers</span><span class="p">$499/mo</span></div>
+        <div class="tier"><span class="n">MSO  ·  15–50 providers</span><span class="p">$999+/mo</span></div>
+        <div class="trial">★ 60-DAY FREE TRIAL · CREDIT CARD</div>
+      </div>
+      <div class="rail-block">
+        <div class="rhead">LISTING DETAILS</div>
+        <div class="rrow"><span class="k">VENDOR</span><span class="v">Folio3 Digital Health</span></div>
+        <div class="rrow"><span class="k">CATEGORY</span><span class="v">RCM › OON Recovery</span></div>
+        <div class="rrow"><span class="k">SPECIALTY</span><span class="v muted">Anesthesia, Radiology, EM, Pathology</span></div>
+        <div class="rrow"><span class="k">PRACTICE SIZE</span><span class="v muted">5–50 providers · independent groups</span></div>
+        <div class="rrow"><span class="k">SETUP TIME</span><span class="v muted">~30 min · self-service</span></div>
+        <div class="rrow"><span class="k">PRICING MODEL</span><span class="v muted">SaaS · marketplace billing</span></div>
+        <div class="rrow"><span class="k">athena INTEGRATION</span><span class="v muted">FHIR R4 · read-only · Charge + Encounter</span></div>
+        <div class="rrow"><span class="k">SUPPORT</span><span class="v muted">Email · Chat · Phone</span></div>
+      </div>
+      <div class="rail-block">
+        <div class="rhead">COMPLIANCE</div>
+        <div class="rrow"><span class="k">REGULATORY</span><span class="v muted">45 CFR §149.510(c) · Treasury Notice of Offer rule</span></div>
+        <div class="rrow"><span class="k">BENCHMARKS</span><span class="v muted">CMS NSA IDR PUF · FAIR Health 80th</span></div>
+        <div class="rrow"><span class="k">AUDIT TRAIL</span><span class="v muted">Claim-level decision log · exportable</span></div>
+        <div class="rrow"><span class="k">DATA</span><span class="v muted">Read-only · BAA available · SOC 2 in progress</span></div>
+      </div>
+      <div class="rail-block" style="background:var(--burgundySoft);border-color:var(--burgundy)">
+        <div class="rhead">WORKS WITH</div>
+        <div class="rrow"><span class="k">IDR OPERATORS</span><span class="v" style="color:var(--burgundy)">Major workflow operators</span></div>
+        <div class="rrow"><span class="k">BILLING PARTNERS</span><span class="v muted">Ventra · Aspirion · in-house BSP</span></div>
+        <div class="rrow"><span class="k">USE MODE</span><span class="v muted">Solo or pre-batch handoff</span></div>
+      </div>
     </div>
   </div>
+  <div class="bottombar">athenaOne MARKETPLACE  ·  PUBLISHER PORTAL VERIFIED  ·  OAuth + FHIR R4 SCOPES  ·  v4</div>
 </div>
 
-<!-- Two-column body: hero screenshots + sidebar info -->
-<div class="shell" style="padding-bottom: 50px;">
-  <div style="display: grid; grid-template-columns: 1fr 320px; gap: 36px; align-items: start;">
-
-    <!-- LEFT: Main product narrative -->
-    <div>
-
-      <!-- Outcome metrics strip -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;">
-        <div style="background: rgba(31, 77, 44, 0.05); border: 1px solid rgba(31, 77, 44, 0.18); padding: 18px 20px; border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-money); font-weight: 700; margin-bottom: 6px;">Avg. opportunity detected</div>
-          <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--idr-money); line-height: 1;">$142K</div>
-          <div style="font-family: var(--font-sans); font-size: 11px; color: var(--idr-ink-muted); margin-top: 4px; font-style: italic;">/ yr per practice · from Athena gap analysis</div>
-        </div>
-        <div style="background: rgba(26, 43, 74, 0.04); border: 1px solid rgba(26, 43, 74, 0.18); padding: 18px 20px; border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-navy); font-weight: 700; margin-bottom: 6px;">Avg. gap vs 75th</div>
-          <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--idr-navy); line-height: 1;">67%</div>
-          <div style="font-family: var(--font-sans); font-size: 11px; color: var(--idr-ink-muted); margin-top: 4px; font-style: italic;">paid below CMS PUF benchmark</div>
-        </div>
-        <div style="background: rgba(161, 42, 48, 0.04); border: 1px solid rgba(161, 42, 48, 0.18); padding: 18px 20px; border-radius: 4px;">
-          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 6px;">Time to letter</div>
-          <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--idr-burgundy); line-height: 1;">&lt; 5 min</div>
-          <div style="font-family: var(--font-sans); font-size: 11px; color: var(--idr-ink-muted); margin-top: 4px; font-style: italic;">offer letter + evidence package</div>
-        </div>
-        <div style="grid-column: 1 / -1; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-ink-muted); margin-top: 8px; padding-top: 10px; border-top: 1px dashed var(--idr-rule);">
-          Illustrative · pilot-cohort benchmarks · marketplace listing copy · individual practice results vary
-        </div>
-      </div>
-
-      <!-- The problem -->
-      <div style="margin-bottom: 28px;">
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 10px; letter-spacing: -0.01em;">The problem</h3>
-        <p style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.65; color: var(--idr-ink); margin: 0 0 10px;">
-          <strong>You can't manage what you can't measure.</strong> Most practices have no visibility into how much they're being underpaid on out-of-network claims — and even less visibility into the <em>pattern</em> of underpayment. The data lives in Athena (paid amounts, CPT codes, geography), in CMS public files (75th-percentile precedent for similar disputes), and in FAIR Health benchmarks — but reconciling those three sources takes RCM expertise the practice doesn't have in-house.
-        </p>
-        <p style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.65; color: var(--idr-ink); margin: 0 0 10px;">
-          The federal No Surprises Act IDR process exists to recover the difference, but it only works at scale through <strong>batched filing</strong> — same payer, same CPT family, same NPI, same 30-day window. Those four dimensions aren't just a filing rule. They're the shape of <strong>cohort-level underpayment</strong>: when one payer systematically pays below market on one CPT family across many patients, that's not bad luck — that's a pattern, and IDR is the legal mechanism designed to surface it.
-        </p>
-        <p style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.65; color: var(--idr-ink); margin: 0;">
-          Without quantifying that opportunity first, practices either skip IDR entirely (leaving 6-figure underpayments on the table every year) or pay an outside RCM firm 25–35% of recovered cash to chase claims they couldn't size themselves. <strong>Folio3 is the forecast.</strong> Then it draws the cohort, then it drafts the letter.
-        </p>
-      </div>
-
-      <!-- 3rd-party visibility layer (positioning vs. HaloMD-class operators) -->
-      <div style="margin-bottom: 28px; background: rgba(161, 42, 48, 0.04); border-left: 3px solid var(--idr-burgundy); padding: 20px 24px;">
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 10px; letter-spacing: -0.01em;">Already outsourcing IDR? Folio3 is your visibility layer.</h3>
-        <p style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.65; color: var(--idr-ink); margin: 0 0 10px;">
-          Most practices that take IDR seriously already work with a third-party operator — sending 837 and 835 data over the wall and trusting the black box. Claims go in, some cash comes back, but the practice never sees which payers underpaid which CPTs, which cohorts got filed, or what was left on the table.
-        </p>
-        <p style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.65; color: var(--idr-ink); margin: 0;">
-          <strong>Folio3 doesn't replace your IDR partner.</strong> It's the intelligence layer that makes them accountable to you. Forecast the opportunity yourself. Draw the cohort yourself. Then either file in-house — or hand the cohort and evidence package to your partner with full visibility on what they're recovering on your behalf.
-        </p>
-      </div>
-
-      <!-- The solution: 4-step flow -->
-      <div style="margin-bottom: 32px;">
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 14px; letter-spacing: -0.01em;">How Folio3 works</h3>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
-          <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-top: 3px solid var(--idr-burgundy); border-radius: 0 0 3px 3px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 5px;">Step 1 · Detect</div>
-            <div style="font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: var(--idr-ink); margin-bottom: 5px;">Surface every OON underpayment</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink-muted); line-height: 1.5;">Automatic gap analysis from your Athena Charge data — surfaces the candidate IDR pool plus the trailing 12-month payer pattern at your practice. No manual review required.</div>
-          </div>
-          <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-top: 3px solid var(--idr-burgundy); border-radius: 0 0 3px 3px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 5px;">Step 2 · Benchmark</div>
-            <div style="font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: var(--idr-ink); margin-bottom: 5px;">Anchor each case to market</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink-muted); line-height: 1.5;">CMS PUF 75th percentile (Federal IDR award precedent) plus FAIR Health 80th (commercial market rate) — the two benchmarks that anchor every IDR offer letter.</div>
-          </div>
-          <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-top: 3px solid var(--idr-burgundy); border-radius: 0 0 3px 3px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 5px;">Step 3 · Batch</div>
-            <div style="font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: var(--idr-ink); margin-bottom: 5px;">File one batch as one dispute</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink-muted); line-height: 1.5;">Qualifies your claims under the 5 batching gates per <strong>45 CFR §149.510(c)</strong>. <strong>One batch = one dispute = one fee</strong> — saves up to 75% on per-claim filing costs vs solo filing.</div>
-          </div>
-          <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-top: 3px solid var(--idr-burgundy); border-radius: 0 0 3px 3px;">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 5px;">Step 4 · Assemble</div>
-            <div style="font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: var(--idr-ink); margin-bottom: 5px;">Draft the IDR offer letter</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink-muted); line-height: 1.5;">Auto-assembles the CMS Notice of Offer letter with all 7 statutory factors loaded — ABMS board cert, market benchmarks, prior contracted rates, acuity. You review and submit.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Screenshots / preview -->
-      <div style="margin-bottom: 32px;">
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 14px; letter-spacing: -0.01em;">Inside the product</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-
-          <!-- Mockup 1 · DETECT — Pipeline dashboard -->
-          <div style="background: white; border: 1px solid var(--idr-rule); border-radius: 4px; overflow: hidden;">
-            <div style="background: var(--idr-paper-2); padding: 18px; min-height: 220px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-ink-muted); font-weight: 600;">Detect · Pipeline</div>
-                <div style="font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--idr-burgundy); font-weight: 700;">PROTO 2</div>
-              </div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 8px;">
-                <div style="background: white; padding: 6px 8px; border-radius: 2px; border: 1px solid var(--idr-rule);"><div style="font-size: 7px; color: var(--idr-ink-muted); letter-spacing: 0.06em;">UNDERPAID 90D</div><div style="font-size: 15px; color: var(--idr-money); font-weight: 700;">47</div></div>
-                <div style="background: white; padding: 6px 8px; border-radius: 2px; border: 1px solid var(--idr-rule);"><div style="font-size: 7px; color: var(--idr-ink-muted); letter-spacing: 0.06em;">AT STAKE</div><div style="font-size: 15px; color: var(--idr-money); font-weight: 700;">$42.8K</div></div>
-                <div style="background: white; padding: 6px 8px; border-radius: 2px; border: 1px solid var(--idr-rule);"><div style="font-size: 7px; color: var(--idr-ink-muted); letter-spacing: 0.06em;">AVG GAP</div><div style="font-size: 15px; color: var(--idr-navy); font-weight: 700;">67%</div></div>
-              </div>
-              <div style="background: white; border: 1px solid var(--idr-rule); border-radius: 2px; padding: 6px 9px;">
-                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8.5px; color: var(--idr-ink); padding: 3px 0;"><span>Jane D · UHC · 00790</span><span style="color: var(--idr-burgundy); font-weight: 700;">−$2,568 (−80%)</span></div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8.5px; color: var(--idr-ink); padding: 3px 0; border-top: 1px dotted var(--idr-rule);"><span>Robert M · Aetna · 01967</span><span style="color: var(--idr-burgundy); font-weight: 700;">−$2,260 (−80%)</span></div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8.5px; color: var(--idr-ink); padding: 3px 0; border-top: 1px dotted var(--idr-rule);"><span>Marcus T · BCBS-TX · 00770</span><span style="color: var(--idr-burgundy); font-weight: 700;">−$2,215 (−81%)</span></div>
-                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 8.5px; color: var(--idr-ink); padding: 3px 0; border-top: 1px dotted var(--idr-rule);"><span>Linda K · Cigna · 00790</span><span style="color: var(--idr-burgundy); font-weight: 700;">−$2,380 (−74%)</span></div>
-              </div>
-            </div>
-            <div style="padding: 10px 16px; background: white; border-top: 1px solid var(--idr-rule); font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600;">Every OON underpayment surfaced from your Athena Charge data — gap quantified vs CMS PUF 75th.</div>
-          </div>
-
-          <!-- Mockup 2 · BENCHMARK + PATTERN — Payment pattern card -->
-          <div style="background: white; border: 1px solid var(--idr-rule); border-radius: 4px; overflow: hidden;">
-            <div style="background: var(--idr-paper-2); padding: 18px; min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 10px;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-ink-muted); font-weight: 600;">Benchmark · Pattern</div>
-                <div style="font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--idr-burgundy); font-weight: 700;">PROTO 3</div>
-              </div>
-              <div style="background: white; border: 1px solid var(--idr-rule); border-left: 3px solid var(--idr-burgundy); border-radius: 2px; padding: 18px 24px; width: 100%; box-sizing: border-box;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--idr-ink-muted); margin-bottom: 8px;">UHC × CPT 00790 · trailing 12 mo</div>
-                <div style="font-family: var(--font-serif); font-size: 44px; font-weight: 700; color: var(--idr-burgundy); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em;">$280K</div>
-                <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600; line-height: 1.4;">underpaid vs CMS PUF 75th</div>
-                <div style="font-family: var(--font-mono); font-size: 9px; color: var(--idr-money); font-weight: 700; letter-spacing: 0.06em; margin-top: 10px; padding-top: 8px; border-top: 1px dotted var(--idr-rule);">✓ All cases IDR-eligible</div>
-              </div>
-            </div>
-            <div style="padding: 10px 16px; background: white; border-top: 1px solid var(--idr-rule); font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600;">Systematic payer underpayment, surfaced from your trailing 12 months of Charge history.</div>
-          </div>
-
-          <!-- Mockup 3 · DETAIL — Jane D individual case -->
-          <div style="background: white; border: 1px solid var(--idr-rule); border-radius: 4px; overflow: hidden;">
-            <div style="background: var(--idr-paper-2); padding: 18px; min-height: 220px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 10px;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-ink-muted); font-weight: 600;">Detail · Patient record</div>
-                <div style="font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--idr-burgundy); font-weight: 700;">PROTO 3</div>
-              </div>
-              <div style="background: white; border: 1px solid var(--idr-rule); border-left: 3px solid var(--idr-burgundy); border-radius: 2px; padding: 18px 24px; width: 100%; box-sizing: border-box;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--idr-ink-muted); margin-bottom: 8px;">Jane D · UHC PPO · CPT 00790</div>
-                <div style="font-family: var(--font-serif); font-size: 44px; font-weight: 700; color: var(--idr-burgundy); line-height: 1; margin-bottom: 8px; letter-spacing: -0.02em;">$2.6K</div>
-                <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600; line-height: 1.4;">underpaid by UHC vs CMS PUF 75th</div>
-                <div style="font-family: var(--font-mono); font-size: 9px; color: var(--idr-money); font-weight: 700; letter-spacing: 0.06em; margin-top: 10px; padding-top: 8px; border-top: 1px dotted var(--idr-rule);">✓ Federal IDR-eligible · ready to file</div>
-              </div>
-            </div>
-            <div style="padding: 10px 16px; background: white; border-top: 1px solid var(--idr-rule); font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600;">Every detected case drilled to claim, payment, and benchmark detail — sourced from athena.</div>
-          </div>
-
-          <!-- Mockup 4 · ASSEMBLE — IDR offer letter -->
-          <div style="background: white; border: 1px solid var(--idr-rule); border-radius: 4px; overflow: hidden;">
-            <div style="background: var(--idr-paper-2); padding: 18px; min-height: 220px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <div style="font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-ink-muted); font-weight: 600;">Assemble · Offer letter</div>
-                <div style="font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.1em; color: var(--idr-burgundy); font-weight: 700;">PROTO 5</div>
-              </div>
-              <div style="background: white; padding: 12px 14px; border: 1px solid var(--idr-rule); border-radius: 2px;">
-                <div style="font-family: var(--font-serif); font-size: 13px; color: var(--idr-navy); font-weight: 700; margin-bottom: 4px;">Notice of Offer for Out-of-Network Item</div>
-                <div style="font-family: var(--font-mono); font-size: 8px; color: var(--idr-ink-muted); margin-bottom: 8px;">UHC-00790-20250308 · Federal IDR · 4-claim batch</div>
-                <div style="font-family: var(--font-sans); font-size: 9.5px; color: var(--idr-ink); line-height: 1.5; margin-bottom: 6px; font-weight: 600;">Section 2 · Rate Justification Evidence</div>
-                <div style="display: grid; grid-template-columns: 1fr auto; gap: 3px 12px; font-family: var(--font-sans); font-size: 9px;">
-                  <div style="color: var(--idr-ink);">FAIR Health 50th</div><div style="font-family: var(--font-mono); color: var(--idr-ink-muted); text-align: right;">$1,920</div>
-                  <div style="color: var(--idr-ink);">FAIR Health 80th</div><div style="font-family: var(--font-mono); color: var(--idr-ink-muted); text-align: right;">$3,140</div>
-                  <div style="color: var(--idr-ink);">CMS PUF 75th</div><div style="font-family: var(--font-mono); color: var(--idr-ink-muted); text-align: right;">$3,210</div>
-                  <div style="color: var(--idr-ink);">ABMS board cert · 16 yrs</div><div style="font-family: var(--font-mono); color: var(--idr-ink-muted); text-align: right;">verified</div>
-                  <div style="color: var(--idr-burgundy); font-weight: 700; padding-top: 3px; border-top: 1px solid var(--idr-rule);">Provider's offer</div><div style="font-family: var(--font-mono); color: var(--idr-burgundy); font-weight: 700; text-align: right; padding-top: 3px; border-top: 1px solid var(--idr-rule);">$2,850</div>
-                </div>
-              </div>
-            </div>
-            <div style="padding: 10px 16px; background: white; border-top: 1px solid var(--idr-rule); font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink); font-weight: 600;">Auto-assembled with all 7 statutory factors loaded — ABMS, FAIR Health, CMS PUF, prior contracted rates.</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- What's included -->
-      <div style="margin-bottom: 32px;">
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 14px; letter-spacing: -0.01em;">What's included</h3>
-        <table style="width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 12.5px;">
-          <tr>
-            <td style="padding: 10px 0; color: var(--idr-ink); width: 38%; border-bottom: 1px solid var(--idr-rule);"><strong>Athena FHIR R4 integration</strong></td>
-            <td style="padding: 10px 0; color: var(--idr-ink-muted); border-bottom: 1px solid var(--idr-rule);">Reads Patient, Encounter, Coverage, Charge, Practitioner, Procedure, Condition resources. Read-only — Folio3 never writes back to your EMR.</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; color: var(--idr-ink); border-bottom: 1px solid var(--idr-rule);"><strong>FAIR Health benchmarks</strong></td>
-            <td style="padding: 10px 0; color: var(--idr-ink-muted); border-bottom: 1px solid var(--idr-rule);">Geozip-level commercial rate percentiles included in subscription — no separate license required.</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; color: var(--idr-ink); border-bottom: 1px solid var(--idr-rule);"><strong>CMS PUF historical awards</strong></td>
-            <td style="padding: 10px 0; color: var(--idr-ink-muted); border-bottom: 1px solid var(--idr-rule);">Quarterly Federal IDR public-use file refreshed automatically. Compare your dispute to historical IDRE precedent.</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; color: var(--idr-ink); border-bottom: 1px solid var(--idr-rule);"><strong>ABMS board-certification verification</strong></td>
-            <td style="padding: 10px 0; color: var(--idr-ink-muted); border-bottom: 1px solid var(--idr-rule);">Auto-retrieves primary-source verification for Factor 2 evidence. Strengthens your provider-credentials argument.</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; color: var(--idr-ink);"><strong>Submission to CMS NSA IDR Portal</strong></td>
-            <td style="padding: 10px 0; color: var(--idr-ink-muted);">Direct upload to <code style="font-family: var(--font-mono); font-size: 11px; background: var(--idr-paper-2); padding: 1px 4px; border-radius: 2px;">nsa-idr.cms.gov</code> with full evidence package — no copy/pasting between systems.</td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Compliance / security -->
-      <div>
-        <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--idr-ink); margin: 0 0 14px; letter-spacing: -0.01em;">Compliance &amp; security</h3>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-          <div style="background: var(--idr-paper-2); padding: 10px 14px; border-radius: 3px; border-left: 2px solid var(--idr-money);">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-money); font-weight: 700; margin-bottom: 3px;">HIPAA</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink);">BAA included · Safe Harbor de-identification</div>
-          </div>
-          <div style="background: var(--idr-paper-2); padding: 10px 14px; border-radius: 3px; border-left: 2px solid var(--idr-money);">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-money); font-weight: 700; margin-bottom: 3px;">SOC 2 Type II</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink);">Audited annually · report on request</div>
-          </div>
-          <div style="background: var(--idr-paper-2); padding: 10px 14px; border-radius: 3px; border-left: 2px solid var(--idr-money);">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-money); font-weight: 700; margin-bottom: 3px;">No PHI in LLM</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink);">Reasoning runs on de-identified data only</div>
-          </div>
-          <div style="background: var(--idr-paper-2); padding: 10px 14px; border-radius: 3px; border-left: 2px solid var(--idr-money);">
-            <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--idr-money); font-weight: 700; margin-bottom: 3px;">Read-only Athena</div>
-            <div style="font-family: var(--font-sans); font-size: 11.5px; color: var(--idr-ink);">Folio3 never writes back to your EMR</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT: Sidebar info -->
-    <aside style="background: var(--idr-paper-2); border: 1px solid var(--idr-rule); border-radius: 4px; padding: 22px 24px; position: sticky; top: 20px;">
-
-      <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--idr-burgundy); margin-bottom: 14px;">Listing details</div>
-
-      <div style="font-family: var(--font-sans); font-size: 12px;">
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Vendor</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">Folio3 Digital Health</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Category</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">Revenue Cycle Management → OON Recovery</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Specialty</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">Anesthesia, Radiology, Emergency Medicine, Pathology</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Practice size</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">5 — 50 providers · independent groups</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Setup time</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">~ 30 minutes · self-service</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Pricing model</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">SaaS subscription</div>
-          <div style="color: var(--idr-ink-muted); font-size: 11px; margin-top: 3px; font-style: italic;">Disclosed at install · 14-day pilot</div>
-        </div>
-
-        <div style="padding: 10px 0; border-bottom: 1px solid var(--idr-rule);">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Athena integration</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">FHIR R4 (read-only)</div>
-        </div>
-
-        <div style="padding: 10px 0;">
-          <div style="color: var(--idr-ink-muted); font-size: 10.5px; letter-spacing: 0.05em; margin-bottom: 3px;">Support</div>
-          <div style="color: var(--idr-ink); font-weight: 600;">Email · Chat · Phone</div>
-          <div style="color: var(--idr-ink-muted); font-size: 11px; margin-top: 3px; font-style: italic;">Mon–Fri 7am–7pm CT</div>
-        </div>
-
-      </div>
-
-      <button style="width: 100%; background: white; color: var(--idr-burgundy); border: 1px solid var(--idr-burgundy); padding: 9px 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; border-radius: 4px; cursor: pointer; margin-top: 16px;">Request a demo →</button>
-    </aside>
-
-  </div>
-</div>
+<!-- legacy marketplace chrome removed in v4 — replaced by .listing-page above -->
 
 </div>
 <!-- /panel-about -->
@@ -11898,11 +11906,11 @@ table.factor-table .ft-name { width: 18% !important; }
   <div class="ref-section">
     <h3>
       <span class="fr-eyebrow">§3 · Phase 2 spotlight — closure analytics</span>
-      The Phase 2 intelligence layer: surfacing silent forfeiture.
+      The biggest Phase 2 unlock: closing the silent-forfeiture gap.
     </h3>
     <div class="ref-callout" style="border-left-color: #6B5B95; background: rgba(107, 91, 149, 0.06); margin-bottom: 16px;">
       <span class="label" style="color: #6B5B95;">Phase 2 capability — requires 835 ERA copy feed + email parser</span>
-      <p>The two-layer reconciliation below (email parser as truth × 835 CLP04 as verification) cannot run on Phase 1's Athena <code>Posting</code> alone. Phase 2 dependencies — 835 ERA copy feed routing, email parser configuration, and reconciliation worker timing — are detailed in §3 below.</p>
+      <p>The two-layer reconciliation below (email parser as truth × 835 CLP04 as verification) cannot run on Phase 1's Athena <code>Posting</code> alone. Full Phase 2 dependencies live in <a href="F3_Athena_Phase2.html" style="color:#6B5B95;">F3_Athena_Phase2.html</a>.</p>
     </div>
 
 <!-- ─── Section 1: Architecture diagram ─── -->
@@ -11912,7 +11920,7 @@ table.factor-table .ft-name { width: 18% !important; }
       Email is truth. 835 is verification. The diff is the product.
     </h3>
     <p>
-      Industry non-payment rate on IDR awards is ~50% — payer misses the 30-day pay clock and no incumbent system flags it. That is the silent forfeiture. The architecture below surfaces it as an intelligence layer using data that already arrives in athena and the practice mailbox — no payer integration, no new EDI feed.
+      Industry win rate at IDR is ~85%. Industry non-payment rate on awards is ~50%. The gap is silent forfeiture: payer misses the 30-day pay clock and no incumbent system flags it. The architecture below closes the loop using data that already arrives in athena and the practice mailbox — no payer integration, no new EDI feed.
     </p>
 
     <div class="cl-arch">
@@ -12604,6 +12612,211 @@ table.factor-table .ft-name { width: 18% !important; }
 <!-- /panel-athenaguide -->
 
 
+<!-- ═════════════════════════════════════════════════════════════ -->
+<!-- REF 4 — Benchmark Sources (CMS PUF + FAIR Health)              -->
+<!-- ═════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-benchmarks">
+
+<style>
+/* Scoped styles for benchmark sub-tab — map camelCase to appendix vars */
+#panel-benchmarks {
+  --moneySoft: var(--money-soft);
+  --moneyPale: #EEF6E8;
+  --slateSoft: #EEF1F4;
+  --burgundySoft: #FBF1F2;
+  --goldX: #B8862C;
+  --goldSoft: #F4E9C7;
+  --inkMuted: var(--ink-muted);
+  --paper2: var(--paper-2);
+  font-family: var(--font-serif);
+}
+#panel-benchmarks .bench-page{max-width:1180px;margin:0 auto;padding:30px 40px 60px;color:var(--ink);background:var(--paper);line-height:1.55;font-size:14px}
+#panel-benchmarks .hd{margin-bottom:22px}
+#panel-benchmarks .hd .eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:1.8px;color:var(--burgundy);font-weight:700;margin-bottom:8px}
+#panel-benchmarks .hd h1{font-family:var(--font-serif);font-size:30px;font-weight:700;color:var(--navy);letter-spacing:-0.4px;margin-bottom:8px;line-height:1.15}
+#panel-benchmarks .hd .lede{font-size:14.5px;color:var(--inkMuted);font-style:italic;max-width:920px}
+#panel-benchmarks .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0 24px}
+#panel-benchmarks .col{border:1px solid var(--rule);border-radius:6px;background:var(--white);overflow:hidden}
+#panel-benchmarks .col .head{padding:16px 20px 14px;background:var(--paper2);border-bottom:1px solid var(--rule)}
+#panel-benchmarks .col .head .pub{font-family:var(--font-mono);font-size:10px;letter-spacing:1.6px;color:var(--burgundy);font-weight:700;margin-bottom:6px}
+#panel-benchmarks .col .head h2{font-family:var(--font-serif);font-size:22px;color:var(--navy);font-weight:700;letter-spacing:-0.3px;line-height:1.1}
+#panel-benchmarks .col .head .meta{font-family:var(--font-mono);font-size:10px;letter-spacing:1.2px;color:var(--slate);margin-top:7px}
+#panel-benchmarks .col .body{padding:18px 20px}
+#panel-benchmarks .col .body .row{padding:11px 0;border-bottom:1px dashed var(--rule)}
+#panel-benchmarks .col .body .row:last-child{border-bottom:none}
+#panel-benchmarks .col .body .k{font-family:var(--font-mono);font-size:9.5px;letter-spacing:1.4px;color:var(--slate);font-weight:700;margin-bottom:3px}
+#panel-benchmarks .col .body .v{font-size:13px;color:var(--ink);line-height:1.5}
+#panel-benchmarks .col .body .v b{color:var(--navy)}
+#panel-benchmarks .col.cms .head{background:var(--moneyPale)}
+#panel-benchmarks .col.cms .head .pub{color:var(--money)}
+#panel-benchmarks .col.cms .head h2{color:var(--money)}
+#panel-benchmarks .col.fh .head{background:var(--slateSoft)}
+#panel-benchmarks .col.fh .head .pub{color:var(--slate)}
+#panel-benchmarks .sect{margin-top:32px}
+#panel-benchmarks .sect h3{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:-0.3px}
+#panel-benchmarks .sect .sublede{font-style:italic;color:var(--inkMuted);font-size:13px;margin-bottom:14px}
+#panel-benchmarks .sect p{margin-bottom:12px;max-width:900px;font-size:13.5px}
+#panel-benchmarks .sect p b{color:var(--navy)}
+#panel-benchmarks .filetbl{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;background:var(--white);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+#panel-benchmarks .filetbl th{background:var(--navy);color:white;text-align:left;padding:11px 14px;font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;font-weight:700}
+#panel-benchmarks .filetbl td{padding:11px 14px;border-top:1px solid var(--rule);vertical-align:top}
+#panel-benchmarks .filetbl td.fn{font-family:var(--font-mono);font-size:11px;color:var(--navy);font-weight:600}
+#panel-benchmarks .filetbl td.use b{color:var(--money);font-family:var(--font-mono);font-size:11px;letter-spacing:1.3px}
+#panel-benchmarks .filetbl td.skip b{color:var(--slate);font-family:var(--font-mono);font-size:11px;letter-spacing:1.3px}
+#panel-benchmarks .filetbl td.note{color:var(--inkMuted);font-size:12.5px;font-style:italic}
+#panel-benchmarks .filetbl tr.yes td{background:var(--moneyPale)}
+#panel-benchmarks .filetbl tr.no td{background:var(--paper2)}
+#panel-benchmarks .formula{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--money);border-radius:0 6px 6px 0;padding:16px 20px;margin:14px 0;max-width:900px}
+#panel-benchmarks .formula .h{font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;color:var(--money);font-weight:700;margin-bottom:8px}
+#panel-benchmarks .formula .f{font-family:var(--font-mono);font-size:12px;color:var(--ink);background:var(--moneyPale);padding:10px 14px;border-radius:4px;margin:8px 0;line-height:1.6}
+#panel-benchmarks .formula .nb{font-size:12.5px;color:var(--inkMuted);margin-top:8px;font-style:italic}
+#panel-benchmarks .formula.fh{border-left-color:var(--slate)}
+#panel-benchmarks .formula.fh .h{color:var(--slate)}
+#panel-benchmarks .formula.fh .f{background:var(--slateSoft)}
+#panel-benchmarks .ing-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:14px;border-radius:6px;overflow:hidden;border:1px solid var(--rule);max-width:1000px}
+#panel-benchmarks .ing-step{padding:14px 14px 16px;background:var(--white);border-right:1px solid var(--rule)}
+#panel-benchmarks .ing-step:last-child{border-right:none}
+#panel-benchmarks .ing-step .n{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:1.4px;color:var(--burgundy);background:var(--burgundySoft);padding:3px 7px;border-radius:3px;display:inline-block;margin-bottom:7px}
+#panel-benchmarks .ing-step h4{font-family:var(--font-serif);font-size:14px;color:var(--navy);margin-bottom:5px;font-weight:700;letter-spacing:-0.2px}
+#panel-benchmarks .ing-step p{font-size:11.5px;color:var(--ink);line-height:1.4}
+#panel-benchmarks .callout{background:var(--burgundySoft);border-left:4px solid var(--burgundy);padding:14px 18px;border-radius:0 5px 5px 0;margin:16px 0;max-width:900px}
+#panel-benchmarks .callout h4{font-family:var(--font-serif);font-size:14px;color:var(--burgundy);margin-bottom:5px;font-weight:700}
+#panel-benchmarks .callout p{font-size:12.5px;color:var(--ink);margin:0}
+#panel-benchmarks .why{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;max-width:1000px}
+#panel-benchmarks .why th{background:var(--paper2);color:var(--navy);text-align:left;padding:10px 14px;font-family:var(--font-mono);font-size:10px;letter-spacing:1.4px;font-weight:700;border:1px solid var(--rule)}
+#panel-benchmarks .why td{padding:11px 14px;border:1px solid var(--rule);vertical-align:top;background:var(--white)}
+#panel-benchmarks .why td.q{font-family:var(--font-serif);font-style:italic;color:var(--inkMuted)}
+#panel-benchmarks .why td.b1{font-family:var(--font-mono);font-size:10.5px;color:var(--money);font-weight:700;letter-spacing:1px}
+#panel-benchmarks .why td.b2{font-family:var(--font-mono);font-size:10.5px;color:var(--slate);font-weight:700;letter-spacing:1px}
+#panel-benchmarks .pill{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:1.3px;background:var(--paper2);border:1px solid var(--rule);padding:3px 9px;border-radius:11px;color:var(--ink);margin-right:6px;margin-bottom:5px}
+#panel-benchmarks .pill.m{background:var(--moneySoft);border-color:var(--money);color:var(--money)}
+#panel-benchmarks .pill.s{background:var(--slateSoft);border-color:var(--slate);color:var(--slate)}
+#panel-benchmarks .pill.b{background:var(--burgundySoft);border-color:var(--burgundy);color:var(--burgundy)}
+#panel-benchmarks .src{font-family:var(--font-mono);font-size:10px;color:var(--inkMuted);letter-spacing:1.1px;margin-top:36px;padding-top:14px;border-top:1px solid var(--rule)}
+</style>
+
+<div class="bench-page">
+  <div class="hd">
+    <div class="eyebrow">APPENDIX  ·  PRODUCT  ·  BENCHMARK DATA SOURCES</div>
+    <h1>Where the 75th and 80th come from.</h1>
+    <p class="lede">Folio3 surfaces two benchmarks for every OON claim. The numbers aren't pulled from a single "benchmark file" — they're derived from two distinct datasets that answer two different questions. This tab explains what each dataset is, which files Folio3 ingests, how the percentiles are computed, and why we publish 75th and 80th but not 50th.</p>
+  </div>
+
+  <div class="two">
+    <div class="col cms">
+      <div class="head">
+        <div class="pub">PRIMARY  ·  CMS NSA FEDERAL IDR PUF</div>
+        <h2>CMS PUF 75th-percentile</h2>
+        <div class="meta">PUBLIC  ·  FREE  ·  QUARTERLY RELEASE  ·  CMS.gov</div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="k">WHAT IT IS</div><div class="v">CMS's <b>Public Use File</b> of closed Federal IDR disputes under the No Surprises Act. Each row = one closed dispute (or batched filing).</div></div>
+        <div class="row"><div class="k">WHAT'S IN EACH ROW</div><div class="v">Payer, provider type/specialty, state, CPT codes, billing charge, QPA, both parties' offers, prevailing offer amount, prevailing party.</div></div>
+        <div class="row"><div class="k">RELEASE CADENCE</div><div class="v">Quarterly  ·  ~6 months after quarter close (Q1-2025 → published Jan 2026)</div></div>
+        <div class="row"><div class="k">ANSWERS THE QUESTION</div><div class="v"><i>"In disputes that look like this one, what did the winning side actually clear at?"</i> — IDR precedent.</div></div>
+        <div class="row"><div class="k">ACCESS</div><div class="v">Public · downloadable .xlsx zip from cms.gov · no subscription · no paywall.</div></div>
+      </div>
+    </div>
+    <div class="col fh">
+      <div class="head">
+        <div class="pub">SECONDARY  ·  FAIR HEALTH BENCHMARKS</div>
+        <h2>FAIR Health 80th-percentile</h2>
+        <div class="meta">SUBSCRIPTION  ·  PAYWALLED  ·  fairhealth.org</div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="k">WHAT IT IS</div><div class="v"><b>Commercial database</b> of regional provider <b>billed charges</b> (NOT IDR outcomes). FAIR Health is an independent nonprofit that aggregates ~40+ billion claims from insurers and provider networks since 2009.</div></div>
+        <div class="row"><div class="k">WHAT'S IN EACH RECORD</div><div class="v">CPT/HCPCS code  ·  geographic zone (geozip)  ·  charge distribution percentiles (50th, 75th, 80th, 90th, 95th).</div></div>
+        <div class="row"><div class="k">RELEASE CADENCE</div><div class="v">Continuously refreshed  ·  customer pulls live or via annual data drop</div></div>
+        <div class="row"><div class="k">ANSWERS THE QUESTION</div><div class="v"><i>"What do providers in this region actually charge for this code?"</i> — charge context, NOT what payers pay.</div></div>
+        <div class="row"><div class="k">ACCESS</div><div class="v"><b>Paywall.</b> Subscription products: <b>FH Standard</b> (national tables) or <b>FH ZIP</b> (ZIP-level). Pricing not public — quoted per organization size. Folio3 carries the FH license; customers don't subscribe separately.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3>What's actually in the CMS PUF zip</h3>
+    <div class="sublede">CMS ships 4 files per quarter. Folio3 ingests 3 of them.</div>
+    <table class="filetbl">
+      <thead><tr><th style="width:38%">File</th><th style="width:14%">Folio3 use</th><th>What it contains  ·  why we do or don't ingest it</th></tr></thead>
+      <tbody>
+        <tr class="yes"><td class="fn">Federal IDR PUF for [Q] (master)</td><td class="use"><b>✓ INGEST</b></td><td class="note">Wide table — every closed dispute in the quarter, all categories. Used for cross-cutting analysis and audit trail.</td></tr>
+        <tr class="yes"><td class="fn">OON Emergency & Non-Emergency</td><td class="use"><b>✓ PRIMARY</b></td><td class="note">Slice for emergency & non-emergency professional services — where anesthesia, radiology, EM, pathology disputes live. This is Folio3's core file.</td></tr>
+        <tr class="yes"><td class="fn">QPA and Offers</td><td class="use"><b>✓ PRIMARY</b></td><td class="note">Per-claim QPA values and the offers each party submitted. Where the per-claim gap math lives.</td></tr>
+        <tr class="no"><td class="fn">OON Air Ambulance</td><td class="skip"><b>✗ SKIP</b></td><td class="note">Different market segment — separate payer behavior, separate specialty group. Not in our ICP (anesthesia / radiology / EM / pathology).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sect">
+    <h3>How Folio3 derives the CMS PUF 75th-percentile</h3>
+    <div class="sublede">The PUF doesn't publish "the 75th-percentile" as a column — Folio3 computes it by matching the dispute we're sizing against historically similar closed disputes.</div>
+    <div class="formula">
+      <div class="h">DERIVATION</div>
+      <p style="font-size:13px;margin-bottom:4px">For a given claim or candidate cohort, Folio3 selects matching PUF rows on:</p>
+      <div class="f">match = same CPT family  ∧  similar payer  ∧  similar state/region  ∧  similar provider specialty<br>window = rolling 6 quarters of PUF data</div>
+      <p style="font-size:13px;margin:4px 0">Then computes the <b>75th-percentile of <i>prevailing offer amount</i></b> across the matched dispute set:</p>
+      <div class="f">benchmark_cms_75 = percentile(matched_disputes.prevailing_offer, 75)</div>
+      <div class="nb">Interpretation: in disputes that look like ours, the winning offer cleared at or above this number 25% of the time. It's the high-watermark precedent we'd anchor an offer near — not a hard floor, but where IDR entities have been awarding.</div>
+    </div>
+    <div class="formula fh">
+      <div class="h">FAIR HEALTH 80th  ·  HOW IT'S SOURCED</div>
+      <p style="font-size:13px;margin-bottom:4px">FAIR Health publishes percentiles directly — we don't compute them, we lookup:</p>
+      <div class="f">benchmark_fh_80 = FH.lookup(cpt_code, geozip, percentile=80)</div>
+      <div class="nb">FAIR Health is a charge-distribution dataset — it tells us what providers in the region <i>charge</i>, not what payers pay. The 80th-percentile is a long-standing benchmark used in pre-NSA Usual & Customary determinations. We surface it as a charge-context cross-check, not a settlement target.</div>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3>Why two benchmarks, not three (50th, 75th, 80th)</h3>
+    <div class="sublede">Each benchmark answers a different question. 50th-percentile adds noise without changing the action.</div>
+    <table class="why">
+      <thead><tr><th style="width:18%">Benchmark</th><th style="width:30%">Answers</th><th style="width:18%">Use</th><th>Why surface it</th></tr></thead>
+      <tbody>
+        <tr><td class="b1">CMS PUF 75th</td><td class="q">In disputes that look like mine, what did the winning side clear at?</td><td><b>PRIMARY  ·  offer anchor</b></td><td>Reflects actual IDR precedent — what the entities have been awarding. The number that matters when you're sizing an offer.</td></tr>
+        <tr><td class="b2">FAIR Health 80th</td><td class="q">What do providers in this region typically charge?</td><td><b>SECONDARY  ·  charge context</b></td><td>Used by IDR entities as a sanity-check that the QPA isn't dramatically below community provider charges. Strengthens the cohort's narrative.</td></tr>
+        <tr style="opacity:0.55"><td style="font-family:var(--font-mono);font-size:10.5px;color:var(--inkMuted);font-weight:700;letter-spacing:1px">CMS PUF 50th</td><td class="q">The median past prevailing offer.</td><td><b style="color:var(--inkMuted);font-family:var(--font-mono);font-size:10.5px;letter-spacing:1px">SKIPPED</b></td><td>Below the action band — you'd never anchor an offer at the median of past winners. Computed internally for trend analysis; not surfaced on the listing or the per-claim card.</td></tr>
+        <tr style="opacity:0.55"><td style="font-family:var(--font-mono);font-size:10.5px;color:var(--inkMuted);font-weight:700;letter-spacing:1px">FAIR Health 50th / 90th</td><td class="q">Median or top-decile of regional charges.</td><td><b style="color:var(--inkMuted);font-family:var(--font-mono);font-size:10.5px;letter-spacing:1px">SKIPPED</b></td><td>50th is too low to be useful; 90th is too high to be defensible. 80th is the established charge-benchmark convention from pre-NSA UCR usage.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sect">
+    <h3>Ingestion flow  ·  what runs each quarter</h3>
+    <div class="sublede">CMS PUF drops are snapshots — once published, they don't change. Folio3 maintains a rolling working set.</div>
+    <div class="ing-flow">
+      <div class="ing-step"><span class="n">01  PULL</span><h4>CMS releases new PUF</h4><p>Quarterly zip on cms.gov · ~6 months lag · automated download.</p></div>
+      <div class="ing-step"><span class="n">02  PARSE</span><h4>Ingest 3 of 4 files</h4><p>Master + OON Emergency/Non-Emergency + QPA & Offers. Skip Air Ambulance.</p></div>
+      <div class="ing-step"><span class="n">03  APPEND</span><h4>Add to rolling window</h4><p>Active benchmark window = trailing 6 quarters. Older data retained for trend lines only.</p></div>
+      <div class="ing-step"><span class="n">04  RECOMPUTE</span><h4>Refresh per-CPT 75ths</h4><p>Recompute matched-cohort 75th-percentile tables across all customer-relevant CPT × region × specialty cells.</p></div>
+    </div>
+    <div class="callout">
+      <h4>Why a 6-quarter rolling window?</h4>
+      <p>Older than ~18 months and payer behavior has shifted enough that older precedent isn't load-bearing. Newer drops re-anchor the benchmark to current IDR-entity decision patterns. Historical PUFs (2022–2023) stay in the warehouse for trend analysis but don't drive the active 75th.</p>
+    </div>
+  </div>
+
+  <div class="sect">
+    <h3>What surfaces in the product</h3>
+    <div class="sublede">The customer-facing UI shows both benchmarks side-by-side, per claim and per cohort.</div>
+    <p><b>Per-claim card</b> shows three numbers stacked: paid amount, CMS PUF 75th (primary chip · money green), FAIR Health 80th (secondary chip · slate). Per-claim gap = CMS PUF 75th − paid amount.</p>
+    <p><b>Cohort summary card</b> rolls up: total cohort claims, cohort-weighted average gap vs CMS PUF 75th, cohort-weighted gap vs FAIR Health 80th, total recoverable opportunity. Both gaps shown so the analyst can see whether the cohort is strong on precedent (PUF) or charge-context (FH) or both.</p>
+    <p><b>Audit trail</b> records: which specific PUF cell (CPT × region × specialty × quarter range) was used as the match basis, the count of matched disputes that fed the 75th calculation, and the exact FH percentile lookup parameters. <b>Every benchmark on every claim is auditable down to the source row.</b></p>
+    <div style="margin-top:14px">
+      <span class="pill m">CMS PUF 75TH  ·  PRIMARY</span>
+      <span class="pill s">FAIR HEALTH 80TH  ·  SECONDARY</span>
+      <span class="pill b">PER-CLAIM AUDIT TRAIL</span>
+      <span class="pill">ROLLING 6-QUARTER WINDOW</span>
+      <span class="pill">3 OF 4 PUF FILES INGESTED</span>
+    </div>
+  </div>
+
+  <div class="src">SOURCES  ·  CMS NSA FEDERAL IDR PUBLIC USE FILES (quarterly drops at cms.gov/nosurprises)  ·  FAIR HEALTH STANDARD &amp; FH ZIP DATA PRODUCTS (fairhealth.org)  ·  45 CFR §149.510  ·  TREASURY NOTICE OF OFFER RULE  ·  AUTHOR ANALYSIS.</div>
+</div>
+
+</div>
+<!-- /panel-benchmarks -->
+
+
 <footer class="app-footer">
   <div class="shell">
     F3 Health · F3 IDR Forecaster · Annotated Prototypes — Phase 1 (Detect · Benchmark · Batch · Assemble · manual lifecycle entry) · May 6, 2026
@@ -13190,7 +13403,7 @@ table.factor-table .ft-name { width: 18% !important; }
 
       <div class="reasoning-row">
         <div class="reasoning-label">01 · Subscription, not contingency</div>
-        <div class="reasoning-body">Folio3 is a software firm, not a service firm. Every direct adjacent (Rivet, MD Clarity, Adonis, SlicedHealth) charges SaaS subscriptions, not commission. <strong>The pure-play IDR specialists (HaloMD, NSB) charge 15–30% commission</strong> — that's the labor-arbitrage substitute, not the software substitute. Pricing as software keeps Folio3 inside the marketplace category buyers expect to evaluate.</div>
+        <div class="reasoning-body">Folio3 is a software firm, not a service firm. Every direct adjacent (Rivet, MD Clarity, Adonis, SlicedHealth) charges SaaS subscriptions, not commission. <strong>The pure-play IDR specialists (HaloMD, NSB) charge 15–25% commission</strong> — that's the labor-arbitrage substitute, not the software substitute. Pricing as software keeps Folio3 inside the marketplace category buyers expect to evaluate.</div>
       </div>
 
       <div class="reasoning-row">
@@ -13674,6 +13887,7 @@ table.factor-table .ft-name { width: 18% !important; }
         </div>
       </div>
     </section>
+
 
   </div>
 
