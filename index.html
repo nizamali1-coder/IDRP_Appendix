@@ -8611,7 +8611,11 @@ table.factor-table .ft-name { width: 18% !important; }
     </button>
     <button  data-target="letter">
       <span class="proto-tab-label">PROTO 5</span>
-      IDR Offer Letter (annotated)
+      IDR Offer Letter — single-claim (annotated)
+    </button>
+    <button  data-target="batched-letter">
+      <span class="proto-tab-label">PROTO 5b</span>
+      Batched Offer Letter (65-claim ERISA)
     </button>
     <button  data-target="requirements">
       <span class="proto-tab-label">PROTO 6</span>
@@ -10353,6 +10357,240 @@ table.factor-table .ft-name { width: 18% !important; }
 
 </div>
 <!-- /panel-letter -->
+
+
+<div class="tab-panel" id="panel-batched-letter">
+
+<!-- Batched-letter document context bar -->
+<div class="dash-context dash-context-overview">
+  <div class="shell dash-context-inner">
+    <div class="dash-context-left">
+      <span class="dc-eyebrow">Cohort Detection &nbsp;›&nbsp; Batch Qualification &nbsp;›&nbsp; Batched IDR Offer Letter</span>
+      <h2 class="dc-title">UHC · CPT 99285 · 65-claim ERISA batch · Federal IDR · Day 18/75</h2>
+      <p class="dc-sub">Single Notice of Offer covering 65 claims under 45 CFR §149.510(c). Plan type confirmed by user per group. One filing fee, one rate-justification block — same 7 statutory factors as a single-claim letter, applied to the batch. The companion 24-claim CA fully-insured batch routes to CA state IDR (separate letter).</p>
+    </div>
+    <div class="dash-context-right">
+      <span class="dc-stat-label">Aggregate requested</span>
+      <span class="dc-stat-value">$78,000.00</span>
+    </div>
+  </div>
+</div>
+
+<!-- Banner above letter -->
+<div class="letter-meta-banner">
+  <span class="banner-left">DRAFT · F3 IDR FORECASTER · BATCHED NOTICE OF OFFER</span>
+  <span class="banner-right"><span class="banner-status">User-confirmed: plan type (ERISA), batch composition</span> · Generated May 27, 2026 09:14 AM · IDR Case Ref UHC-BATCH-2026-05-EM01</span>
+</div>
+
+<!-- The batched letter document -->
+<div class="letter-doc">
+
+  <!-- ── Section 1 — Batch Initiating Party + Counter-Party ── -->
+  <div class="lt-section">
+    <div class="lt-section-hdr">Section 1 — Initiating Party · Counter-Party · Batch Composition</div>
+
+    <div class="lt-grid-3">
+      <div class="lt-cell">
+        <div class="lt-label">Initiating Provider (Billing NPI)</div>
+        <div class="lt-val">Coastal Emergency Physicians, LLC</div>
+        <div class="lt-sub">NPI 1357902468 · TIN 27-XXXXXXX · 14 active EM physicians</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Counter-Party Payer</div>
+        <div class="lt-val">UnitedHealthcare</div>
+        <div class="lt-sub">Administrator of record across all 65 claims · acting as TPA for ERISA plans</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">CPT / Service Family</div>
+        <div class="lt-val">99285 — ED visit, high complexity</div>
+        <div class="lt-sub">Single CPT family — §149.510(c)(3) batching gate satisfied</div>
+      </div>
+    </div>
+
+    <div class="lt-grid-4">
+      <div class="lt-cell">
+        <div class="lt-label">Plan Type <span class="p1-derived">User-confirmed</span></div>
+        <div class="lt-val">ERISA self-funded</div>
+        <div class="lt-sub">65 of 89 cohort claims confirmed ERISA · 24 routed to CA state IDR (separate batch)</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Service Date Range</div>
+        <div class="lt-val">Apr 27 – May 26, 2026</div>
+        <div class="lt-sub">Trailing 30-day window — §149.510(c)(5) batching gate satisfied</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Claims in Batch</div>
+        <div class="lt-val">65 claims</div>
+        <div class="lt-sub">All non-conforming claims removed by qualification — see Section 4 attestation</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Aggregate Variance</div>
+        <div class="lt-val">$51,350 underpaid</div>
+        <div class="lt-sub">($1,200 − $410) × 65 claims</div>
+      </div>
+    </div>
+    <div class="lt-section-sources"><span class="ss-label">SOURCES</span><a class="api-pill fhir" href="https://hl7.org/fhir/R4/practitionerrole.html" target="_blank" rel="noopener noreferrer">Athena · PractitionerRole</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/coverage.html" target="_blank" rel="noopener noreferrer">Athena · Coverage</a><span class="api-pill comp">User-confirmed · plan type per group</span><span class="api-pill comp">User-confirmed · batch composition</span><span class="api-pill locked">5500 cross-ref · Phase 2</span></div>
+  </div>
+
+  <!-- ── Section 2 — Claim Manifest (65 rows, truncated) ── -->
+  <div class="lt-section">
+    <div class="lt-section-hdr">Section 2 — Claim Manifest (65 claims)</div>
+    <table class="evidence-table" style="table-layout:fixed;">
+      <thead>
+        <tr>
+          <th style="width:5%;">#</th>
+          <th style="width:18%;">Claim ID</th>
+          <th style="width:11%;">DOS</th>
+          <th style="width:12%;">Member ID</th>
+          <th style="width:8%;">CPT</th>
+          <th class="right" style="width:14%;">Allowed (QPA)</th>
+          <th class="right" style="width:14%;">Requested</th>
+          <th class="right" style="width:10%;">Variance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472301</span></td><td>Apr 27</td><td>8472-301</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>2</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472315</span></td><td>Apr 28</td><td>8472-315</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>3</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472328</span></td><td>Apr 29</td><td>8472-328</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>4</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472344</span></td><td>Apr 30</td><td>8472-344</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>5</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472361</span></td><td>May 01</td><td>8472-361</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>6</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472378</span></td><td>May 02</td><td>8472-378</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>7</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472395</span></td><td>May 04</td><td>8472-395</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>8</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472412</span></td><td>May 05</td><td>8472-412</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>9</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472429</span></td><td>May 06</td><td>8472-429</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>10</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472445</span></td><td>May 07</td><td>8472-445</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>11</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472463</span></td><td>May 08</td><td>8472-463</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>12</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472481</span></td><td>May 10</td><td>8472-481</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr style="background:var(--paper2);"><td colspan="8" style="text-align:center; font-style:italic; font-family:var(--font-mono); font-size:11px; color:var(--slate); letter-spacing:0.8px; padding:14px 0;">… 50 additional claims (rows 13–62) — full manifest in appendix attachment · UHC-2026-A8472498 through UHC-2026-A8472921</td></tr>
+        <tr><td>63</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472937</span></td><td>May 24</td><td>8472-937</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>64</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472954</span></td><td>May 25</td><td>8472-954</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>65</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472971</span></td><td>May 26</td><td>8472-971</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr style="border-top:2px solid var(--idr-money); background:rgba(31,77,44,0.05);">
+          <td colspan="5" style="font-weight:700; color:var(--idr-money);">TOTAL — 65 claims</td>
+          <td class="ev-amount" style="color:var(--idr-money);">$26,650.00</td>
+          <td class="ev-amount" style="color:var(--idr-money);">$78,000.00</td>
+          <td class="ev-mult" style="text-align:right; font-weight:700; color:var(--idr-money);">+$51,350</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="lt-section-sources"><span class="ss-label">SOURCES</span><a class="api-pill fhir" href="https://hl7.org/fhir/R4/explanationofbenefit.html" target="_blank" rel="noopener noreferrer">Athena · ExplanationOfBenefit</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Athena · Claim</a><span class="api-pill locked">835 ERA cross-check · Phase 2</span></div>
+  </div>
+
+  <!-- ── Section 3 — Shared Rate Justification (one block covers all 65) ── -->
+  <div class="lt-section">
+    <div class="lt-section-hdr">Section 3 — Shared Rate Justification (applied to all 65 claims)</div>
+    <table class="evidence-table">
+      <thead>
+        <tr>
+          <th>Evidence</th>
+          <th class="right">Amount (per claim)</th>
+          <th class="right">× 65</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-qpa">
+          <td class="ev-name"><strong>Payer's QPA disclosure (aggregate)</strong><span class="ev-desc">Mandatory CMS Notice of Offer field. All 65 claims paid at $410.00 — same QPA across the batch (UHC's CPT 99285 rate for this market). Source: 835 ERA AMT*B6 · Phase 2 read; Phase 1: user enters from EOB.</span></td>
+          <td class="ev-amount">$410.00</td>
+          <td class="ev-amount">$26,650</td>
+          <td class="ev-note"><strong>§149.510(c)(4)(iii)(A)</strong><br><span style="font-size:10.5px;">Statutory baseline — required field</span></td>
+        </tr>
+        <tr>
+          <td class="ev-name"><strong>FAIR Health 50th percentile</strong><span class="ev-desc">CPT 99285 · Coastal metro · Commercial</span></td>
+          <td class="ev-amount">$895.00</td>
+          <td class="ev-amount">$58,175</td>
+          <td class="ev-note">Median market context — QPA sits 54% below market median</td>
+        </tr>
+        <tr>
+          <td class="ev-name"><strong>FAIR Health 80th percentile</strong><span class="ev-desc">CPT 99285 · Coastal metro · Commercial · used as requested amount</span></td>
+          <td class="ev-amount">$1,200.00</td>
+          <td class="ev-amount">$78,000</td>
+          <td class="ev-note">Ceiling reference — the requested batch amount</td>
+        </tr>
+        <tr>
+          <td class="ev-name"><strong>CMS PUF — 75th percentile of prevailing offers</strong><span class="ev-desc">CPT 99285 · Emergency Medicine · Region · Folio3 percentile computation (n=1,847)</span></td>
+          <td class="ev-amount">$1,140.00</td>
+          <td class="ev-amount">$74,100</td>
+          <td class="ev-note">Comparable IDRE precedent — F7 statutory factor</td>
+        </tr>
+        <tr class="row-offer">
+          <td class="ev-name"><strong>Provider's offer (per claim · aggregate)</strong><span class="ev-desc">$1,200 × 65 — anchored to FAIR Health 80th; 2.93× QPA proxy</span></td>
+          <td class="ev-amount">$1,200.00</td>
+          <td class="ev-amount">$78,000</td>
+          <td class="ev-note"><strong>Aggregate ask · $51,350 above QPA</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="lt-section-sources"><span class="ss-label">SOURCES</span><a class="api-pill ext" href="https://www.fairhealth.org/" target="_blank" rel="noopener noreferrer">FAIR Health · UCR</a><a class="api-pill ext" href="https://www.cms.gov/nosurprisesact/policies-and-resources/Federal-IDR-Process-Status-Update" target="_blank" rel="noopener noreferrer">CMS Federal IDR PUF</a><span class="api-pill comp">QPA · user confirms from EOB</span></div>
+  </div>
+
+  <!-- ── Section 4 — §149.510(c) Batching Attestation ── -->
+  <div class="lt-section">
+    <div class="lt-section-hdr">Section 4 — §149.510(c) Batching Attestation</div>
+    <div class="lt-grid-4" style="border-top:1px solid var(--idr-rule);">
+      <div class="lt-cell">
+        <div class="lt-label">Gate 1 — Same payer</div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS</div>
+        <div class="lt-sub">UnitedHealthcare across all 65 claims · §149.510(c)(1)</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Gate 2 — Same plan type</div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS</div>
+        <div class="lt-sub">ERISA self-funded · user-confirmed per group · §149.510(c)(2)</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Gate 3 — Same billing NPI</div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS</div>
+        <div class="lt-sub">NPI 1357902468 · single billing entity · §149.510(c)(3)</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Gate 4 — Same CPT family</div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS</div>
+        <div class="lt-sub">CPT 99285 across all 65 claims · §149.510(c)(4)</div>
+      </div>
+    </div>
+    <div class="lt-grid-4" style="border-top:none;">
+      <div class="lt-cell">
+        <div class="lt-label">Gate 5 — 30-day window</div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS</div>
+        <div class="lt-sub">Apr 27 – May 26, 2026 — DOS overlap satisfied · §149.510(c)(5)</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Non-conforming removed</div>
+        <div class="lt-val">0 claims</div>
+        <div class="lt-sub">All 65 in the batch conform · audit log shows 0 removals at qualify step</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Filing fee (batched)</div>
+        <div class="lt-val">$840</div>
+        <div class="lt-sub">Single batched filing fee (CMS 2026 schedule) · vs $200 × 65 = $13,000 for solo filings</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Net fee savings</div>
+        <div class="lt-val" style="color:var(--idr-money);">~$12,160</div>
+        <div class="lt-sub">Batched economics — one of two parallel letters; companion CA batch (24 claims) generates additional savings</div>
+      </div>
+    </div>
+    <div class="lt-section-sources"><span class="ss-label">SOURCES</span><a class="api-pill ext" href="https://www.ecfr.gov/current/title-45/section-149.510" target="_blank" rel="noopener noreferrer">45 CFR §149.510(c)</a><a class="api-pill ext" href="https://www.cms.gov/files/document/federal-idr-fees-2026.pdf" target="_blank" rel="noopener noreferrer">CMS Federal IDR Fee Schedule 2026</a><span class="api-pill comp">Audit trail · JSON + PDF export</span></div>
+  </div>
+
+  <!-- ── Section 5 — Aggregate Requested + Signature Block ── -->
+  <div class="lt-section">
+    <div class="lt-section-hdr">Section 5 — Aggregate Requested Amount</div>
+    <div class="lt-support" style="background:rgba(31,77,44,0.05); border-left:3px solid var(--idr-money); padding:16px 20px;">
+      <span class="lt-support-label" style="color:var(--idr-money);">REQUESTED PAYMENT (BATCH)</span>
+      <p style="font-size:15px; font-weight:700; color:var(--idr-money); margin-bottom:6px;">$78,000.00 — for 65 ED encounters under CPT 99285</p>
+      <p>Calculated as FAIR Health 80th percentile ($1,200.00) × 65 claims. Net additional payment requested above QPA-disclosed amounts: <strong>$51,350.00</strong>. Filing party submits one fee, one Notice of Offer, one 7-factor rate justification, applied to the manifest in Section 2.</p>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+<!-- /panel-batched-letter -->
+
+
 
 <div class="tab-panel" id="panel-requirements">
 
