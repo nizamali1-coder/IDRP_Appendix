@@ -10359,10 +10359,21 @@ table.factor-table .ft-name { width: 18% !important; }
 <!-- /panel-letter -->
 
 
-<div class="tab-panel" id="panel-batched-letter" data-build-stamp="v6.1-20260528-2137">
+<div class="tab-panel" id="panel-batched-letter">
 
-<!-- Build stamp marker (verify hard-refresh worked — search for this string in browser) -->
-<div style="background:#1F4D2C; color:#fff; padding:4px 14px; font-family:Consolas,monospace; font-size:10px; letter-spacing:1.5px; text-align:center;">PROTO 5b BUILD v6.1 · 2026-05-28 21:37 UTC · Section 6 + Action Bar + Download dropdown shipped</div>
+<!-- QPA confirmation status banner (above context bar) -->
+<div style="background: linear-gradient(90deg, rgba(31,77,44,0.10) 0%, rgba(31,77,44,0.04) 100%); border-bottom: 1px solid rgba(31,77,44,0.25); padding: 10px 0;">
+  <div class="shell" style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--idr-money); letter-spacing:1.2px;">✓ QPA DISCLOSURE COMPLETE</span>
+      <span style="font-size:12px; color:var(--idr-ink);"><strong>65 of 65 claims</strong> have user-confirmed QPA · ready for submission per §149.510(c)(4)(iii)(A)</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:8px; font-size:11px; color:var(--idr-ink-muted);">
+      <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--idr-money);"></span>
+      <span>Pre-fill from <code style="font-family:var(--font-mono);font-size:10px;background:white;padding:1px 4px;border-radius:2px;border:1px solid var(--idr-rule);">Charge.allowed</code> · 65 confirmed · 0 flagged outliers · 0 overridden from EOB</span>
+    </div>
+  </div>
+</div>
 
 <!-- Batched-letter document context bar -->
 <div class="dash-context dash-context-overview">
@@ -10370,7 +10381,7 @@ table.factor-table .ft-name { width: 18% !important; }
     <div class="dash-context-left">
       <span class="dc-eyebrow">Cohort Detection &nbsp;›&nbsp; Batch Qualification &nbsp;›&nbsp; Batched IDR Offer Letter</span>
       <h2 class="dc-title">UHC · CPT 99285 · 65-claim ERISA batch · Federal IDR · Day 18/75</h2>
-      <p class="dc-sub">Single Notice of Offer covering 65 claims under 45 CFR §149.510(c). Plan type confirmed by user per group. One filing fee, one rate-justification block — same 7 statutory factors as a single-claim letter, applied to the batch. The companion 24-claim CA fully-insured batch routes to CA state IDR (separate letter).</p>
+      <p class="dc-sub">Single Notice of Offer covering 65 claims under 45 CFR §149.510(c). <strong>Plan type</strong> and <strong>QPA</strong> are both user-confirmed before submit — plan type once per group, QPA per claim (pre-filled from <code style="font-family:var(--font-mono);font-size:11px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">Charge.allowed</code>, cross-validated against CMS PUF distribution for CPT × geozip). One filing fee, one rate-justification block — 7 statutory factors applied to the batch. Companion 24-claim CA fully-insured batch routes to CA state IDR (separate letter).</p>
     </div>
     <div class="dash-context-right">
       <span class="dc-stat-label">Aggregate requested</span>
@@ -10441,36 +10452,38 @@ table.factor-table .ft-name { width: 18% !important; }
     <table class="evidence-table" style="table-layout:fixed;">
       <thead>
         <tr>
-          <th style="width:5%;">#</th>
-          <th style="width:18%;">Claim ID</th>
-          <th style="width:11%;">DOS</th>
-          <th style="width:12%;">Member ID</th>
-          <th style="width:8%;">CPT</th>
-          <th class="right" style="width:14%;">Allowed (QPA)</th>
-          <th class="right" style="width:14%;">Requested</th>
+          <th style="width:4%;">#</th>
+          <th style="width:15%;">Claim ID</th>
+          <th style="width:8%;">DOS</th>
+          <th style="width:9%;">Member ID</th>
+          <th style="width:6%;">CPT</th>
+          <th class="right" style="width:12%;"><code style="font-family:var(--font-mono);font-size:9.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">Charge.allowed</code><br><span style="font-size:9px;color:var(--idr-ink-muted);font-weight:400;">(QPA pre-fill)</span></th>
+          <th style="width:10%;"><span style="font-family:var(--font-mono);font-size:9.5px;">QPA status</span></th>
+          <th class="right" style="width:11%;">Requested</th>
           <th class="right" style="width:10%;">Variance</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472301</span></td><td>Apr 27</td><td>8472-301</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>2</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472315</span></td><td>Apr 28</td><td>8472-315</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>3</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472328</span></td><td>Apr 29</td><td>8472-328</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>4</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472344</span></td><td>Apr 30</td><td>8472-344</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>5</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472361</span></td><td>May 01</td><td>8472-361</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>6</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472378</span></td><td>May 02</td><td>8472-378</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>7</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472395</span></td><td>May 04</td><td>8472-395</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>8</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472412</span></td><td>May 05</td><td>8472-412</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>9</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472429</span></td><td>May 06</td><td>8472-429</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>10</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472445</span></td><td>May 07</td><td>8472-445</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>11</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472463</span></td><td>May 08</td><td>8472-463</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>12</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472481</span></td><td>May 10</td><td>8472-481</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr style="background:var(--paper2);"><td colspan="8" style="text-align:center; font-style:italic; font-family:var(--font-mono); font-size:11px; color:var(--slate); letter-spacing:0.8px; padding:14px 0;">… 50 additional claims (rows 13–62) — full manifest in appendix attachment · UHC-2026-A8472498 through UHC-2026-A8472921</td></tr>
-        <tr><td>63</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472937</span></td><td>May 24</td><td>8472-937</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>64</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472954</span></td><td>May 25</td><td>8472-954</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
-        <tr><td>65</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472971</span></td><td>May 26</td><td>8472-971</td><td>99285</td><td class="ev-amount">$410.00</td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>1</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472301</span></td><td>Apr 27</td><td>8472-301</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>2</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472315</span></td><td>Apr 28</td><td>8472-315</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>3</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472328</span></td><td>Apr 29</td><td>8472-328</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>4</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472344</span></td><td>Apr 30</td><td>8472-344</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>5</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472361</span></td><td>May 01</td><td>8472-361</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>6</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472378</span></td><td>May 02</td><td>8472-378</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>7</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472395</span></td><td>May 04</td><td>8472-395</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>8</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472412</span></td><td>May 05</td><td>8472-412</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>9</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472429</span></td><td>May 06</td><td>8472-429</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>10</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472445</span></td><td>May 07</td><td>8472-445</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>11</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472463</span></td><td>May 08</td><td>8472-463</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>12</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472481</span></td><td>May 10</td><td>8472-481</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr style="background:var(--paper2);"><td colspan="9" style="text-align:center; font-style:italic; font-family:var(--font-mono); font-size:11px; color:var(--slate); letter-spacing:0.8px; padding:14px 0;">… 50 additional claims (rows 13–62) — full manifest in appendix attachment · UHC-2026-A8472498 through UHC-2026-A8472921 · all 50 ✓ CONFIRMED</td></tr>
+        <tr><td>63</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472937</span></td><td>May 24</td><td>8472-937</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>64</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472954</span></td><td>May 25</td><td>8472-954</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
+        <tr><td>65</td><td><span style="font-family:var(--font-mono);font-size:11px;">UHC-2026-A8472971</span></td><td>May 26</td><td>8472-971</td><td>99285</td><td class="ev-amount">$410.00</td><td><span style="display:inline-block; background:rgba(31,77,44,0.12); color:var(--idr-money); font-family:var(--font-mono); font-size:9px; letter-spacing:0.8px; padding:2px 6px; border-radius:2px; font-weight:700;">✓ CONFIRMED</span></td><td class="ev-amount">$1,200.00</td><td class="ev-mult" style="text-align:right;">+$790</td></tr>
         <tr style="border-top:2px solid var(--idr-money); background:rgba(31,77,44,0.05);">
           <td colspan="5" style="font-weight:700; color:var(--idr-money);">TOTAL — 65 claims</td>
           <td class="ev-amount" style="color:var(--idr-money);">$26,650.00</td>
+          <td style="font-family:var(--font-mono); font-size:9.5px; color:var(--idr-money); font-weight:700;">65 / 65 ✓</td>
           <td class="ev-amount" style="color:var(--idr-money);">$78,000.00</td>
           <td class="ev-mult" style="text-align:right; font-weight:700; color:var(--idr-money);">+$51,350</td>
         </tr>
@@ -10493,10 +10506,10 @@ table.factor-table .ft-name { width: 18% !important; }
       </thead>
       <tbody>
         <tr class="row-qpa">
-          <td class="ev-name"><strong>Payer's QPA disclosure (aggregate)</strong><span class="ev-desc">Mandatory CMS Notice of Offer field. All 65 claims paid at $410.00 — same QPA across the batch (UHC's CPT 99285 rate for this market). Source: 835 ERA AMT*B6 · Phase 2 read; Phase 1: user enters from EOB.</span></td>
+          <td class="ev-name"><strong>Payer's QPA disclosure (per claim · aggregated)</strong><span class="ev-desc">Mandatory disclosure per §149.510(c)(4)(iii)(A). <strong>Phase 1:</strong> pre-filled per row from athena <code style="font-family:var(--font-mono);font-size:10px;background:rgba(0,0,0,0.04);padding:0 3px;border-radius:2px;">Charge.allowed</code>, cross-validated against CMS PUF QPA distribution for CPT 99285 × geozip (within ±15% tolerance), <strong>user confirms per claim from EOB before submit</strong>. <strong>Phase 2:</strong> auto-verified from 835 ERA AMT*B6. For this batch: all 65 claims show identical $410.00 — uniform batch, single aggregate disclosure suffices.</span></td>
           <td class="ev-amount">$410.00</td>
           <td class="ev-amount">$26,650</td>
-          <td class="ev-note"><strong>§149.510(c)(4)(iii)(A)</strong><br><span style="font-size:10.5px;">Statutory baseline — required field</span></td>
+          <td class="ev-note"><strong>§149.510(c)(4)(iii)(A)</strong><br><span style="font-size:10.5px;">Statutory baseline · user-confirmed (65/65) · uniform across batch</span></td>
         </tr>
         <tr>
           <td class="ev-name"><strong>FAIR Health 50th percentile</strong><span class="ev-desc">CPT 99285 · Coastal metro · Commercial</span></td>
@@ -10559,10 +10572,22 @@ table.factor-table .ft-name { width: 18% !important; }
         <div class="lt-sub">Apr 27 – May 26, 2026 — DOS overlap satisfied · §149.510(c)(5)</div>
       </div>
       <div class="lt-cell">
+        <div class="lt-label">QPA disclosure (per claim) <span class="p1-derived">F1 · §149.510(c)(4)(iii)(A)</span></div>
+        <div class="lt-val" style="color:var(--idr-money);">PASS · 65 / 65</div>
+        <div class="lt-sub">All 65 user-confirmed · pre-filled from <code style="font-family:var(--font-mono);font-size:10px;background:rgba(0,0,0,0.04);padding:0 3px;border-radius:2px;">Charge.allowed</code>, cross-validated against CMS PUF · 0 outliers · 0 EOB overrides this batch</div>
+      </div>
+      <div class="lt-cell">
         <div class="lt-label">Non-conforming removed</div>
         <div class="lt-val">0 claims</div>
         <div class="lt-sub">All 65 in the batch conform · audit log shows 0 removals at qualify step</div>
       </div>
+      <div class="lt-cell">
+        <div class="lt-label">Submit gate</div>
+        <div class="lt-val" style="color:var(--idr-money);">UNLOCKED</div>
+        <div class="lt-sub">Approve &amp; submit available · all batching gates + QPA disclosure gate green</div>
+      </div>
+    </div>
+    <div class="lt-grid-4" style="border-top:none;">
       <div class="lt-cell">
         <div class="lt-label">Filing fee (batched)</div>
         <div class="lt-val">$840</div>
@@ -10572,6 +10597,16 @@ table.factor-table .ft-name { width: 18% !important; }
         <div class="lt-label">Net fee savings</div>
         <div class="lt-val" style="color:var(--idr-money);">~$12,160</div>
         <div class="lt-sub">Batched economics — one of two parallel letters; companion CA batch (24 claims) generates additional savings</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">QPA cross-validation</div>
+        <div class="lt-val" style="color:var(--idr-money);">0 outliers</div>
+        <div class="lt-sub">All 65 <code style="font-family:var(--font-mono);font-size:10px;background:rgba(0,0,0,0.04);padding:0 3px;border-radius:2px;">Charge.allowed</code> values within ±15% of CMS PUF median QPA for CPT 99285 × geozip</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-label">Audit trail</div>
+        <div class="lt-val">export-ready</div>
+        <div class="lt-sub">Per-claim QPA-confirmation events logged with user + timestamp · JSON + PDF export</div>
       </div>
     </div>
     <div class="lt-section-sources"><span class="ss-label">SOURCES</span><a class="api-pill ext" href="https://www.ecfr.gov/current/title-45/section-149.510" target="_blank" rel="noopener noreferrer">45 CFR §149.510(c)</a><a class="api-pill ext" href="https://www.cms.gov/files/document/federal-idr-fees-2026.pdf" target="_blank" rel="noopener noreferrer">CMS Federal IDR Fee Schedule 2026</a><span class="api-pill comp">Audit trail · JSON + PDF export</span></div>
@@ -10620,7 +10655,7 @@ table.factor-table .ft-name { width: 18% !important; }
           <td style="padding: 14px; color: var(--idr-money); font-weight: 600; font-size: 11.5px; white-space: nowrap;">✓ Generated</td>
         </tr>
         <tr style="border-bottom: 1px solid var(--idr-rule);">
-          <td style="padding: 14px;"><strong style="color: var(--idr-burgundy); font-family: var(--font-mono); font-size: 11.5px;">Claim_Manifest_65_Claims.csv</strong><span style="display:block; font-size:10.5px; color: var(--idr-ink-muted); margin-top:3px; font-style: italic;">Structured CSV — claim ID · DOS · member ID · CPT · QPA · requested · variance · acuity attestation per row</span></td>
+          <td style="padding: 14px;"><strong style="color: var(--idr-burgundy); font-family: var(--font-mono); font-size: 11.5px;">Claim_Manifest_65_Claims.csv</strong><span style="display:block; font-size:10.5px; color: var(--idr-ink-muted); margin-top:3px; font-style: italic;">Structured CSV — claim ID · DOS · member ID · CPT · <code style="font-family:var(--font-mono);font-size:9.5px;background:rgba(31,77,44,0.08);padding:0 3px;border-radius:2px;">Charge.allowed</code> · QPA confirmed flag · CMS PUF deviation · requested · variance · acuity attestation per row</span></td>
           <td style="padding: 14px;"><span class="api-pill fhir" style="font-size:9.5px;">Athena · Claim + ExplanationOfBenefit</span></td>
           <td style="padding: 14px; font-family: var(--font-mono); font-size: 11px; white-space: nowrap;">1 file · 18 KB</td>
           <td style="padding: 14px; font-family: var(--font-mono); font-size: 11px;">Manifest</td>
@@ -11036,6 +11071,103 @@ table.factor-table .ft-name { width: 18% !important; }
       Every visible field in the prototypes above, mapped to its Athena FHIR source.
     </h3>
 
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- LOAD-BEARING FIELD — Charge.allowed hero block               -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div style="background: linear-gradient(135deg, rgba(31,77,44,0.08) 0%, rgba(31,77,44,0.03) 100%); border: 1.5px solid var(--idr-money); border-left: 6px solid var(--idr-money); padding: 22px 28px; margin: 18px 0 28px; border-radius: 4px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 14px; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--idr-money); font-weight: 700; margin-bottom: 6px;">⚓ LOAD-BEARING FIELD · WITHOUT THIS, NO PHASE 1 PRODUCT</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; color: var(--idr-money); font-weight: 700; letter-spacing: -0.3px;">Charge.allowed</div>
+          <div style="font-size: 12px; color: var(--idr-ink-muted); margin-top: 4px; font-style: italic;">athena Charge Profile (29.6) · <code style="font-family:var(--font-mono);font-size:10.5px;background:white;padding:1px 5px;border:1px solid var(--idr-rule);border-radius:2px;">GET /customresource/Charge</code> · payer-allowed amount per service line</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-money); font-weight: 700;">PRODUCT DEPENDENCY</div>
+          <div style="font-family: var(--font-serif); font-size: 32px; color: var(--idr-money); font-weight: 700; line-height: 1; margin-top: 2px;">CRITICAL</div>
+          <div style="font-size: 11px; color: var(--idr-ink-muted); margin-top: 4px;">core athena field · not gated</div>
+        </div>
+      </div>
+
+      <p style="font-size: 13.5px; line-height: 1.55; color: var(--idr-ink); margin: 14px 0 12px;">
+        <strong>This field does double duty across the entire workflow.</strong> Every cohort, every batch, every Notice of Offer Forecaster generates orbits around it. Drop it and Phase 1 collapses to manual EOB entry per claim — which destroys batch economics.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 10px;">
+        <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-radius: 3px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 6px;">JOB 1 · COHORT DETECTION</div>
+          <p style="font-size: 12px; line-height: 1.55; color: var(--idr-ink); margin: 0;">Forecaster compares <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">Charge.allowed</code> against benchmark anchors (FAIR Health, CMS PUF) for the matching CPT × geozip. Materially below benchmark → OON-underpaid → IDR-eligible. Without this field, there is no cohort to detect.</p>
+        </div>
+        <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-radius: 3px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 6px;">JOB 2 · QPA PRE-FILL AT LETTER ASSEMBLY</div>
+          <p style="font-size: 12px; line-height: 1.55; color: var(--idr-ink); margin: 0;"><strong style="color:#8B5E0E;">Charge.allowed ≠ QPA.</strong> The statutory QPA disclosure under §149.510(c)(4)(iii)(A) is mandatory on every Notice of Offer. Forecaster uses <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">Charge.allowed</code> as a <strong>pre-fill helper</strong> — never as the QPA itself. User confirms or overrides per claim from the EOB before submit. Phase 2 (835 AMT*B6) reads the actual QPA the payer disclosed.</p>
+        </div>
+      </div>
+
+      <!-- The "Charge.allowed ≠ QPA" definitional explainer -->
+      <div style="background: rgba(184,134,44,0.08); border: 1.5px solid var(--idr-gold); border-left: 5px solid var(--idr-gold); padding: 18px 22px; margin: 18px 0 10px; border-radius: 3px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: #8B5E0E; font-weight: 700; margin-bottom: 6px;">⚠ READ THIS CAREFULLY</div>
+        <div style="font-family: var(--font-serif); font-size: 22px; color: var(--idr-ink); font-weight: 700; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.2px;">
+          <code style="font-family:var(--font-mono);font-size:20px;color:var(--idr-money);background:rgba(31,77,44,0.08);padding:2px 8px;border-radius:3px;">Charge.allowed</code>
+          <span style="color:#8B5E0E; font-family:var(--font-mono); font-size:24px; margin: 0 8px; font-weight:700;">≠</span>
+          <span style="font-family:var(--font-mono); font-size:20px; color:var(--idr-burgundy); background:rgba(161,42,48,0.06); padding:2px 8px; border-radius:3px;">QPA</span>
+        </div>
+        <p style="font-size: 13px; line-height: 1.55; color: var(--idr-ink); margin: 0 0 16px; font-style: italic;">These are <strong>two different things by definition.</strong> Treating them as interchangeable would be a compliance error. Folio3 never does. Here's the difference:</p>
+
+        <!-- Two side-by-side definition cards — visible at a glance -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 16px;">
+
+          <!-- Charge.allowed card -->
+          <div style="background: white; border: 1px solid rgba(31,77,44,0.30); border-top: 4px solid var(--idr-money); padding: 14px 16px; border-radius: 2px;">
+            <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--idr-money); font-weight: 700; margin-bottom: 5px;">ATHENA · CHARGE.ALLOWED</div>
+            <div style="font-family: var(--font-serif); font-size: 14px; font-weight: 700; color: var(--idr-ink); margin-bottom: 8px; line-height: 1.3;">What the payer actually allowed on THIS claim</div>
+            <p style="font-size: 11.5px; line-height: 1.55; color: var(--idr-ink); margin: 0 0 8px;">athena's reimbursement-system field. The dollar amount UHC (or whoever) posted as the allowed amount for this specific service line on this specific claim. Recorded after the fact.</p>
+            <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.5px; color: var(--idr-ink-muted); border-top: 1px dashed var(--idr-rule); padding-top: 8px; line-height: 1.5;">
+              • <strong style="color:var(--idr-money);">Claim-specific</strong><br>
+              • Payer-recorded · per-line<br>
+              • Available from athena Charge Profile<br>
+              • <strong style="color:var(--idr-money);">Phase 1: available now</strong>
+            </div>
+          </div>
+
+          <!-- QPA card -->
+          <div style="background: white; border: 1px solid rgba(161,42,48,0.30); border-top: 4px solid var(--idr-burgundy); padding: 14px 16px; border-radius: 2px;">
+            <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 5px;">STATUTORY · QPA</div>
+            <div style="font-family: var(--font-serif); font-size: 14px; font-weight: 700; color: var(--idr-ink); margin-bottom: 8px; line-height: 1.3;">A market-wide median the payer must calculate</div>
+            <p style="font-size: 11.5px; line-height: 1.55; color: var(--idr-ink); margin: 0 0 8px;">A specific calculation defined by <strong>§149.140</strong>: the median in-network contracted rate for this CPT in this geographic region as of Jan 31, 2019, indexed annually. The payer computes it and discloses it on the EOB.</p>
+            <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.5px; color: var(--idr-ink-muted); border-top: 1px dashed var(--idr-rule); padding-top: 8px; line-height: 1.5;">
+              • <strong style="color:var(--idr-burgundy);">Market-wide median</strong><br>
+              • Payer-calculated · per CPT × geozip<br>
+              • Disclosed on EOB / 835 AMT*B6<br>
+              • <strong style="color:var(--idr-burgundy);">Phase 1: user enters from EOB</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workflow consequence row -->
+        <div style="background: rgba(255,255,255,0.6); border: 1px solid var(--idr-rule); border-left: 3px solid var(--idr-ink); padding: 12px 16px; border-radius: 2px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--idr-ink); font-weight: 700; margin-bottom: 6px;">HOW FORECASTER HANDLES THIS — PHASE 1 WORKFLOW</div>
+          <ol style="font-size: 12px; line-height: 1.6; color: var(--idr-ink); margin: 0; padding-left: 22px;">
+            <li><strong>Pre-fill helper:</strong> Forecaster suggests <code style="font-family:var(--font-mono);font-size:10.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">Charge.allowed</code> as the starting QPA value — <em>never as the QPA itself</em>.</li>
+            <li><strong>CMS PUF cross-validation:</strong> Each pre-filled row is compared against the CMS PUF QPA distribution for the matching CPT × geozip. Rows where <code style="font-family:var(--font-mono);font-size:10.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">Charge.allowed</code> deviates &gt;±15% from the PUF median QPA flag yellow on the batch-review screen.</li>
+            <li><strong>User confirms from EOB:</strong> The provider reads the actual QPA from each EOB and confirms (or overrides the pre-fill). This is the only QPA value that goes into the Notice of Offer.</li>
+            <li><strong>Submit is gated:</strong> The Approve &amp; Submit action stays locked until <strong>every claim</strong> in the batch has a user-confirmed QPA. No exceptions.</li>
+            <li><strong>Phase 2 promotion:</strong> The <strong>customer adds Folio3 as an authorized 835 ERA copy recipient at the clearinghouse level</strong> (Change Healthcare, Availity, Waystar, etc.). The clearinghouse then delivers a one-way copy of every 835 ERA to Folio3 alongside the practice. Forecaster reads the QPA directly from <code style="font-family:var(--font-mono);font-size:10.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">AMT*B6</code> — confirmation flips from manual to AUTO-VERIFIED. <em style="color:var(--idr-ink-muted);">Folio3 never becomes a clearinghouse; it's a copy recipient only.</em></li>
+          </ol>
+        </div>
+
+        <p style="font-size: 11.5px; line-height: 1.55; color: var(--idr-ink-muted); margin: 12px 0 0; font-style: italic;">Why the values are often close anyway: under NSA, the payer is required to pay the QPA as the initial OON payment. So <code style="font-family:var(--font-mono);font-size:10.5px;background:white;padding:1px 4px;border-radius:2px;">Charge.allowed</code> (what was paid) and the QPA (what should have been paid) often end up matching for the same claim. But "often" isn't "always" — and "assumed" isn't "compliant." Forecaster always asks the user, never assumes.</p>
+      </div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+        <a class="api-pill fhir" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">Athena · Charge Profile (29.6)</a>
+        <a class="api-pill free" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">CMS PUF · cross-validation</a>
+        <a class="api-pill ext" href="https://www.ecfr.gov/current/title-45/section-149.140" target="_blank" rel="noopener noreferrer">45 CFR §149.140 · QPA definition</a>
+        <a class="api-pill ext" href="https://www.ecfr.gov/current/title-45/section-149.510" target="_blank" rel="noopener noreferrer">§149.510(c)(4)(iii)(A) · disclosure</a>
+        <span class="api-pill locked">AMT*B6 verified · Phase 2</span>
+      </div>
+    </div>
+
+
     <table class="ref-field-table">
       <thead>
         <tr>
@@ -11140,13 +11272,19 @@ table.factor-table .ft-name { width: 18% !important; }
           </td>
         </tr>
 
-        <tr>
-          <td class="col-feat"><strong>Payer-allowed amount per service line (QPA proxy in P1)</strong></td>
+        <tr style="background: rgba(31,77,44,0.10); border-left: 4px solid var(--idr-money);" data-keystone-row="true">
+          <td class="col-feat">
+            <strong style="color: var(--idr-money);">⚓ Payer-allowed amount per service line</strong>
+            <span style="display:inline-block; background: var(--idr-money); color: white; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 1.2px; padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: middle; font-weight: 700;">LOAD-BEARING · §2.1</span>
+            <span style="display:block; font-size:11px; color: var(--idr-ink-muted); margin-top: 5px; line-height: 1.5;"><strong style="color:#8B5E0E;">Charge.allowed ≠ QPA</strong> — different things by definition. <code style="font-family:var(--font-mono);font-size:10px;background:rgba(31,77,44,0.06);padding:0 3px;border-radius:2px;">Charge.allowed</code> = what UHC posted as allowed on THIS claim · QPA = the market-wide median the payer must calculate per §149.140. Forecaster uses this field for <strong>(1)</strong> cohort detection and <strong>(2)</strong> Phase 1 QPA pre-fill — never as the QPA itself. See ⚓ hero block above for the full definitional split.</span>
+            <span style="display:block; font-size:11px; color: var(--idr-ink); margin-top: 6px; padding: 6px 10px; background: rgba(255,255,255,0.6); border-left: 2px solid var(--idr-money); line-height: 1.5;"><strong style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:1px; color:var(--idr-money);">CROSS-VALIDATION ·</strong> Each pre-filled row is compared against the CMS PUF QPA distribution for matching CPT × geozip. Rows deviating &gt;±15% from PUF median QPA flag yellow; user confirms QPA from EOB before submit. Submit gate stays locked until all rows confirmed.</span>
+          </td>
           <td><code>Charge.allowed</code>, <code>Charge.totalAllowed</code>, <code>Charge.coPayAmount</code></td>
           <td>
             <span class="api-name">Athena Charge Profile (29.6)</span>
             <code>GET /customresource/Charge</code><br>
             <a class="api-link" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">docs.mydata.athenahealth.com/.../athena-charge-profile</a>
+            <div style="margin-top:8px; padding-top:8px; border-top: 1px dashed var(--idr-rule); font-size: 10.5px; color: var(--idr-ink-muted);"><strong style="color:var(--idr-money); font-family:var(--font-mono); font-size:9.5px; letter-spacing:1px;">CROSS-VALIDATED AGAINST</strong><br><a class="api-link" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">CMS PUF QPA distribution (CPT × geozip)</a></div>
           </td>
         </tr>
 
