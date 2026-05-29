@@ -14485,6 +14485,55 @@ table.factor-table .ft-name { width: 18% !important; }
       Every visible field in the prototypes, mapped to its ModMed API surface.
     </h3>
 
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- LOAD-BEARING FIELD — Charge.allowedAmount hero block (ModMed) -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div style="background: linear-gradient(135deg, rgba(31,77,44,0.08) 0%, rgba(31,77,44,0.03) 100%); border: 1.5px solid var(--idr-money); border-left: 6px solid var(--idr-money); padding: 22px 28px; margin: 18px 0 28px; border-radius: 4px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 14px; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; color: var(--idr-money); font-weight: 700; margin-bottom: 6px;">⚓ LOAD-BEARING FIELD · WITHOUT THIS, NO PHASE 1 PRODUCT</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; color: var(--idr-money); font-weight: 700; letter-spacing: -0.3px;">Charge.allowedAmount</div>
+          <div style="font-size: 12px; color: var(--idr-ink-muted); margin-top: 4px; font-style: italic;">EMA Proprietary REST · <code style="font-family:var(--font-mono);font-size:10.5px;background:white;padding:1px 5px;border:1px solid var(--idr-rule);border-radius:2px;">GET /api/v2/.../charges</code> · payer-allowed amount per service line · siblings <code style="font-family:var(--font-mono);font-size:10px;">adjudicatedAmount</code> · <code style="font-family:var(--font-mono);font-size:10px;">expectedAllowable</code></div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-money); font-weight: 700;">PRODUCT DEPENDENCY</div>
+          <div style="font-family: var(--font-serif); font-size: 32px; color: var(--idr-money); font-weight: 700; line-height: 1; margin-top: 2px;">CRITICAL</div>
+          <div style="font-size: 11px; color: var(--idr-ink-muted); margin-top: 4px;">EMA REST field · not gated</div>
+        </div>
+      </div>
+
+      <p style="font-size: 13.5px; line-height: 1.55; color: var(--idr-ink); margin: 14px 0 12px;">
+        <strong>ModMed's analog to athena's <code style="font-family:var(--font-mono);font-size:11.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">Charge.allowed</code> — same double duty.</strong> ModMed surfaces this on the EMA Proprietary REST charges endpoint, not FHIR. Where athena gives one field, ModMed gives three: <code style="font-family:var(--font-mono);font-size:11px;">allowedAmount</code>, <code style="font-family:var(--font-mono);font-size:11px;">adjudicatedAmount</code> (post-payer processing), and <code style="font-family:var(--font-mono);font-size:11px;">expectedAllowable</code> (fee schedule). Drop the allowed amount and Phase 1 collapses to manual EOB entry per claim — which destroys batch economics.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0 10px;">
+        <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-radius: 3px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 6px;">JOB 1 · COHORT DETECTION</div>
+          <p style="font-size: 12px; line-height: 1.55; color: var(--idr-ink); margin: 0;">Forecaster compares <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">Charge.allowedAmount</code> against benchmark anchors (FAIR Health, CMS PUF) for the matching CPT × geozip via the gap-signature classifier <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">(billed − allowed) / billed</code>. Materially below benchmark → OON-underpaid → IDR-eligible.</p>
+        </div>
+        <div style="background: white; border: 1px solid var(--idr-rule); padding: 14px 16px; border-radius: 3px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--idr-burgundy); font-weight: 700; margin-bottom: 6px;">JOB 2 · QPA PRE-FILL AT LETTER ASSEMBLY</div>
+          <p style="font-size: 12px; line-height: 1.55; color: var(--idr-ink); margin: 0;"><strong style="color:#8B5E0E;">Charge.allowedAmount ≠ QPA.</strong> The statutory QPA disclosure under §149.510(c)(4)(iii)(A) is mandatory on every Notice of Offer. Forecaster uses <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">adjudicatedAmount</code> (fallback <code style="font-family:var(--font-mono);font-size:10.5px;background:var(--idr-paper-2);padding:1px 4px;border-radius:2px;">allowedAmount</code>) as a <strong>pre-fill helper</strong> — never as the QPA itself. User confirms or overrides per claim from the EOB before submit. Phase 2 (835 AMT*B6) reads the actual QPA.</p>
+        </div>
+      </div>
+
+      <div style="background: rgba(184,134,44,0.08); border: 1.5px solid var(--idr-gold); border-left: 5px solid var(--idr-gold); padding: 14px 20px; margin: 14px 0 4px; border-radius: 3px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: #8B5E0E; font-weight: 700; margin-bottom: 4px;">⚠ SAME COMPLIANCE RULE AS ATHENA — ONLY THE FIELD NAME CHANGES</div>
+          <p style="font-size: 12px; line-height: 1.5; color: var(--idr-ink); margin: 0;">The <code style="font-family:var(--font-mono);font-size:10.5px;background:rgba(31,77,44,0.06);padding:1px 4px;border-radius:2px;">allowed amount ≠ QPA</code> distinction is defined by §149.140 and is identical across EHRs. The full definitional split — side-by-side cards plus the Phase-1 confirmation workflow — lives on the athena reference.</p>
+        </div>
+        <a href="#athenaone" style="white-space:nowrap; font-weight:700; color:var(--idr-money); text-decoration:none; font-family:var(--font-mono); font-size:11px; letter-spacing:0.5px; border:1.5px solid var(--idr-money); padding:8px 14px; border-radius:3px;">F · ATHENAONE → §2 ↗</a>
+      </div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+        <a class="api-pill rest" href="https://portal.api.modmed.com/reference/chargesfinancial" target="_blank" rel="noopener noreferrer">ModMed · EMA Charges/Financial</a>
+        <a class="api-pill free" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">CMS PUF · cross-validation</a>
+        <a class="api-pill ext" href="https://www.ecfr.gov/current/title-45/section-149.140" target="_blank" rel="noopener noreferrer">45 CFR §149.140 · QPA definition</a>
+        <span class="api-pill locked">AMT*B6 verified · Phase 2</span>
+      </div>
+    </div>
+
+
     <table class="ref-field-table">
       <thead>
         <tr>
@@ -14599,14 +14648,20 @@ table.factor-table .ft-name { width: 18% !important; }
           </td>
         </tr>
 
-        <tr>
-          <td class="col-feat"><strong>Payer-allowed amount per service line (QPA proxy in P1)</strong></td>
-          <td><code>Charge.allowedAmount</code>, <code>Charge.expectedAllowable</code> (per fee schedule), <code>Charge.adjudicatedAmount</code>. Drives the gap-signature classifier (<code>(billed - allowed) / billed</code>).</td>
+        <tr style="background: rgba(31,77,44,0.10); border-left: 4px solid var(--idr-money);" data-keystone-row="true">
+          <td class="col-feat">
+            <strong style="color: var(--idr-money);">⚓ Payer-allowed amount per service line · QPA pre-fill</strong>
+            <span style="display:inline-block; background: var(--idr-money); color: white; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 1.2px; padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: middle; font-weight: 700;">LOAD-BEARING · G.1</span>
+            <span style="display:block; font-size:11px; color: var(--idr-ink-muted); margin-top: 5px; line-height: 1.5;"><strong style="color:#8B5E0E;">Charge.allowedAmount ≠ QPA</strong> — different things by definition. <code style="font-family:var(--font-mono);font-size:10px;background:rgba(31,77,44,0.06);padding:0 3px;border-radius:2px;">Charge.allowedAmount</code> = what the payer posted as allowed on THIS claim · QPA = the market-wide median the payer must calculate per §149.140. Forecaster uses these fields for <strong>(1)</strong> cohort detection and <strong>(2)</strong> Phase 1 QPA pre-fill — never as the QPA itself. See the ⚓ hero block above, or <a href="#athenaone">F · AthenaOne → §2</a>, for the full definitional split.</span>
+            <span style="display:block; font-size:11px; color: var(--idr-ink); margin-top: 6px; padding: 6px 10px; background: rgba(255,255,255,0.6); border-left: 2px solid var(--idr-money); line-height: 1.5;"><strong style="font-family:var(--font-mono); font-size:9.5px; letter-spacing:1px; color:var(--idr-money);">CROSS-VALIDATION ·</strong> Each pre-filled row is compared against the CMS PUF QPA distribution for matching CPT × geozip. Rows deviating &gt;±15% from PUF median QPA flag yellow; user confirms QPA from EOB before submit. Submit gate stays locked until all rows confirmed.</span>
+          </td>
+          <td><strong>Gap detection:</strong> <code>Charge.allowedAmount</code> drives the gap-signature classifier (<code>(billed − allowed) / billed</code>), with <code>Charge.expectedAllowable</code> (fee schedule) as the expected baseline. <strong>QPA pre-fill:</strong> <code>Charge.adjudicatedAmount</code> (post-payer processing) preferred, falling back to <code>Charge.allowedAmount</code> when null.</td>
           <td>
             <span class="surface-tag rest">REST</span>
             <span class="api-name">EMA Charges/Financial</span>
             <code>GET /api/v2/.../charges</code><br>
             <a class="api-link" href="https://portal.api.modmed.com/reference/chargesfinancial" target="_blank" rel="noopener noreferrer">portal.api.modmed.com/reference/chargesfinancial</a>
+            <div style="margin-top:8px; padding-top:8px; border-top: 1px dashed var(--idr-rule); font-size: 10.5px; color: var(--idr-ink-muted);"><strong style="color:var(--idr-money); font-family:var(--font-mono); font-size:9.5px; letter-spacing:1px;">CROSS-VALIDATED AGAINST</strong><br><a class="api-link" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">CMS PUF QPA distribution (CPT × geozip)</a></div>
           </td>
         </tr>
 
