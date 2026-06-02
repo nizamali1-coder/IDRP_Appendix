@@ -6758,6 +6758,226 @@ table.factor-table .ft-name { width: 18% !important; }
     color: var(--navy);
   }
 
+
+/* ═══════════ G.2 · Folio3 IDR marketing web page (scoped .f3web) ═══════════ */
+.f3web{
+  --w-navy:#1A2B4A; --w-navy2:#2D4368; --w-burg:#A12A30; --w-money:#1F4D2C;
+  --w-slate:#5E7283; --w-ink:#1F2937; --w-muted:#6B655C; --w-rule:#E4E0D7;
+  --w-paper:#FAF8F4; --w-paper2:#F2EFE8; --w-white:#FFFFFF; --w-gold:#C8A24B;
+  --w-serif:'Cambria','Lora','Georgia',serif;
+  --w-sans:'Calibri','Open Sans','Helvetica Neue',system-ui,sans-serif;
+  --w-mono:'IBM Plex Mono','SF Mono',Menlo,Consolas,monospace;
+  background:var(--w-white);
+  color:var(--w-ink);
+  font-family:var(--w-sans);
+  border:1px solid var(--w-rule);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 24px 60px -28px rgba(26,43,74,0.28);
+  line-height:1.55;
+}
+.f3web *{box-sizing:border-box;}
+.f3web a{text-decoration:none;color:inherit;}
+
+/* NAV */
+.f3web-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 34px;background:var(--w-white);
+  border-bottom:1px solid var(--w-rule);position:relative;z-index:5;
+}
+.f3web-brand{display:flex;align-items:center;gap:11px;}
+.f3web-logo{
+  width:34px;height:34px;border-radius:7px;background:var(--w-navy);
+  color:#fff;font-family:var(--w-mono);font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;letter-spacing:0.5px;
+}
+.f3web-logo.sm{width:26px;height:26px;font-size:11px;}
+.f3web-brandname{font-family:var(--w-serif);font-size:19px;font-weight:700;color:var(--w-navy);}
+.f3web-brandname em{font-style:normal;color:var(--w-burg);}
+.f3web-navlinks{display:flex;gap:30px;}
+.f3web-navlinks a{
+  font-size:13.5px;color:var(--w-muted);font-weight:600;
+  transition:color .15s;
+}
+.f3web-navlinks a:hover{color:var(--w-navy);}
+.f3web-navcta{
+  font-size:13px;font-weight:700;color:#fff;background:var(--w-burg);
+  padding:9px 18px;border-radius:6px;letter-spacing:0.2px;
+  transition:transform .15s,background .15s;
+}
+.f3web-navcta:hover{background:#8a242a;transform:translateY(-1px);}
+
+/* HERO */
+.f3web-hero{
+  padding:64px 44px 56px;
+  background:
+    radial-gradient(900px 360px at 78% -8%, rgba(45,67,104,0.10), transparent 70%),
+    linear-gradient(180deg,var(--w-paper) 0%,var(--w-white) 100%);
+  border-bottom:1px solid var(--w-rule);
+}
+.f3web-hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;max-width:1180px;margin:0 auto;}
+.f3web-eyebrow{
+  font-family:var(--w-mono);font-size:11px;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--w-burg);font-weight:600;margin-bottom:18px;
+}
+.f3web-eyebrow.center{text-align:center;}
+.f3web-h1{
+  font-family:var(--w-serif);font-weight:700;color:var(--w-navy);
+  font-size:46px;line-height:1.08;letter-spacing:-0.01em;margin:0 0 20px;
+}
+.f3web-h1 .hl{color:var(--w-burg);}
+.f3web-lede{font-size:16px;color:var(--w-ink);max-width:560px;margin:0 0 28px;line-height:1.62;}
+.f3web-hero-actions{display:flex;gap:14px;align-items:center;margin-bottom:30px;}
+.f3web-btn{
+  font-size:14px;font-weight:700;padding:13px 24px;border-radius:7px;
+  transition:transform .15s,box-shadow .15s,background .15s;display:inline-block;
+}
+.f3web-btn.primary{background:var(--w-navy);color:#fff;box-shadow:0 10px 22px -10px rgba(26,43,74,0.55);}
+.f3web-btn.primary:hover{transform:translateY(-2px);background:var(--w-navy2);}
+.f3web-btn.ghost{color:var(--w-navy);border:1px solid var(--w-rule);background:#fff;}
+.f3web-btn.ghost:hover{border-color:var(--w-navy);}
+.f3web-btn.lg{padding:15px 30px;font-size:15px;}
+.f3web-btn.ghost-dark{color:#fff;border:1px solid rgba(255,255,255,0.4);}
+.f3web-btn.ghost-dark:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+.f3web-hero-trust{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--w-muted);font-family:var(--w-mono);}
+.f3web-hero-trust span{text-transform:uppercase;letter-spacing:0.1em;font-size:10.5px;}
+.f3web-hero-trust strong{color:var(--w-navy);font-family:var(--w-sans);font-size:13px;}
+.f3web-hero-trust i{color:var(--w-rule);font-style:normal;}
+
+/* HERO floating product card */
+.f3web-hero-panel{display:flex;justify-content:center;}
+.f3web-card-float{
+  width:330px;background:#fff;border:1px solid var(--w-rule);border-radius:12px;
+  padding:22px;box-shadow:0 30px 60px -24px rgba(26,43,74,0.40);
+  transform:rotate(-1.2deg);
+}
+.f3web-cf-head{
+  display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;
+  color:var(--w-burg);text-transform:uppercase;letter-spacing:0.08em;
+  font-family:var(--w-mono);margin-bottom:16px;
+}
+.f3web-cf-dot{width:9px;height:9px;border-radius:50%;background:var(--w-burg);box-shadow:0 0 0 4px rgba(161,42,48,0.14);}
+.f3web-cf-row{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--w-ink);margin:10px 0 4px;}
+.f3web-cf-row b{font-family:var(--w-mono);font-size:18px;font-weight:700;}
+.f3web-cf-row b.neg{color:var(--w-burg);}
+.f3web-cf-row b.pos{color:var(--w-money);}
+.f3web-cf-bar{height:7px;background:var(--w-paper2);border-radius:4px;overflow:hidden;margin:2px 0;}
+.f3web-cf-bar i{display:block;height:100%;background:var(--w-burg);border-radius:4px;}
+.f3web-cf-meta{font-size:11px;color:var(--w-muted);font-style:italic;margin-bottom:14px;}
+.f3web-cf-foot{font-size:11.5px;color:var(--w-navy);font-weight:600;border-top:1px dashed var(--w-rule);padding-top:13px;margin-top:6px;}
+.f3web-cf-cta{
+  margin-top:14px;text-align:center;background:var(--w-navy);color:#fff;
+  font-size:12.5px;font-weight:700;padding:11px;border-radius:6px;
+}
+
+/* PROBLEM STRIP */
+.f3web-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:var(--w-navy);color:#fff;
+}
+.f3web-strip-item{padding:34px 36px;border-right:1px solid rgba(255,255,255,0.12);}
+.f3web-strip-item:last-child{border-right:none;}
+.f3web-strip-num{font-family:var(--w-serif);font-size:40px;font-weight:700;color:#fff;line-height:1;margin-bottom:12px;}
+.f3web-strip-item:nth-child(2) .f3web-strip-num{color:var(--w-money-soft,#9DD89B);}
+.f3web-strip-lbl{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.5;}
+.f3web-strip-lbl strong{color:#fff;}
+
+/* SECTIONS */
+.f3web-section{padding:66px 44px;}
+.f3web-section.alt{background:var(--w-paper);border-top:1px solid var(--w-rule);border-bottom:1px solid var(--w-rule);}
+.f3web-sec-head{max-width:720px;margin:0 auto 46px;text-align:center;}
+.f3web-h2{font-family:var(--w-serif);font-weight:700;color:var(--w-navy);font-size:33px;line-height:1.14;letter-spacing:-0.01em;margin:0 0 14px;}
+.f3web-h2.left{text-align:left;}
+.f3web-sec-sub{font-size:15.5px;color:var(--w-muted);margin:0;line-height:1.6;}
+
+/* FEATURE GRID */
+.f3web-feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--w-rule);max-width:1120px;margin:0 auto;border:1px solid var(--w-rule);border-radius:10px;overflow:hidden;}
+.f3web-feat{background:#fff;padding:30px 28px;transition:background .18s;}
+.f3web-feat:hover{background:var(--w-paper);}
+.f3web-feat-ic{
+  width:42px;height:42px;border-radius:9px;background:var(--w-paper2);
+  color:var(--w-navy);font-size:21px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.f3web-feat h3{font-family:var(--w-serif);font-size:19px;font-weight:700;color:var(--w-navy);margin:0 0 9px;}
+.f3web-feat p{font-size:13.5px;color:var(--w-muted);margin:0;line-height:1.6;}
+
+/* STEPS */
+.f3web-steps{display:flex;align-items:stretch;gap:0;max-width:1080px;margin:0 auto;justify-content:center;}
+.f3web-step{flex:1;background:#fff;border:1px solid var(--w-rule);border-radius:10px;padding:28px 26px;}
+.f3web-step-n{font-family:var(--w-mono);font-size:13px;font-weight:700;color:var(--w-burg);letter-spacing:0.1em;}
+.f3web-step h4{font-family:var(--w-serif);font-size:18px;color:var(--w-navy);margin:10px 0 9px;font-weight:700;}
+.f3web-step p{font-size:13px;color:var(--w-muted);margin:0;line-height:1.58;}
+.f3web-step-arrow{display:flex;align-items:center;color:var(--w-slate);font-size:22px;padding:0 14px;}
+
+/* EHR GRID */
+.f3web-ehr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1120px;margin:0 auto;}
+.f3web-ehr{background:#fff;border:1px solid var(--w-rule);border-radius:12px;padding:28px 26px;position:relative;transition:transform .18s,box-shadow .18s;}
+.f3web-ehr:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(26,43,74,0.3);}
+.f3web-ehr.live{border-color:var(--w-navy);border-width:1.5px;box-shadow:0 14px 34px -20px rgba(26,43,74,0.32);}
+.f3web-ehr-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.f3web-ehr-name{font-family:var(--w-serif);font-size:21px;font-weight:700;color:var(--w-navy);}
+.f3web-ehr-badge{font-family:var(--w-mono);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 9px;border-radius:20px;font-weight:600;}
+.f3web-ehr-badge.live{background:#D1E8C9;color:var(--w-money);}
+.f3web-ehr-badge.soon{background:var(--w-paper2);color:var(--w-muted);}
+.f3web-ehr-tag{font-size:14px;color:var(--w-ink);font-weight:600;margin:0 0 14px;line-height:1.45;}
+.f3web-ehr-list{list-style:none;padding:0;margin:0 0 18px;}
+.f3web-ehr-list li{font-size:12.5px;color:var(--w-muted);padding:6px 0 6px 18px;position:relative;border-bottom:1px dotted var(--w-rule);}
+.f3web-ehr-list li:last-child{border-bottom:none;}
+.f3web-ehr-list li::before{content:"›";position:absolute;left:2px;color:var(--w-burg);font-weight:700;}
+.f3web-ehr-reach{font-family:var(--w-mono);font-size:11.5px;color:var(--w-navy);font-weight:600;background:var(--w-paper);padding:9px 12px;border-radius:6px;text-align:center;}
+
+/* PROOF */
+.f3web-proof{display:flex;align-items:stretch;justify-content:center;gap:0;max-width:1040px;margin:0 auto;}
+.f3web-proof-step{flex:1;background:#fff;border:1px solid var(--w-rule);border-radius:10px;padding:26px;text-align:center;}
+.f3web-proof-lbl{font-family:var(--w-mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--w-muted);margin-bottom:10px;}
+.f3web-proof-val{font-family:var(--w-serif);font-size:38px;font-weight:700;color:var(--w-navy);line-height:1;margin-bottom:10px;}
+.f3web-proof-val.neg{color:var(--w-burg);}
+.f3web-proof-val.pos{color:var(--w-money);}
+.f3web-proof-note{font-size:12px;color:var(--w-muted);line-height:1.5;}
+.f3web-proof-flow{display:flex;align-items:center;color:var(--w-slate);font-size:24px;padding:0 16px;}
+.f3web-proof-disclaimer{text-align:center;font-size:11px;color:var(--w-muted);font-style:italic;margin:24px auto 0;max-width:680px;}
+
+/* POSITIONING */
+.f3web-pos{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1120px;margin:0 auto;}
+.f3web-pos-copy p{font-size:15px;color:var(--w-ink);line-height:1.65;margin:14px 0 0;}
+.f3web-pos-vs{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.f3web-vs-col{border-radius:10px;padding:22px 20px;}
+.f3web-vs-col.them{background:var(--w-paper);border:1px solid var(--w-rule);}
+.f3web-vs-col.us{background:var(--w-navy);color:#fff;}
+.f3web-vs-h{font-family:var(--w-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+.f3web-vs-col.them .f3web-vs-h{color:var(--w-muted);}
+.f3web-vs-col.us .f3web-vs-h{color:var(--w-gold);}
+.f3web-vs-col ul{list-style:none;padding:0;margin:0;}
+.f3web-vs-col li{font-size:12.5px;padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.06);line-height:1.4;}
+.f3web-vs-col.us li{border-bottom-color:rgba(255,255,255,0.12);}
+.f3web-vs-col li:last-child{border-bottom:none;}
+
+/* CTA */
+.f3web-cta{padding:70px 44px;text-align:center;background:linear-gradient(135deg,var(--w-navy) 0%,var(--w-navy2) 100%);color:#fff;}
+.f3web-cta h2{font-family:var(--w-serif);font-size:34px;font-weight:700;margin:0 0 14px;color:#fff;}
+.f3web-cta p{font-size:16px;color:rgba(255,255,255,0.82);max-width:560px;margin:0 auto 30px;line-height:1.6;}
+.f3web-cta-actions{display:flex;gap:14px;justify-content:center;}
+.f3web-cta .f3web-btn.primary{background:#fff;color:var(--w-navy);}
+.f3web-cta .f3web-btn.primary:hover{background:var(--w-paper);}
+
+/* FOOTER */
+.f3web-foot{padding:30px 44px;background:#13203a;color:rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.f3web-foot-brand{display:flex;align-items:center;gap:9px;color:#fff;font-family:var(--w-serif);font-size:15px;font-weight:700;}
+.f3web-foot-links{display:flex;gap:22px;font-size:12.5px;}
+.f3web-foot-fine{font-size:10.5px;width:100%;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;font-style:italic;}
+
+/* responsive */
+@media(max-width:900px){
+  .f3web-hero-grid,.f3web-pos{grid-template-columns:1fr;}
+  .f3web-feat-grid,.f3web-strip,.f3web-ehr-grid{grid-template-columns:1fr;}
+  .f3web-steps,.f3web-proof{flex-direction:column;gap:14px;}
+  .f3web-step-arrow,.f3web-proof-flow{transform:rotate(90deg);padding:6px 0;justify-content:center;}
+  .f3web-pos-vs{grid-template-columns:1fr;}
+  .f3web-h1{font-size:34px;}
+  .f3web-navlinks{display:none;}
+}
+
 </style>
 </head>
 <body>
@@ -9496,39 +9716,10 @@ table.factor-table .ft-name { width: 18% !important; }
     <div class="patient-main">
 
 
-      <!-- Letter readiness -->
-      <section class="record-section">
-        <h3>Letter readiness</h3>
-        <p class="section-summary"><strong>4 of 5 in-scope factors auto-loaded</strong> · F1 (QPA) requires user verification from payer EOB before submission · F6 (prior contracted rate) recommended pending onboarding intake · F5 N/A (independent ASC). <em>Note: F3 (market share) is excluded by default — see Filing Requirements panel for the rationale.</em></p>
-        <p class="section-summary" style="font-size: 10.5px; color: var(--idr-ink-muted); margin-top: 6px; font-style: italic;">F-numbering ↔ 45 CFR §149.510(c)(4)(iii): F1 = QPA (mandatory anchor) · F2 = (A) training/quality · F3 = (B) market share · F4 = (C) acuity · F5 = (D) teaching status · F6 = (F) prior contracted rates · F7 = arbitrator precedent (CMS PUF — supplementary, not a statutory factor). Factor (E) good-faith network efforts is captured in Section 3 supporting statements when documented at onboarding.</p>
-        <table class="factor-table">
-          <thead><tr><th></th><th>Factor</th><th>Value loaded</th><th>Source</th><th></th></tr></thead>
-          <tbody>
-            <tr><td class="ft-num">F1</td><td class="ft-name">QPA</td><td class="ft-source"><strong style="color:var(--idr-ink);font-size:13px;font-family:var(--font-mono);">$642.50</strong> <span class="p1-derived" style="margin-left:6px;">P1 proxy</span><br><span style="font-size:10.5px;color:var(--idr-ink-muted);font-style:italic;">Suggested from Athena <code style="font-family:var(--font-mono);font-size:10px;background:rgba(0,0,0,0.04);padding:0 3px;border-radius:2px;">Charge.allowed</code>; user confirms or overrides at letter draft. Phase 2 reads verified QPA from payer EOB <code style="font-family:var(--font-mono);font-size:10px;background:rgba(0,0,0,0.04);padding:0 3px;border-radius:2px;">835 AMT*B6</code>.</span></td><td class="ft-pills"><a class="api-pill fhir" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">Athena · Charge.allowed (suggestion)</a><span class="api-pill locked">AMT*B6 verified · Phase 2</span></td><td class="ft-status required">User confirms</td></tr>
-            <tr><td class="ft-num">F2</td><td class="ft-name">Training &amp; quality</td><td class="ft-source">ABA 2009 · 16 yrs</td><td class="ft-pills"><a class="api-pill fhir" href="https://hl7.org/fhir/R4/practitioner.html" target="_blank" rel="noopener noreferrer">Athena · Practitioner</a><a class="api-pill paid" href="https://www.abmssolutions.com/product-solutions/" target="_blank" rel="noopener noreferrer">External · ABMS</a></td><td class="ft-status ok">✓</td></tr>
-            <tr><td class="ft-num">F4</td><td class="ft-name">Patient acuity</td><td class="ft-source">P3 · K57.32 + E11.65 + I25.10</td><td class="ft-pills"><a class="api-pill fhir" href="https://hl7.org/fhir/R4/encounter.html" target="_blank" rel="noopener noreferrer">Athena · Encounter</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Athena · Claim</a></td><td class="ft-status ok">✓</td></tr>
-            <tr><td class="ft-num">F5</td><td class="ft-name">Teaching status</td><td class="ft-source">N/A — independent ASC</td><td class="ft-pills"><span class="ft-na">—</span></td><td class="ft-status gap">—</td></tr>
-            <tr><td class="ft-num">F6</td><td class="ft-name">Prior contracted rates</td><td class="ft-source"><em style="color:var(--idr-ink-muted);font-style:italic;">OCR pending · onboarding intake</em></td><td class="ft-pills"><a class="api-pill fhir" href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Athena · Claim</a><a class="api-pill fhir" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">Athena · Charge history</a></td><td class="ft-status recommended">Rec.</td></tr>
-            <tr><td class="ft-num">F7</td><td class="ft-name">IDRE discretion</td><td class="ft-source">75th pctile $3,210 · TX commercial</td><td class="ft-pills"><a class="api-pill free" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">External · CMS PUF</a></td><td class="ft-status ok">✓</td></tr>
-          </tbody>
-        </table>
-        <button class="btn-record-primary" data-goto-letter>Generate offer letter →</button>
-      <div class="api-source-row"><span class="api-source-label">SOURCES</span><span class="api-pill comp">User input · QPA from EOB · F1</span><a class="api-pill fhir" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">Athena · Charge.allowed (suggestion) · F1</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/practitioner.html" target="_blank" rel="noopener noreferrer">Athena · Practitioner · F2</a><a class="api-pill paid" href="https://www.abmssolutions.com/product-solutions/" target="_blank" rel="noopener noreferrer">External · ABMS · F2</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/encounter.html" target="_blank" rel="noopener noreferrer">Athena · Encounter · F4</a><a class="api-pill fhir" href="https://hl7.org/fhir/R4/claim.html" target="_blank" rel="noopener noreferrer">Athena · Claim · F4/F6</a><a class="api-pill fhir" href="https://docs.mydata.athenahealth.com/fhir-r4/StructureDefinition-athena-charge-profile.html" target="_blank" rel="noopener noreferrer">Athena · Charge history · F6</a><a class="api-pill free" href="https://www.cms.gov/nosurprises/policies-and-resources/reports" target="_blank" rel="noopener noreferrer">External · CMS PUF · F7</a></div>
-      </section>
-
     </div>
 
     <!-- RIGHT — sidebar -->
     <aside class="patient-sidebar">
-
-      <div class="sidebar-card">
-        <h4>Quick actions</h4>
-        <button class="sb-action primary" data-goto-letter>Generate offer letter</button>
-        <button class="sb-action">View letter draft</button>
-        <button class="sb-action">View documents (3)</button>
-        <button class="sb-action">Export underpayment report</button>
-      <div class="api-source-row"><span class="api-source-label">SOURCES</span><span class="api-pill comp">Computed · letter assembly</span><a class="api-pill fhir" href="https://hl7.org/fhir/R4/documentreference.html" target="_blank" rel="noopener noreferrer">Athena · DocumentReference</a></div>
-      </div>
 
       <div class="sidebar-card">
         <h4>Case timeline</h4>
@@ -14453,6 +14644,9 @@ table.factor-table .ft-name { width: 18% !important; }
       <button class="subtab active" data-subtab="modmed">
         <span class="id">G.1</span>ModMed
       </button>
+      <button class="subtab" data-subtab="webpage">
+        <span class="id">G.2</span>Folio3 IDR web page
+      </button>
     </div>
 
     <!-- ═══ G.1 — ModMed integration reference ═══ -->
@@ -14846,6 +15040,283 @@ table.factor-table .ft-name { width: 18% !important; }
   </div>
 
     </section>
+    <!-- ═══ G.2 — Folio3 IDR web page (SaaS marketing showcase) ═══ -->
+    <section class="subpanel" data-subpanel="webpage">
+
+      <div class="section-title">
+        <h2>Folio3 IDR — public product web page.</h2>
+        <p class="sub">How the IDR Forecaster would present to the market as a shipped product: a category-owning SaaS solution page spanning athenaOne, ModMed, and Tebra. This is positioning and narrative, not the in-app prototype (see F · AthenaOne and the E · Product prototype for the build).</p>
+      </div>
+
+      <!-- ░░░░░░░░░░ SCOPED MARKETING PAGE ░░░░░░░░░░ -->
+      <div class="f3web">
+
+        <!-- NAV -->
+        <header class="f3web-nav">
+          <div class="f3web-brand">
+            <span class="f3web-logo">F3</span>
+            <span class="f3web-brandname">Folio3 <em>IDR</em></span>
+          </div>
+          <nav class="f3web-navlinks">
+            <a href="#platform">Platform</a>
+            <a href="#how">How it works</a>
+            <a href="#ehrs">Integrations</a>
+            <a href="#results">Results</a>
+          </nav>
+          <a href="#demo" class="f3web-navcta">Request a demo</a>
+        </header>
+
+        <!-- HERO -->
+        <section class="f3web-hero">
+          <div class="f3web-hero-grid">
+            <div class="f3web-hero-copy">
+              <div class="f3web-eyebrow">No Surprises Act · Independent Dispute Resolution</div>
+              <h1 class="f3web-h1">The intelligence layer for <span class="hl">out-of-network underpayments.</span></h1>
+              <p class="f3web-lede">Folio3 IDR forecasts which of your out-of-network claims are being systematically underpaid, qualifies them into batch-eligible cohorts under 45&nbsp;CFR&nbsp;§149.510(c), and drafts submission-ready Notice of Offer letters — so independent practices can finally participate in the IDR economy that PE groups and billing giants already own.</p>
+              <div class="f3web-hero-actions">
+                <a href="#demo" class="f3web-btn primary">Request a demo</a>
+                <a href="#how" class="f3web-btn ghost">See how it works →</a>
+              </div>
+              <div class="f3web-hero-trust">
+                <span>Built on</span>
+                <strong>athenahealth</strong><i>·</i><strong>ModMed</strong><i>·</i><strong>Tebra</strong>
+              </div>
+            </div>
+            <div class="f3web-hero-panel">
+              <div class="f3web-card-float">
+                <div class="f3web-cf-head">
+                  <span class="f3web-cf-dot"></span>
+                  Underpayment detected
+                </div>
+                <div class="f3web-cf-row"><span>CPT 00790 · UHC PPO</span><b class="neg">$642.50</b></div>
+                <div class="f3web-cf-bar"><i style="width:20%"></i></div>
+                <div class="f3web-cf-meta">paid · 81% below CMS PUF 75th</div>
+                <div class="f3web-cf-row"><span>Forecast award</span><b class="pos">$3,210</b></div>
+                <div class="f3web-cf-foot">8 sibling claims qualify · 1 batch · $20.8K at stake</div>
+                <div class="f3web-cf-cta">Generate batch offer letter →</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROBLEM STRIP -->
+        <section class="f3web-strip">
+          <div class="f3web-strip-item">
+            <div class="f3web-strip-num">$68–120B</div>
+            <div class="f3web-strip-lbl">in NSA-eligible denials go <strong>unfiled every year</strong> — concentrated in independent practices.</div>
+          </div>
+          <div class="f3web-strip-item">
+            <div class="f3web-strip-num">~85%</div>
+            <div class="f3web-strip-lbl">provider win rate at IDR arbitration — <strong>when a dispute is actually filed.</strong></div>
+          </div>
+          <div class="f3web-strip-item">
+            <div class="f3web-strip-num">&lt;5%</div>
+            <div class="f3web-strip-lbl">of eligible claims get filed by independents — <strong>the infrastructure doesn't exist.</strong></div>
+          </div>
+        </section>
+
+        <!-- PLATFORM / CAPABILITIES -->
+        <section class="f3web-section" id="platform">
+          <div class="f3web-sec-head">
+            <div class="f3web-eyebrow center">The platform</div>
+            <h2 class="f3web-h2">One workflow, from silent underpayment to recovered award.</h2>
+            <p class="f3web-sec-sub">Folio3 IDR isn't a filing service that takes a cut. It's a SMART-on-FHIR intelligence layer that lives inside the EHR you already run — surfacing the problem before it becomes a write-off.</p>
+          </div>
+          <div class="f3web-feat-grid">
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="forecast">◴</div>
+              <h3>Forecast</h3>
+              <p>Reads your charge and remittance history to flag OON claims paid below benchmark — scored against CMS PUF and FAIR&nbsp;Health percentiles, by CPT, geography, and plan type.</p>
+            </div>
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="qualify">◇</div>
+              <h3>Qualify into cohorts</h3>
+              <p>Auto-groups underpaid claims into batch-eligible disputes under §149.510(c) — same provider, same plan, same condition — and runs the five batching gates so nothing voids on a technicality.</p>
+            </div>
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="route">⇄</div>
+              <h3>Route correctly</h3>
+              <p>Determines federal vs. state IDR before you file — the single non-appealable decision that sinks more disputes than any other. We get it right up front.</p>
+            </div>
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="draft">▤</div>
+              <h3>Draft the offer letter</h3>
+              <p>Assembles the Notice of Offer across all seven statutory factors — QPA anchor, acuity, training, prior rates, arbitrator precedent — into a submission-ready document, per batch.</p>
+            </div>
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="track">◷</div>
+              <h3>Track the clock</h3>
+              <p>Every dispute carries a 75-day clock with four hard cliffs. Folio3 surfaces the next action and the deadline — so the four-business-day initiation window is never the thing that forfeits the claim.</p>
+            </div>
+            <div class="f3web-feat">
+              <div class="f3web-feat-ic" data-ic="reconcile">◫</div>
+              <h3>Reconcile to award</h3>
+              <p>Matches the IDRE determination against what the payer actually pays — closing the loop on the ~50% of awards that arrive late or short, the gap no incumbent tracks.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="f3web-section alt" id="how">
+          <div class="f3web-sec-head">
+            <div class="f3web-eyebrow center">How it works</div>
+            <h2 class="f3web-h2">Install in one click. Recover on autopilot.</h2>
+          </div>
+          <div class="f3web-steps">
+            <div class="f3web-step">
+              <span class="f3web-step-n">01</span>
+              <h4>Connect your EHR</h4>
+              <p>Authorize Folio3 from your EHR marketplace. No clearinghouse switch, no data migration — read access to charges, encounters, and coverage is all it takes.</p>
+            </div>
+            <div class="f3web-step-arrow">→</div>
+            <div class="f3web-step">
+              <span class="f3web-step-n">02</span>
+              <h4>See your underpayments</h4>
+              <p>Within minutes, your pipeline populates with OON claims scored against benchmark — ranked by recoverable gap and grouped into ready-to-file batches.</p>
+            </div>
+            <div class="f3web-step-arrow">→</div>
+            <div class="f3web-step">
+              <span class="f3web-step-n">03</span>
+              <h4>Review &amp; file the batch</h4>
+              <p>Confirm the QPA, accept the drafted offer letter, and submit one batched dispute — one fee, one filing, every qualifying claim. Folio3 tracks it to award.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- EHR INTEGRATIONS -->
+        <section class="f3web-section" id="ehrs">
+          <div class="f3web-sec-head">
+            <div class="f3web-eyebrow center">Integrations</div>
+            <h2 class="f3web-h2">Wherever your practice already works.</h2>
+            <p class="f3web-sec-sub">Folio3 IDR meets independent practices on the platforms they run — starting with the cloud-native EHRs where out-of-network density is highest.</p>
+          </div>
+          <div class="f3web-ehr-grid">
+            <div class="f3web-ehr live">
+              <div class="f3web-ehr-top">
+                <span class="f3web-ehr-name">athenahealth</span>
+                <span class="f3web-ehr-badge live">Available now</span>
+              </div>
+              <p class="f3web-ehr-tag">One-click install on the athenaOne Marketplace.</p>
+              <ul class="f3web-ehr-list">
+                <li>SMART-on-FHIR · OAuth — live in minutes</li>
+                <li>One listing reaches the entire network</li>
+                <li>Highest OON-IDR density per cloud pool</li>
+              </ul>
+              <div class="f3web-ehr-reach">~170K providers reachable</div>
+            </div>
+            <div class="f3web-ehr">
+              <div class="f3web-ehr-top">
+                <span class="f3web-ehr-name">ModMed</span>
+                <span class="f3web-ehr-badge soon">Phase 2</span>
+              </div>
+              <p class="f3web-ehr-tag">Specialty-vertical depth where underpayments cluster.</p>
+              <ul class="f3web-ehr-list">
+                <li>Pain · plastics · ASC-anchored ortho, ENT, ophth</li>
+                <li>30–50% of customers in OON-prone specialties</li>
+                <li>FHIR R4 + EMA REST — vendor-assisted setup</li>
+              </ul>
+              <div class="f3web-ehr-reach">~7–15K providers in the sweet spot</div>
+            </div>
+            <div class="f3web-ehr">
+              <div class="f3web-ehr-top">
+                <span class="f3web-ehr-name">Tebra</span>
+                <span class="f3web-ehr-badge soon">Phase 2</span>
+              </div>
+              <p class="f3web-ehr-tag">The long tail of solo &amp; small independent practices.</p>
+              <ul class="f3web-ehr-list">
+                <li>Solo + 2–10 provider groups nationwide</li>
+                <li>Catches the anesthesia practices ModMed misses</li>
+                <li>Tebra Marketplace + Connect — partner-curated</li>
+              </ul>
+              <div class="f3web-ehr-reach">~10–15% of US anesthesia providers</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESULTS / PROOF -->
+        <section class="f3web-section alt" id="results">
+          <div class="f3web-sec-head">
+            <div class="f3web-eyebrow center">A worked example</div>
+            <h2 class="f3web-h2">From a $642 payment to a $3,210 award.</h2>
+            <p class="f3web-sec-sub">A single anesthesia claim, traced through the Folio3 workflow.</p>
+          </div>
+          <div class="f3web-proof">
+            <div class="f3web-proof-step">
+              <div class="f3web-proof-lbl">Payer paid</div>
+              <div class="f3web-proof-val neg">$642.50</div>
+              <div class="f3web-proof-note">CPT 00790 · UHC PPO · 81% below the CMS PUF 75th percentile</div>
+            </div>
+            <div class="f3web-proof-flow">→</div>
+            <div class="f3web-proof-step">
+              <div class="f3web-proof-lbl">Folio3 forecast</div>
+              <div class="f3web-proof-val">$3,210</div>
+              <div class="f3web-proof-note">Expected award · n=312 historical TX disputes · 8 sibling claims batched</div>
+            </div>
+            <div class="f3web-proof-flow">→</div>
+            <div class="f3web-proof-step">
+              <div class="f3web-proof-lbl">Recovered at stake</div>
+              <div class="f3web-proof-val pos">$20.8K</div>
+              <div class="f3web-proof-note">One batch · one fee · one filing — instead of eight write-offs</div>
+            </div>
+          </div>
+          <p class="f3web-proof-disclaimer">Illustrative example using synthetic data. IDR outcomes depend on arbitrator determination; Folio3 IDR does not guarantee award amounts.</p>
+        </section>
+
+        <!-- POSITIONING -->
+        <section class="f3web-section">
+          <div class="f3web-pos">
+            <div class="f3web-pos-copy">
+              <div class="f3web-eyebrow">Why Folio3</div>
+              <h2 class="f3web-h2 left">We serve the billing partner — we don't replace them.</h2>
+              <p>The incumbents charge 15–30% contingency to file disputes manually, claim by claim. Folio3 is the intelligence layer that sits alongside your existing billing workflow — surfacing the problem, qualifying the batch, drafting the letter. Your RCM team files with confidence; your practice keeps the recovery.</p>
+            </div>
+            <div class="f3web-pos-vs">
+              <div class="f3web-vs-col them">
+                <div class="f3web-vs-h">IDR services today</div>
+                <ul>
+                  <li>15–30% contingency on recovery</li>
+                  <li>Manual, claim-by-claim filing</li>
+                  <li>Black box — no closure tracking</li>
+                  <li>Compete with your billing team</li>
+                </ul>
+              </div>
+              <div class="f3web-vs-col us">
+                <div class="f3web-vs-h">Folio3 IDR</div>
+                <ul>
+                  <li>Flat SaaS subscription</li>
+                  <li>Batch-qualified, auto-drafted</li>
+                  <li>Tracked to award &amp; reconciled</li>
+                  <li>Works alongside your billing team</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="f3web-cta" id="demo">
+          <h2>See your underpayment forecast.</h2>
+          <p>Connect your EHR and Folio3 IDR will surface what you're leaving on the table — in minutes, with no commitment.</p>
+          <div class="f3web-cta-actions">
+            <a href="#" class="f3web-btn primary lg">Request a demo</a>
+            <a href="#" class="f3web-btn ghost-dark lg">Talk to the team</a>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="f3web-foot">
+          <div class="f3web-foot-brand"><span class="f3web-logo sm">F3</span> Folio3 IDR</div>
+          <div class="f3web-foot-links">
+            <span>Platform</span><span>Integrations</span><span>No Surprises Act</span><span>Security</span><span>Contact</span>
+          </div>
+          <div class="f3web-foot-fine">A Folio3 Digital Health product · Not legal advice · 45 CFR §149.510</div>
+        </footer>
+
+      </div>
+      <!-- ░░░░░░░░░░ /SCOPED MARKETING PAGE ░░░░░░░░░░ -->
+
+    </section>
+
   </div>
   <!-- /panel-other -->
 
